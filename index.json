@@ -6,6 +6,7 @@
       "url": "issues/daily/2026/11/2026-11-03.html",
       "headline": "Half of Slack messages now come from apps and agents, Salesforce says",
       "tags": ["Salesforce", "Anthropic", "Apple", "Microsoft", "Google", "Amazon", "OpenAI"],
+      "cover": {"src": "assets/covers/2026-11-03.jpg", "alt": "Slackbot and the Slack logo, with a human hand and a robot hand bumping fists", "credit": "Slack", "credit_url": "https://www.salesforce.com/news/stories/slack-stats/"},
       "stories": [
         {"label": "SLACK BY THE NUMBERS", "text": "Salesforce published Slack usage figures that show how much of the traffic is automated: 127 million MCP tool calls a week, doubling quarter over quarter."},
         {"label": "AGENT KILL SWITCH", "text": "CrowdStrike announced an AI Kill Switch in Falcon Guardian: an administrator can terminate a running agent, block it from relaunching and cut its network access."},

@@ -49,6 +49,12 @@
     .cover-date { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; opacity: 0.7; }
     .cover-label { font-family: var(--display); font-size: clamp(40px, 5.6vw, 68px); line-height: 0.95; letter-spacing: 0.02em; text-wrap: balance; }
     .cover-label::after { content: ''; display: block; width: 44px; height: 4px; background: var(--accent); margin-top: 18px; }
+    /* When the lead story's announcer published an image, it is the cover, shown whole and credited. */
+    .feature--image { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+    .cover-fig img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; background: var(--line); }
+    .credit { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 8px; }
+    .credit a { border-bottom: 1px solid var(--line); }
+    .credit a:hover { color: var(--accent); }
     .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.02em; }
     .feature-title { font-size: clamp(27px, 3.3vw, 38px); font-weight: 600; line-height: 1.18; letter-spacing: -0.015em; margin: 12px 0 18px; text-wrap: balance; }
     .feature-title a:hover { color: var(--accent); }
@@ -223,10 +229,18 @@
     if (!latest) { el.hidden = true; document.getElementById('latest-date').textContent = ''; return; }
     var names = labels(latest), url = esc(BASE + latest.url);
     document.getElementById('latest-date').textContent = fmt(latest.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    var art = latest.cover && latest.cover.src ? latest.cover : null;
+    var credit = art && art.credit
+      ? '<figcaption class="credit">Image: ' + (art.credit_url ? '<a href="' + esc(art.credit_url) + '">' + esc(art.credit) + '</a>' : esc(art.credit)) + '</figcaption>'
+      : '';
+    el.classList.toggle('feature--image', !!art);
     el.innerHTML =
-      '<a class="cover" href="' + url + '" aria-hidden="true" tabindex="-1">' +
-      '<span class="cover-date">' + esc(fmt(latest.date, { weekday: 'short', month: 'short', day: 'numeric' })) + '</span>' +
-      '<span class="cover-label">' + esc(names[0] || 'AI Brief') + '</span></a>' +
+      (art
+        ? '<figure class="cover-fig"><a href="' + url + '" tabindex="-1"><img src="' + esc(/^(data:|https?:)/.test(art.src) ? art.src : BASE + art.src) +
+          '" alt="' + esc(art.alt || '') + '" width="1200" height="675"></a>' + credit + '</figure>'
+        : '<a class="cover" href="' + url + '" aria-hidden="true" tabindex="-1">' +
+          '<span class="cover-date">' + esc(fmt(latest.date, { weekday: 'short', month: 'short', day: 'numeric' })) + '</span>' +
+          '<span class="cover-label">' + esc(names[0] || 'AI Brief') + '</span></a>') +
       '<div><p class="meta">' + esc(latest.type === 'weekly' ? 'Weekly edition' : latest.type === 'monthly' ? 'Monthly edition' : 'Daily edition') + '</p>' +
       '<h1 class="feature-title"><a href="' + url + '">' + esc(latest.headline) + '</a></h1>' +
       (names.length > 1 ? '<ul class="topics">' + names.slice(1, 5).map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '') +
