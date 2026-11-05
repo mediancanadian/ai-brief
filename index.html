@@ -7,165 +7,93 @@
   <title>AI Brief</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Layout: one column. A dark feature panel for the latest issue, then every
-       issue as a card under its month. The card's cover is a calendar page. */
+    /* Layout: an open page, no boxes. The latest issue sits beside a typographic
+       cover; below it every issue is one quiet row under its month. */
     :root {
       --ink: #1a1917;
-      --ink-muted: #4a4845;
-      --ink-faint: #888580;
-      --ink-ghost: #b8b5b0;
+      --ink-muted: #5c5955;
+      --ink-faint: #8f8b85;
       --paper: #fffef9;
-      --ground: #f5f4f0;
-      --line: rgba(26,25,23,0.12);
-      --line-mid: rgba(26,25,23,0.22);
+      --line: rgba(26,25,23,0.14);
       --accent: #b5451b;
-      --accent-soft: #fdf2ee;
       --on-ink: #fffef9;
-      --on-ink-muted: rgba(255,254,249,0.66);
       --display: 'Bebas Neue', Impact, sans-serif;
       --serif: 'Lora', Georgia, serif;
       --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--ground); color: var(--ink);
-      font-family: var(--serif); -webkit-font-smoothing: antialiased;
-      display: flex; justify-content: center; padding: 48px 24px 96px;
-    }
-    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
-    a { color: inherit; }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .page {
-      background: var(--paper); max-width: 860px; width: 100%;
-      border: 0.5px solid var(--line-mid); border-radius: 4px; overflow: hidden;
-    }
+    body { background: var(--paper); color: var(--ink); font-family: var(--serif); -webkit-font-smoothing: antialiased; border-top: 4px solid var(--accent); }
+    button, select, input { font: inherit; color: inherit; }
+    button { background: none; border: none; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 40px 120px; }
 
-    /* Masthead */
-    .masthead {
-      border-top: 4px solid var(--accent); padding: 16px 40px;
-      display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;
-    }
-    .wordmark { display: flex; align-items: baseline; gap: 8px; }
-    .wm-ai, .wm-brief { font-family: var(--display); font-size: 40px; line-height: 1; letter-spacing: 0.05em; }
-    .wm-ai { color: var(--accent); }
-    .wm-brief { color: var(--ink-ghost); }
-    .strap { font-size: 13px; font-style: italic; color: var(--ink-faint); }
+    .masthead { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0 20px; }
+    .wordmark { font-family: var(--display); font-size: 34px; line-height: 1; letter-spacing: 0.05em; color: var(--ink-faint); }
+    .wordmark b { font-weight: 400; color: var(--accent); margin-right: 8px; }
+    .strap { font-size: 14px; color: var(--ink-faint); }
 
-    /* Calendar-page cover, shared by the feature panel and the cards */
-    .tile {
-      flex-shrink: 0; width: 64px; height: 84px; border-radius: 6px; overflow: hidden;
-      display: flex; flex-direction: column; text-align: center;
-      background: var(--paper); border: 0.5px solid var(--line-mid);
-    }
-    .tile-month {
-      font-family: var(--mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-      background: var(--ink); color: var(--on-ink); padding: 4px 0 3px;
-    }
-    .tile--weekly .tile-month { background: var(--accent); }
-    .tile-day { font-family: var(--display); font-size: 38px; line-height: 1; color: var(--ink); padding-top: 6px; flex: 1; }
-    .tile-dow { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); padding-bottom: 5px; }
+    .band { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; }
+    .band strong { font-weight: 600; }
+    .band span { color: var(--ink-muted); }
 
-    /* Feature panel: the latest issue */
-    .feature { background: var(--ink); color: var(--on-ink); padding: 28px 40px 30px; display: flex; gap: 24px; align-items: flex-start; }
-    .feature .tile { width: 88px; height: 112px; border: none; }
-    .feature .tile-month { background: var(--accent); font-size: 11px; padding: 6px 0 4px; }
-    .feature .tile-day { font-size: 54px; padding-top: 6px; }
-    .feature .tile-dow { font-size: 10px; padding-bottom: 7px; }
-    .feature-body { min-width: 0; flex: 1; }
-    .feature-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--on-ink-muted); margin-bottom: 8px; }
-    .feature-title { font-size: 25px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; }
-    .feature-title a { text-decoration: none; }
-    .feature-title a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .feature-list { list-style: none; margin: 16px 0 20px; border-top: 0.5px solid rgba(255,254,249,0.2); }
-    .feature-list li { padding: 9px 0; border-bottom: 0.5px solid rgba(255,254,249,0.2); font-size: 14px; line-height: 1.45; color: var(--on-ink-muted); }
-    .feature-list strong { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--on-ink); display: block; margin-bottom: 2px; }
-    .feature-list span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 18px;
-      border-radius: 20px; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none;
+    /* Latest issue */
+    .feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: center; padding: 40px 0 64px; }
+    .cover {
+      aspect-ratio: 4 / 3; background: var(--ink); color: var(--on-ink); border-radius: 6px;
+      display: flex; flex-direction: column; justify-content: space-between; padding: 26px 28px 22px;
     }
-    .btn--light { background: var(--paper); color: var(--ink); }
-    .btn--light:hover { background: var(--accent-soft); }
-    .btn--dark { background: var(--ink); color: var(--on-ink); }
-    .btn--dark:hover { background: var(--accent); }
-    .btn--quiet { border: 0.5px solid var(--line-mid); color: var(--ink-muted); }
-    .btn--quiet:hover { border-color: var(--ink); color: var(--ink); }
+    .cover-date { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; opacity: 0.7; }
+    .cover-label { font-family: var(--display); font-size: clamp(40px, 5.6vw, 68px); line-height: 0.95; letter-spacing: 0.02em; text-wrap: balance; }
+    .cover-label::after { content: ''; display: block; width: 44px; height: 4px; background: var(--accent); margin-top: 18px; }
+    .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.02em; }
+    .feature-title { font-size: clamp(27px, 3.3vw, 38px); font-weight: 600; line-height: 1.18; letter-spacing: -0.015em; margin: 12px 0 18px; text-wrap: balance; }
+    .feature-title a:hover { color: var(--accent); }
+    .topics { list-style: none; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--ink-muted); }
+    .topics li { padding: 10px 0; border-top: 1px solid var(--line); }
+    .topics li:last-child { border-bottom: 1px solid var(--line); }
+    .go { display: inline-block; margin-top: 22px; font-size: 15px; font-weight: 600; border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; }
+    .go:hover { color: var(--accent); }
 
     /* Archive controls */
-    .archive { padding: 28px 40px 40px; }
-    .archive-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
-    .archive-head h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
-    .archive-count { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
-    .search {
-      display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 44px; margin-bottom: 14px;
-      border: 0.5px solid var(--line-mid); border-radius: 8px; background: var(--paper);
-    }
-    .search:focus-within { border-color: var(--accent); }
-    .search svg { flex-shrink: 0; opacity: 0.45; }
-    .search input { flex: 1; min-width: 0; border: none; outline: none; background: transparent; font-family: var(--serif); font-size: 15px; color: var(--ink); }
-    .search input::placeholder { color: var(--ink-faint); }
-    .rail { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 10px; scrollbar-width: none; }
-    .rail::-webkit-scrollbar { display: none; }
-    .rail-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--ink-faint); align-self: center; flex-shrink: 0; min-width: 62px; }
-    .pill {
-      flex-shrink: 0; min-height: 34px; padding: 0 13px; border-radius: 17px; white-space: nowrap;
-      border: 0.5px solid var(--line-mid); background: var(--paper);
-      font-family: var(--mono); font-size: 11.5px; color: var(--ink-muted);
-    }
-    .pill:hover { border-color: var(--ink); color: var(--ink); }
-    .pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
-    .pill .n { opacity: 0.55; margin-left: 5px; font-variant-numeric: tabular-nums; }
+    .controls { display: flex; align-items: center; gap: 8px 28px; flex-wrap: wrap; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .tabs { display: flex; gap: 22px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex-shrink: 0; font-size: 15px; color: var(--ink-faint); padding: 6px 0; border-bottom: 1.5px solid transparent; white-space: nowrap; }
+    .tab:hover { color: var(--ink); }
+    .tab[aria-pressed="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--accent); }
+    .tools { display: flex; align-items: center; gap: 20px; }
+    .tools select { font-size: 14px; color: var(--ink-muted); background: transparent; border: none; border-bottom: 1px solid var(--line); padding: 6px 2px; max-width: 170px; }
+    .tools input { font-size: 14px; width: 150px; background: transparent; border: none; border-bottom: 1px solid var(--line); padding: 6px 2px; outline: none; }
+    .tools input:focus, .tools select:focus { border-bottom-color: var(--accent); }
+    .tools input::placeholder { color: var(--ink-faint); }
 
-    /* Months */
-    .month { margin-top: 26px; }
-    .month-head {
-      width: 100%; display: flex; align-items: baseline; gap: 12px; text-align: left;
-      padding: 0 0 8px; border-bottom: 2px solid var(--ink);
-    }
-    .month-name { font-family: var(--display); font-size: 26px; letter-spacing: 0.05em; line-height: 1; color: var(--ink); }
-    .month-n { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); flex: 1; }
-    .month-toggle { font-family: var(--mono); font-size: 11px; color: var(--accent); }
-    .month-cards { display: flex; flex-direction: column; gap: 14px; padding-top: 14px; }
-
-    /* Issue card */
-    .card { border: 0.5px solid var(--line-mid); border-radius: 10px; background: var(--paper); padding: 14px 16px 14px; }
-    .card-top { display: flex; gap: 14px; align-items: flex-start; }
-    .card-head { min-width: 0; flex: 1; }
-    .card-kicker { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 4px; }
-    .card-title { font-size: 17px; font-weight: 600; line-height: 1.35; text-wrap: balance; }
-    .card-title a { text-decoration: none; }
-    .card-title a:hover { color: var(--accent); }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    .chip {
-      font-family: var(--mono); font-size: 10px; color: var(--ink-muted); background: var(--ground);
-      border-radius: 10px; padding: 3px 8px; min-height: 20px;
-    }
-    .chip:hover, .chip[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
-    .stories { list-style: none; margin-top: 12px; border-top: 0.5px solid var(--line); }
-    .stories li { border-bottom: 0.5px solid var(--line); }
-    .stories a { display: block; padding: 9px 0; text-decoration: none; }
-    .story-label { display: block; font-family: var(--mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink-faint); margin-bottom: 2px; }
-    .story-text { font-size: 14px; line-height: 1.45; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .stories a:hover .story-text { color: var(--accent); }
-    .card.is-open .story-text { display: block; }
-    .card-actions { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
-    .card-actions .more { flex: 1; }
-    .play-btn {
-      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
-      border: 0.5px solid var(--line-mid); color: var(--ink-muted);
-      display: flex; align-items: center; justify-content: center;
-    }
+    /* Months and rows */
+    .month { padding-top: 44px; }
+    .month-head { display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; width: 100%; text-align: left; }
+    .month-name { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+    .month-n { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); flex: 1; }
+    .month-toggle { font-size: 14px; color: var(--accent); }
+    .rows { list-style: none; border-top: 1px solid var(--line); }
+    .row { display: flex; align-items: center; border-bottom: 1px solid var(--line); }
+    .row > a { flex: 1; min-width: 0; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 0 20px; align-items: center; padding: 16px 0; }
+    .day { display: flex; align-items: baseline; gap: 8px; }
+    .day-num { font-family: var(--display); font-size: 40px; line-height: 0.9; color: var(--ink); min-width: 34px; }
+    .row--weekly .day-num { color: var(--accent); }
+    .day-dow { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+    .row-title { display: block; font-size: 19px; font-weight: 500; line-height: 1.32; text-wrap: balance; }
+    .row > a:hover .row-title { color: var(--accent); }
+    .row-topics { display: block; margin-top: 5px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .play-btn { flex-shrink: 0; width: 40px; height: 40px; margin-left: 12px; border-radius: 50%; border: 1px solid var(--line); color: var(--ink-muted); display: flex; align-items: center; justify-content: center; }
     .play-btn:hover, .play-btn.playing { border-color: var(--accent); color: var(--accent); }
-    .empty { font-size: 15px; color: var(--ink-muted); padding: 28px 0 8px; }
-    .empty button { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .empty { font-size: 16px; color: var(--ink-muted); padding: 40px 0; }
+    .empty button { color: var(--accent); border-bottom: 1px solid currentColor; }
 
     /* Audio bar */
-    .audio-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; background: var(--ink); color: var(--on-ink);
-      display: none; align-items: center; gap: 14px; padding: 10px 24px; z-index: 100; font-family: var(--mono);
-    }
+    .audio-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--ink); color: var(--on-ink); display: none; align-items: center; gap: 14px; padding: 10px 24px; z-index: 100; font-family: var(--mono); }
     .audio-bar.visible { display: flex; }
     .audio-bar-play { color: var(--on-ink); flex-shrink: 0; width: 28px; height: 28px; }
     .audio-bar-title { font-size: 10px; letter-spacing: 0.06em; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.7; }
@@ -173,52 +101,49 @@
     .audio-bar-progress { flex: 1; max-width: 200px; height: 2px; background: rgba(255,255,255,0.2); border-radius: 1px; cursor: pointer; flex-shrink: 0; }
     .audio-bar-fill { height: 100%; background: var(--accent); border-radius: 1px; width: 0%; pointer-events: none; }
 
-    @media (max-width: 600px) {
-      body { padding: 0 0 80px; }
-      .page { border-radius: 0; border-left: none; border-right: none; }
-      .masthead { padding: 14px 20px; }
-      .wm-ai, .wm-brief { font-size: 32px; }
-      .feature { padding: 22px 20px 24px; gap: 16px; }
-      .feature .tile { width: 64px; height: 84px; }
-      .feature .tile-month { font-size: 9.5px; padding: 4px 0 3px; }
-      .feature .tile-day { font-size: 38px; padding-top: 5px; }
-      .feature .tile-dow { font-size: 8.5px; padding-bottom: 5px; }
-      .feature-title { font-size: 20px; }
-      .archive { padding: 24px 20px 32px; }
-      .rail { margin-right: -20px; padding-right: 20px; }
-      .rail-label { min-width: 0; }
-      .tile { width: 54px; height: 74px; }
-      .tile-day { font-size: 32px; padding-top: 5px; }
-      .card-title { font-size: 16px; }
+    @media (max-width: 720px) {
+      .wrap { padding: 0 20px 96px; }
+      .masthead { padding: 16px 0 14px; }
+      .wordmark { font-size: 28px; }
+      .strap { display: none; }
+      .feature { grid-template-columns: 1fr; gap: 24px; padding: 24px 0 44px; }
+      .cover { aspect-ratio: 16 / 10; padding: 20px 20px 18px; }
+      .controls { gap: 6px 20px; padding: 12px 0; }
+      .tabs { flex-basis: 100%; margin-right: -20px; padding-right: 20px; }
+      .tools { flex: 1 1 100%; min-width: 0; gap: 14px; }
+      .tools select { flex: 0 1 auto; min-width: 0; max-width: 128px; }
+      .tools input { flex: 1 1 60px; width: auto; min-width: 60px; }
+      .month { padding-top: 34px; }
+      .month-name { font-size: 21px; }
+      .row > a { grid-template-columns: 50px minmax(0, 1fr); gap: 0 14px; padding: 14px 0; }
+      .day { flex-direction: column; gap: 3px; align-items: flex-start; }
+      .day-num { font-size: 32px; }
+      .row-title { font-size: 17px; }
       .audio-bar { padding: 10px 16px; }
       .audio-bar-progress { max-width: 80px; }
     }
   </style>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
   <header class="masthead">
-    <div class="wordmark"><span class="wm-ai">AI</span><span class="wm-brief">Brief</span></div>
+    <div class="wordmark"><b>AI</b>Brief</div>
     <p class="strap">Daily AI intelligence briefing</p>
   </header>
 
+  <div class="band"><strong>Latest</strong><span id="latest-date"></span></div>
   <section class="feature" id="feature" aria-label="Latest issue" hidden></section>
 
-  <main class="archive">
-    <div class="archive-head">
-      <h2>All issues</h2>
-      <span class="archive-count" id="archive-count"></span>
+  <main>
+    <div class="band"><strong>Archive</strong><span id="archive-count"></span></div>
+    <div class="controls">
+      <div class="tabs" id="month-tabs" role="group" aria-label="Month"></div>
+      <div class="tools">
+        <select id="type-select" aria-label="Edition"></select>
+        <select id="tag-select" aria-label="Company"></select>
+        <input id="search-input" type="search" placeholder="Search" aria-label="Search issues and stories" autocomplete="off">
+      </div>
     </div>
-    <label class="search">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <circle cx="6.5" cy="6.5" r="4.5" stroke="#1a1917" stroke-width="1.4"/>
-        <path d="M10 10l3.5 3.5" stroke="#1a1917" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <input id="search-input" type="search" placeholder="Search issues and stories" aria-label="Search issues and stories" autocomplete="off">
-    </label>
-    <div class="rail" id="type-rail" role="group" aria-label="Edition"></div>
-    <div class="rail" id="month-rail" role="group" aria-label="Month"></div>
-    <div class="rail" id="tag-rail" role="group" aria-label="Company"></div>
     <div id="issue-container" aria-live="polite"></div>
   </main>
 </div>
@@ -234,11 +159,11 @@
 <script>
 (function () {
   var TYPES = [['daily', 'Daily'], ['weekly', 'Weekly'], ['monthly', 'Monthly']];
-  var SHOWN = 3;          // stories on a card before "See all"
-  var OPEN_MONTHS = 2;    // months shown open when no month is picked
+  var TOPICS = 3;         // topic labels shown on a row
+  var OPEN_MONTHS = 3;    // months listed in full when no month is picked
   var BASE = window.AI_BRIEF_BASE || '';
   var all = [];
-  var state = { type: 'daily', month: null, tag: null, q: '', openCards: {}, openMonths: {} };
+  var state = { type: 'daily', month: null, tag: null, q: '', openMonths: {} };
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -253,18 +178,7 @@
       .toLocaleDateString('en-US', { month: short ? 'short' : 'long', year: 'numeric' });
   }
   function count(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
-
-  function tile(issue) {
-    return '<span class="tile tile--' + esc(issue.type) + '" aria-hidden="true">' +
-      '<span class="tile-month">' + esc(fmt(issue.date, { month: 'short' })) + '</span>' +
-      '<span class="tile-day">' + esc(String(day(issue.date).getDate())) + '</span>' +
-      '<span class="tile-dow">' + esc(fmt(issue.date, { weekday: 'short' })) + '</span></span>';
-  }
-  function kicker(issue) {
-    if (issue.type === 'weekly') return 'Week ending ' + fmt(issue.date, { month: 'long', day: 'numeric' });
-    if (issue.type === 'monthly') return fmt(issue.date, { month: 'long', year: 'numeric' }) + ' in review';
-    return fmt(issue.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-  }
+  function labels(issue) { return (issue.stories || []).map(function (s) { return s.label; }); }
 
   function ofType() { return all.filter(function (x) { return x.type === state.type; }); }
   function matches(issue) {
@@ -278,118 +192,100 @@
     return true;
   }
 
-  function pill(label, n, pressed, attrs) {
-    return '<button type="button" class="pill" aria-pressed="' + (pressed ? 'true' : 'false') + '" ' + attrs + '>' +
-      esc(label) + (n == null ? '' : '<span class="n">' + n + '</span>') + '</button>';
-  }
-
-  function renderRails() {
+  function renderControls() {
     var typeCounts = {};
     all.forEach(function (x) { typeCounts[x.type] = (typeCounts[x.type] || 0) + 1; });
-    document.getElementById('type-rail').innerHTML = '<span class="rail-label">Edition</span>' +
-      TYPES.filter(function (t) { return typeCounts[t[0]]; }).map(function (t) {
-        return pill(t[1], typeCounts[t[0]], state.type === t[0], 'data-type="' + t[0] + '"');
-      }).join('');
+    var types = TYPES.filter(function (t) { return typeCounts[t[0]]; });
+    var typeSel = document.getElementById('type-select');
+    typeSel.innerHTML = types.map(function (t) {
+      return '<option value="' + t[0] + '"' + (state.type === t[0] ? ' selected' : '') + '>' + t[1] + '</option>';
+    }).join('');
+    typeSel.hidden = types.length < 2;
 
-    var pool = ofType(), months = {}, order = [], tags = {};
+    var pool = ofType(), order = [], seen = {}, tags = {};
     pool.forEach(function (x) {
       var k = monthKey(x);
-      if (!months[k]) { months[k] = 0; order.push(k); }
-      months[k]++;
+      if (!seen[k]) { seen[k] = true; order.push(k); }
       (x.tags || []).forEach(function (t) { tags[t] = (tags[t] || 0) + 1; });
     });
-    document.getElementById('month-rail').innerHTML = '<span class="rail-label">Month</span>' +
-      pill('All months', null, !state.month, 'data-month=""') +
-      order.map(function (k) { return pill(monthName(k, true), months[k], state.month === k, 'data-month="' + k + '"'); }).join('');
-    var tagNames = Object.keys(tags).sort(function (a, b) { return tags[b] - tags[a] || a.localeCompare(b); });
-    document.getElementById('tag-rail').innerHTML = '<span class="rail-label">Company</span>' +
-      pill('All', null, !state.tag, 'data-tag=""') +
-      tagNames.map(function (t) { return pill(t, tags[t], state.tag === t, 'data-tag="' + esc(t) + '"'); }).join('');
+    document.getElementById('month-tabs').innerHTML =
+      '<button type="button" class="tab" data-month="" aria-pressed="' + (!state.month) + '">All</button>' +
+      order.map(function (k) {
+        return '<button type="button" class="tab" data-month="' + k + '" aria-pressed="' + (state.month === k) + '">' + esc(monthName(k, true)) + '</button>';
+      }).join('');
+    var names = Object.keys(tags).sort(function (a, b) { return tags[b] - tags[a] || a.localeCompare(b); });
+    document.getElementById('tag-select').innerHTML = '<option value="">All companies</option>' +
+      names.map(function (t) { return '<option value="' + esc(t) + '"' + (state.tag === t ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join('');
   }
 
   function renderFeature() {
     var el = document.getElementById('feature'), latest = ofType()[0];
-    if (!latest) { el.hidden = true; return; }
-    var rows = (latest.stories || []).slice(0, SHOWN).map(function (s) {
-      return '<li><strong>' + esc(s.label) + '</strong><span>' + esc(s.text) + '</span></li>';
-    }).join('');
-    el.innerHTML = tile(latest) + '<div class="feature-body">' +
-      '<p class="feature-label">Latest issue, ' + esc(kicker(latest)) + '</p>' +
-      '<h1 class="feature-title"><a href="' + esc(BASE + latest.url) + '">' + esc(latest.headline) + '</a></h1>' +
-      (rows ? '<ul class="feature-list">' + rows + '</ul>' : '') +
-      '<a class="btn btn--light" href="' + esc(BASE + latest.url) + '">Read the brief</a></div>';
+    if (!latest) { el.hidden = true; document.getElementById('latest-date').textContent = ''; return; }
+    var names = labels(latest), url = esc(BASE + latest.url);
+    document.getElementById('latest-date').textContent = fmt(latest.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    el.innerHTML =
+      '<a class="cover" href="' + url + '" aria-hidden="true" tabindex="-1">' +
+      '<span class="cover-date">' + esc(fmt(latest.date, { weekday: 'short', month: 'short', day: 'numeric' })) + '</span>' +
+      '<span class="cover-label">' + esc(names[0] || 'AI Brief') + '</span></a>' +
+      '<div><p class="meta">' + esc(latest.type === 'weekly' ? 'Weekly edition' : latest.type === 'monthly' ? 'Monthly edition' : 'Daily edition') + '</p>' +
+      '<h1 class="feature-title"><a href="' + url + '">' + esc(latest.headline) + '</a></h1>' +
+      (names.length > 1 ? '<ul class="topics">' + names.slice(1, 5).map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '') +
+      '<a class="go" href="' + url + '">Read the brief</a></div>';
     el.hidden = false;
   }
-
-  function card(issue) {
-    var open = !!state.openCards[issue.url], stories = issue.stories || [];
-    var rows = (open ? stories : stories.slice(0, SHOWN)).map(function (s) {
-      return '<li><a href="' + esc(BASE + issue.url) + '"><span class="story-label">' + esc(s.label) +
-        '</span><span class="story-text">' + esc(s.text) + '</span></a></li>';
-    }).join('');
-    var chips = (issue.tags || []).map(function (t) {
-      return '<button type="button" class="chip" data-tag="' + esc(t) + '" aria-pressed="' + (state.tag === t ? 'true' : 'false') +
-        '" aria-label="Show only issues about ' + esc(t) + '">' + esc(t) + '</button>';
-    }).join('');
-    var more = stories.length > SHOWN
-      ? '<button type="button" class="btn btn--quiet more" data-toggle="' + esc(issue.url) + '" aria-expanded="' + open + '">' +
-        (open ? 'Show fewer' : 'See all ' + stories.length + ' stories') + '</button>'
-      : '<span class="more"></span>';
+  function row(issue) {
+    var names = labels(issue), url = esc(BASE + issue.url);
+    var topics = names.slice(0, TOPICS).join('  /  ') + (names.length > TOPICS ? '  +' + (names.length - TOPICS) : '');
     var play = issue.audio
       ? '<button type="button" class="play-btn" data-audio="' + esc(BASE + issue.audio) + '" data-title="' + esc(issue.date) +
         '" aria-label="Play the audio edition"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg></button>'
       : '';
-    return '<article class="card' + (open ? ' is-open' : '') + '">' +
-      '<div class="card-top">' + tile(issue) + '<div class="card-head">' +
-      '<p class="card-kicker">' + esc(kicker(issue)) + '</p>' +
-      '<h3 class="card-title"><a href="' + esc(BASE + issue.url) + '">' + esc(issue.headline) + '</a></h3>' +
-      (chips ? '<div class="chips">' + chips + '</div>' : '') + '</div></div>' +
-      (rows ? '<ul class="stories">' + rows + '</ul>' : '') +
-      '<div class="card-actions">' + more + play +
-      '<a class="btn btn--dark" href="' + esc(BASE + issue.url) + '">Open</a></div></article>';
+    return '<li class="row row--' + esc(issue.type) + '"><a href="' + url + '">' +
+      '<span class="day"><span class="day-num">' + day(issue.date).getDate() + '</span>' +
+      '<span class="day-dow">' + esc(fmt(issue.date, { weekday: 'short' })) + '</span></span>' +
+      '<span><span class="row-title">' + esc(issue.headline) + '</span>' +
+      (topics ? '<span class="row-topics">' + esc(topics) + '</span>' : '') + '</span></a>' + play + '</li>';
   }
 
   function renderIssues() {
-    var pool = ofType(), shown = pool.filter(matches);
-    var stories = shown.reduce(function (n, x) { return n + (x.stories || []).length; }, 0);
-    document.getElementById('archive-count').textContent =
-      count(shown.length, 'issue', 'issues') + ', ' + count(stories, 'story', 'stories');
+    var shown = ofType().filter(matches);
+    document.getElementById('archive-count').textContent = count(shown.length, 'issue', 'issues');
     var box = document.getElementById('issue-container');
     if (!shown.length) {
-      box.innerHTML = '<p class="empty">No issues match. <button type="button" id="clear-filters">Clear search and filters</button></p>';
+      box.innerHTML = '<p class="empty">Nothing matches. <button type="button" id="clear-filters">Clear the search and filters</button></p>';
       return;
     }
     var groups = {}, order = [];
     shown.forEach(function (x) { var k = monthKey(x); if (!groups[k]) { groups[k] = []; order.push(k); } groups[k].push(x); });
     var filtering = !!(state.month || state.tag || state.q);
     box.innerHTML = order.map(function (k, i) {
-      var isOpen = state.openMonths[k] != null ? state.openMonths[k] : (filtering || i < OPEN_MONTHS);
-      return '<section class="month"><button type="button" class="month-head" data-month-toggle="' + k + '" aria-expanded="' + isOpen + '">' +
-        '<span class="month-name">' + esc(monthName(k)) + '</span>' +
-        '<span class="month-n">' + count(groups[k].length, 'issue', 'issues') + '</span>' +
-        '<span class="month-toggle">' + (isOpen ? 'Hide' : 'Show') + '</span></button>' +
-        (isOpen ? '<div class="month-cards">' + groups[k].map(card).join('') + '</div>' : '') + '</section>';
+      var open = state.openMonths[k] != null ? state.openMonths[k] : (filtering || i < OPEN_MONTHS);
+      var head = '<span class="month-name">' + esc(monthName(k)) + '</span><span class="month-n">' + count(groups[k].length, 'issue', 'issues') + '</span>';
+      return '<section class="month">' +
+        (open && (filtering || i < OPEN_MONTHS)
+          ? '<div class="month-head">' + head + '</div>'
+          : '<button type="button" class="month-head" data-month-toggle="' + k + '" aria-expanded="' + open + '">' + head +
+            '<span class="month-toggle">' + (open ? 'Hide' : 'Show') + '</span></button>') +
+        (open ? '<ul class="rows">' + groups[k].map(row).join('') + '</ul>' : '') + '</section>';
     }).join('');
   }
 
-  function render() { renderRails(); renderFeature(); renderIssues(); }
+  function render() { renderControls(); renderFeature(); renderIssues(); }
 
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-type],[data-month],[data-tag],[data-toggle],[data-month-toggle],#clear-filters,.play-btn');
+    var t = e.target.closest('[data-month],[data-month-toggle],#clear-filters,.play-btn');
     if (!t) return;
+    if (t.classList.contains('play-btn')) { playAudio(t.dataset.audio, t.dataset.title, t); return; }
     if (t.id === 'clear-filters') { state.month = null; state.tag = null; state.q = ''; document.getElementById('search-input').value = ''; }
-    else if (t.classList.contains('play-btn')) { playAudio(t.dataset.audio, t.dataset.title, t); return; }
-    else if (t.dataset.type) { state.type = t.dataset.type; state.month = null; state.tag = null; state.openMonths = {}; }
-    else if (t.dataset.month != null) { state.month = t.dataset.month || null; state.openMonths = {}; }
-    else if (t.dataset.tag != null) { state.tag = (state.tag === t.dataset.tag || !t.dataset.tag) ? null : t.dataset.tag; }
-    else if (t.dataset.toggle) { state.openCards[t.dataset.toggle] = !state.openCards[t.dataset.toggle]; }
     else if (t.dataset.monthToggle) { state.openMonths[t.dataset.monthToggle] = t.getAttribute('aria-expanded') !== 'true'; }
+    else { state.month = t.dataset.month || null; state.openMonths = {}; }
     render();
   });
-  document.getElementById('search-input').addEventListener('input', function () {
-    state.q = this.value.trim().toLowerCase();
-    renderIssues();
+  document.getElementById('type-select').addEventListener('change', function () {
+    state.type = this.value; state.month = null; state.tag = null; state.openMonths = {}; render();
   });
+  document.getElementById('tag-select').addEventListener('change', function () { state.tag = this.value || null; renderIssues(); });
+  document.getElementById('search-input').addEventListener('input', function () { state.q = this.value.trim().toLowerCase(); renderIssues(); });
 
   /* Audio edition */
   var currentBtn = null, audio = document.getElementById('main-audio'), bar = document.getElementById('audio-bar');
@@ -434,8 +330,7 @@
   if (window.AI_BRIEF_INDEX) { start(window.AI_BRIEF_INDEX); }
   else {
     fetch('index.json').then(function (r) { return r.json(); }).then(start).catch(function () {
-      document.getElementById('issue-container').innerHTML =
-        '<p class="empty">The issue list did not load. Reload the page to try again.</p>';
+      document.getElementById('issue-container').innerHTML = '<p class="empty">The issue list did not load. Reload the page to try again.</p>';
     });
   }
 })();
