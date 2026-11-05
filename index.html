@@ -53,13 +53,14 @@
     .feature--image { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
     .cover-fig img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; background: var(--line); }
     .credit { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 8px; }
-    .credit a { border-bottom: 1px solid var(--line); }
-    .credit a:hover { color: var(--accent); }
+    .credit a, .thumb figcaption a { border-bottom: 1px solid var(--line); }
+    .credit a:hover, .thumb figcaption a:hover { color: var(--accent); }
     .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.02em; }
     .feature-title { font-size: clamp(27px, 3.3vw, 38px); font-weight: 600; line-height: 1.18; letter-spacing: -0.015em; margin: 12px 0 18px; text-wrap: balance; }
     .feature-title a:hover { color: var(--accent); }
     .topics { list-style: none; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--ink-muted); }
-    .topics li { padding: 10px 0; border-top: 1px solid var(--line); }
+    .topics li { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; padding: 6px 0; border-top: 1px solid var(--line); }
+    .topics img { flex-shrink: 0; width: 64px; height: 36px; object-fit: cover; border-radius: 3px; background: var(--line); }
     .topics li:last-child { border-bottom: 1px solid var(--line); }
     .go { display: inline-block; margin-top: 22px; font-size: 15px; font-weight: 600; border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; }
     .go:hover { color: var(--accent); }
@@ -93,6 +94,10 @@
     .row-title { display: block; font-size: 19px; font-weight: 500; line-height: 1.32; text-wrap: balance; }
     .row > a:hover .row-title { color: var(--accent); }
     .row-topics { display: block; margin-top: 5px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    /* A row shows its lead story's image small, with the credit under it. */
+    .thumb { flex-shrink: 0; width: 112px; margin: 10px 0 10px 20px; }
+    .thumb img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: var(--line); }
+    .thumb figcaption { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-top: 4px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .play-btn { flex-shrink: 0; width: 40px; height: 40px; margin-left: 12px; border-radius: 50%; border: 1px solid var(--line); color: var(--ink-muted); display: flex; align-items: center; justify-content: center; }
     .play-btn:hover, .play-btn.playing { border-color: var(--accent); color: var(--accent); }
     .empty { font-size: 16px; color: var(--ink-muted); padding: 40px 0; }
@@ -114,6 +119,7 @@
       .strap { display: none; }
       .feature { grid-template-columns: 1fr; gap: 24px; padding: 24px 0 44px; }
       .cover { aspect-ratio: 16 / 10; padding: 20px 20px 18px; }
+      .thumb { width: 84px; margin: 10px 0 10px 12px; }
       .controls { gap: 6px 20px; padding: 12px 0; }
       .tabs { flex-basis: 100%; margin-right: -20px; padding-right: 20px; }
       .tools { flex: 1 1 100%; min-width: 0; gap: 14px; }
@@ -185,6 +191,12 @@
   }
   function count(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
   function labels(issue) { return (issue.stories || []).map(function (s) { return s.label; }); }
+  // A story's image is the one its announcer published; the lead story's is the issue's cover.
+  function art0(issue) { var s = (issue.stories || [])[0]; return s && s.image && s.image.src ? s.image : null; }
+  function src(path) { return /^(data:|https?:)/.test(path) ? path : BASE + path; }
+  function creditLink(image) {
+    return image.credit_url ? '<a href="' + esc(image.credit_url) + '">' + esc(image.credit) + '</a>' : esc(image.credit);
+  }
 
   function ofType() { return all.filter(function (x) { return x.type === state.type; }); }
   function matches(issue) {
@@ -229,21 +241,26 @@
     if (!latest) { el.hidden = true; document.getElementById('latest-date').textContent = ''; return; }
     var names = labels(latest), url = esc(BASE + latest.url);
     document.getElementById('latest-date').textContent = fmt(latest.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-    var art = latest.cover && latest.cover.src ? latest.cover : null;
-    var credit = art && art.credit
-      ? '<figcaption class="credit">Image: ' + (art.credit_url ? '<a href="' + esc(art.credit_url) + '">' + esc(art.credit) + '</a>' : esc(art.credit)) + '</figcaption>'
-      : '';
+    var art = art0(latest), others = (latest.stories || []).slice(1, 5);
+    var credits = [], seen = {};
+    (latest.stories || []).slice(0, 5).forEach(function (s) {
+      if (s.image && s.image.credit && !seen[s.image.credit]) { seen[s.image.credit] = true; credits.push(creditLink(s.image)); }
+    });
     el.classList.toggle('feature--image', !!art);
     el.innerHTML =
       (art
-        ? '<figure class="cover-fig"><a href="' + url + '" tabindex="-1"><img src="' + esc(/^(data:|https?:)/.test(art.src) ? art.src : BASE + art.src) +
-          '" alt="' + esc(art.alt || '') + '" width="1200" height="675"></a>' + credit + '</figure>'
+        ? '<figure class="cover-fig"><a href="' + url + '" tabindex="-1"><img src="' + esc(src(art.src)) +
+          '" alt="' + esc(art.alt || '') + '" width="1200" height="675"></a>' +
+          '<figcaption class="credit">' + (credits.length > 1 ? 'Images: ' : 'Image: ') + credits.join(', ') + '</figcaption></figure>'
         : '<a class="cover" href="' + url + '" aria-hidden="true" tabindex="-1">' +
           '<span class="cover-date">' + esc(fmt(latest.date, { weekday: 'short', month: 'short', day: 'numeric' })) + '</span>' +
           '<span class="cover-label">' + esc(names[0] || 'AI Brief') + '</span></a>') +
       '<div><p class="meta">' + esc(latest.type === 'weekly' ? 'Weekly edition' : latest.type === 'monthly' ? 'Monthly edition' : 'Daily edition') + '</p>' +
       '<h1 class="feature-title"><a href="' + url + '">' + esc(latest.headline) + '</a></h1>' +
-      (names.length > 1 ? '<ul class="topics">' + names.slice(1, 5).map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>' : '') +
+      (others.length ? '<ul class="topics">' + others.map(function (st) {
+        return '<li><span>' + esc(st.label) + '</span>' +
+          (st.image ? '<img src="' + esc(src(st.image.thumb || st.image.src)) + '" alt="' + esc(st.image.alt || '') + '" width="64" height="36" loading="lazy">' : '') + '</li>';
+      }).join('') + '</ul>' : '') +
       '<a class="go" href="' + url + '">Read the brief</a></div>';
     el.hidden = false;
   }
@@ -254,11 +271,16 @@
       ? '<button type="button" class="play-btn" data-audio="' + esc(BASE + issue.audio) + '" data-title="' + esc(issue.date) +
         '" aria-label="Play the audio edition"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg></button>'
       : '';
+    var art = art0(issue);
+    var thumb = art
+      ? '<figure class="thumb"><a href="' + url + '" tabindex="-1" aria-hidden="true"><img src="' + esc(src(art.thumb || art.src)) +
+        '" alt="" width="112" height="63" loading="lazy"></a><figcaption>' + creditLink(art) + '</figcaption></figure>'
+      : '';
     return '<li class="row row--' + esc(issue.type) + '"><a href="' + url + '">' +
       '<span class="day"><span class="day-num">' + day(issue.date).getDate() + '</span>' +
       '<span class="day-dow">' + esc(fmt(issue.date, { weekday: 'short' })) + '</span></span>' +
       '<span><span class="row-title">' + esc(issue.headline) + '</span>' +
-      (topics ? '<span class="row-topics">' + esc(topics) + '</span>' : '') + '</span></a>' + play + '</li>';
+      (topics ? '<span class="row-topics">' + esc(topics) + '</span>' : '') + '</span></a>' + thumb + play + '</li>';
   }
 
   function renderIssues() {

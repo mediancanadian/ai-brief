@@ -192,7 +192,23 @@
     }
     .story-card:hover { box-shadow: 0 4px 16px rgba(26,25,23,0.11); }
     .story-card--wide { grid-column: 1 / -1; }
-    .story-card-img { display: block; width: 100%; height: 120px; object-fit: cover; }
+    /* A story may carry the image its announcer published, shown whole and credited:
+       large beside the lead story, small inside the other cards. */
+    .story-card-media { margin: 0; }
+    .story-card-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+    .story-card-credit {
+      font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.04em;
+      color: var(--ink-faint); padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .story-card-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    .story-card-body .story-card-media { float: right; width: 104px; margin: 2px 0 6px 14px; }
+    .story-facts { clear: both; }
+    .story-card--wide > .story-card-media { padding: 14px 16px 0; }
+    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; }
+    @media (min-width: 601px) {
+      .story-card--wide.story-card--media { flex-direction: row; }
+      .story-card--wide > .story-card-media { flex: 0 0 44%; padding: 14px 0 14px 16px; }
+    }
     .story-card-body { padding: 14px 16px; flex: 1; }
     h4.story-head {
       font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 500;
@@ -373,7 +389,11 @@
         <h3 class="col-heading" id="matters-heading">What matters today</h3>
         <div class="stories-grid">
 
-          <div class="story-card story-card--wide">
+          <div class="story-card story-card--wide story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-03-0.jpg" alt="Slackbot and the Slack logo, with a human hand and a robot hand bumping fists">
+              <figcaption class="story-card-credit">Image: <a href="https://www.salesforce.com/news/stories/slack-stats/">Slack</a></figcaption>
+            </figure>
             <div class="story-card-body">
               <h4 class="story-head">SLACK BY THE NUMBERS</h4>
               <p class="story-lead"><a href="https://www.salesforce.com/news/stories/slack-stats/">Salesforce published Slack usage figures</a> that show how much of the traffic is automated: 127 million MCP tool calls a week, doubling quarter over quarter.</p>
@@ -401,8 +421,12 @@
             </div>
           </div>
 
-          <div class="story-card">
+          <div class="story-card story-card--media">
             <div class="story-card-body">
+              <figure class="story-card-media">
+                  <img class="story-card-img" src="../../../../assets/covers/2026-11-03-2.jpg" alt="The Siri icon, a glowing glass orb on black">
+                  <figcaption class="story-card-credit">Image: <a href="https://developer.apple.com/news/?id=gdk2umrf">Apple</a></figcaption>
+              </figure>
               <h4 class="story-head">SIRI AI</h4>
               <p class="story-lead"><a href="https://developer.apple.com/news/?id=gdk2umrf">Apple opened Siri AI to all developers</a> through a Developer Preview in the iOS, iPadOS, macOS and visionOS 27.3 betas.</p>
               <ul class="story-facts">
@@ -415,8 +439,12 @@
             </div>
           </div>
 
-          <div class="story-card">
+          <div class="story-card story-card--media">
             <div class="story-card-body">
+              <figure class="story-card-media">
+                  <img class="story-card-img" src="../../../../assets/covers/2026-11-03-3.jpg" alt="Illustration of steel chain links laid over paper textures">
+                  <figcaption class="story-card-credit">Image: <a href="https://www.anthropic.com/research/provable-inference">Anthropic</a></figcaption>
+              </figure>
               <h4 class="story-head">PROVABLE INFERENCE</h4>
               <p class="story-lead"><a href="https://www.anthropic.com/research/provable-inference">Anthropic released FlashProve</a>, an open-source prototype that lets a provider prove a response came from a specific model without revealing its weights. The post is dated November 2 and was <a href="https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/">announced on November 3</a>.</p>
               <ul class="story-facts">

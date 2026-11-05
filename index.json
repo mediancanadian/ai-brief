@@ -6,12 +6,11 @@
       "url": "issues/daily/2026/11/2026-11-03.html",
       "headline": "Half of Slack messages now come from apps and agents, Salesforce says",
       "tags": ["Salesforce", "Anthropic", "Apple", "Microsoft", "Google", "Amazon", "OpenAI"],
-      "cover": {"src": "assets/covers/2026-11-03.jpg", "alt": "Slackbot and the Slack logo, with a human hand and a robot hand bumping fists", "credit": "Slack", "credit_url": "https://www.salesforce.com/news/stories/slack-stats/"},
       "stories": [
-        {"label": "SLACK BY THE NUMBERS", "text": "Salesforce published Slack usage figures that show how much of the traffic is automated: 127 million MCP tool calls a week, doubling quarter over quarter."},
+        {"label": "SLACK BY THE NUMBERS", "text": "Salesforce published Slack usage figures that show how much of the traffic is automated: 127 million MCP tool calls a week, doubling quarter over quarter.", "image": {"src": "assets/covers/2026-11-03-0.jpg", "thumb": "assets/covers/2026-11-03-0.sm.jpg", "alt": "Slackbot and the Slack logo, with a human hand and a robot hand bumping fists", "credit": "Slack", "credit_url": "https://www.salesforce.com/news/stories/slack-stats/"}},
         {"label": "AGENT KILL SWITCH", "text": "CrowdStrike announced an AI Kill Switch in Falcon Guardian: an administrator can terminate a running agent, block it from relaunching and cut its network access."},
-        {"label": "SIRI AI", "text": "Apple opened Siri AI to all developers through a Developer Preview in the iOS, iPadOS, macOS and visionOS 27.3 betas."},
-        {"label": "PROVABLE INFERENCE", "text": "Anthropic released FlashProve, an open-source prototype that lets a provider prove a response came from a specific model without revealing its weights. The post is dated November 2 and was announced on November 3."},
+        {"label": "SIRI AI", "text": "Apple opened Siri AI to all developers through a Developer Preview in the iOS, iPadOS, macOS and visionOS 27.3 betas.", "image": {"src": "assets/covers/2026-11-03-2.jpg", "thumb": "assets/covers/2026-11-03-2.sm.jpg", "alt": "The Siri icon, a glowing glass orb on black", "credit": "Apple", "credit_url": "https://developer.apple.com/news/?id=gdk2umrf"}},
+        {"label": "PROVABLE INFERENCE", "text": "Anthropic released FlashProve, an open-source prototype that lets a provider prove a response came from a specific model without revealing its weights. The post is dated November 2 and was announced on November 3.", "image": {"src": "assets/covers/2026-11-03-3.jpg", "thumb": "assets/covers/2026-11-03-3.sm.jpg", "alt": "Illustration of steel chain links laid over paper textures", "credit": "Anthropic", "credit_url": "https://www.anthropic.com/research/provable-inference"}},
         {"label": "AGENT CONFIG TRUST", "text": "A developer’s bug report says Postman’s desktop app installed plugins into Claude Code and OpenAI Codex without asking. It was the most discussed developer story of the day."}
       ],
       "deck": "The same day brought an agent kill switch from CrowdStrike, Siri AI for every developer, a way to prove which model produced an answer, and a coding-agent trust incident at Postman."
@@ -38,7 +37,7 @@
       "headline": "Anthropic, OpenAI, Google, and Canva all release agentic AI tools in a 24-hour window",
       "tags": ["Anthropic", "OpenAI", "Google", "Microsoft", "Amazon"],
       "stories": [
-        {"label": "ANTHROPIC CLAUDE OPUS 4.7", "text": "Anthropic released Claude Opus 4.7, scoring 64.3% on SWE-Bench Pro, nearly 10 points above Opus 4.6."},
+        {"label": "ANTHROPIC CLAUDE OPUS 4.7", "text": "Anthropic released Claude Opus 4.7, scoring 64.3% on SWE-Bench Pro, nearly 10 points above Opus 4.6.", "image": {"src": "assets/covers/2026-04-17-0.jpg", "thumb": "assets/covers/2026-04-17-0.sm.jpg", "alt": "Anthropic's illustration for Claude Opus 4.7: a node diagram beside a line drawing on a grid", "credit": "Anthropic", "credit_url": "https://www.anthropic.com/news/claude-opus-4-7"}},
         {"label": "OPENAI CODEX DESKTOP AGENT", "text": "OpenAI updated Codex on April 16, adding multi-agent workflows, desktop computer control, and 90+ plugin integrations."},
         {"label": "GOOGLE AI MODE IN CHROME", "text": "Google shipped AI Mode directly into Chrome starting April 16 in the US, across desktop, Android, and iOS."},
         {"label": "CANVA AI 2.0 AGENTIC DESIGN", "text": "Canva launched AI 2.0 on April 16 as a research preview for the first 1 million users, enabling text-to-design with persistent memory and workflow connectors."},
@@ -53,7 +52,7 @@
       "headline": "PrismML ships 1-bit LLMs that run in any browser",
       "tags": ["Anthropic", "Google", "Microsoft", "Meta", "Amazon"],
       "stories": [
-        {"label": "PRISMML 1-BIT BROWSER LLMs", "text": "PrismML released 1-bit Bonsai, a series of commercially licensed 1-bit quantized LLMs that run directly in WebGPU-enabled browsers with no Python, CUDA, or specialized hardware required."},
+        {"label": "PRISMML 1-BIT BROWSER LLMs", "text": "PrismML released 1-bit Bonsai, a series of commercially licensed 1-bit quantized LLMs that run directly in WebGPU-enabled browsers with no Python, CUDA, or specialized hardware required.", "image": {"src": "assets/covers/2026-04-16-0.jpg", "thumb": "assets/covers/2026-04-16-0.sm.jpg", "alt": "PrismML announcement card: Concentrating intelligence", "credit": "PrismML", "credit_url": "https://prismml.com/news/bonsai-8b"}},
         {"label": "GOOGLE GEMINI 3.1 FLASH TTS", "text": "Google launched Gemini 3.1 Flash TTS on April 15 with support for 70+ languages, 200+ audio control tags, and native multi-speaker dialogue generation."},
         {"label": "ANTHROPIC CLAUDE CODE DESKTOP", "text": "Anthropic redesigned the Claude Code desktop app to support multiple concurrent agent sessions from a single window with persistent session management."},
         {"label": "CHINA HUMANOID FACTORY", "text": "Leju Robotics and Dongfang Precision opened a factory in Foshan, Guangdong capable of producing 10,000 humanoid robots annually at one unit every 30 minutes."}
@@ -80,7 +79,7 @@
       "headline": "Figma opens its canvas to agents as AWS ships AgentCore and LG releases a 33B open VLM",
       "tags": ["Google", "Amazon"],
       "stories": [
-        {"label": "FIGMA CANVAS AGENTS", "text": "Figma released a native MCP server giving AI agents full write access to the Figma canvas, enabling creation and editing of components using a team's live design system."},
+        {"label": "FIGMA CANVAS AGENTS", "text": "Figma released a native MCP server giving AI agents full write access to the Figma canvas, enabling creation and editing of components using a team's live design system.", "image": {"src": "assets/covers/2026-04-14-0.jpg", "thumb": "assets/covers/2026-04-14-0.sm.jpg", "alt": "A terminal asking an agent to build a component set on the Figma canvas", "credit": "Figma", "credit_url": "https://www.figma.com/blog/the-figma-canvas-is-now-open-to-agents/"}},
         {"label": "AWS AGENTCORE GA", "text": "Amazon Bedrock AgentCore reached general availability alongside a Spring AI SDK, making production agent deployment native for Java/Spring developers."},
         {"label": "UK TRANSPORT GEMINI DEPLOYMENT", "text": "The UK Department for Transport deployed a Consultation Analysis Tool built on Google Cloud Vertex AI with Gemini, cutting processing of 100,000+ public responses from months to hours."},
         {"label": "LG EXAONE 4.5 VLM", "text": "LG AI Research released EXAONE 4.5, a 33-billion-parameter open-weight vision-language model targeting enterprise document understanding with a 262K token context window."},
@@ -124,7 +123,7 @@
       "headline": "Anthropic ships dual-model advisor API as Amazon discloses $15 billion AWS AI run rate",
       "tags": ["Anthropic", "Amazon", "Google"],
       "stories": [
-        {"label": "ANTHROPIC OPUS ADVISOR API", "text": "Anthropic shipped the advisor tool (beta header advisor-tool-2026-03-01) for the Claude API, enabling a dual-model architecture where Opus acts as an on-demand consultant to a Sonnet or Haiku executor."},
+        {"label": "ANTHROPIC OPUS ADVISOR API", "text": "Anthropic shipped the advisor tool (beta header advisor-tool-2026-03-01) for the Claude API, enabling a dual-model architecture where Opus acts as an on-demand consultant to a Sonnet or Haiku executor.", "image": {"src": "assets/covers/2026-04-10-0.jpg", "thumb": "assets/covers/2026-04-10-0.sm.jpg", "alt": "Anthropic's illustration for the advisor strategy: three linked nodes", "credit": "Anthropic", "credit_url": "https://claude.com/blog/the-advisor-strategy"}},
         {"label": "AMAZON AWS AI INFRASTRUCTURE", "text": "Andy Jassy's 2026 shareholder letter disclosed that AWS AI has reached a $15 billion annual run rate, with Amazon's custom chip business generating over $20 billion annually."},
         {"label": "PERPLEXITY BANK INTEGRATION", "text": "Perplexity expanded its Plaid integration beyond investment accounts to include checking, savings, credit cards, loans, and mortgages."},
         {"label": "AWS BEDROCK AGENT REGISTRY", "text": "AWS Agent Registry, part of Amazon Bedrock AgentCore, launched in preview on April 9 as a private, searchable catalog for agents, tools, skills, MCP servers, and custom enterprise resources."},
@@ -205,7 +204,7 @@
       "headline": "Google releases Gemma 4 and ships free AI video in Google Vids with Lyria 3 and Veo 3.1",
       "tags": ["Google", "OpenAI", "Meta"],
       "stories": [
-        {"label": "GOOGLE GEMMA 4", "text": "Google DeepMind released Gemma 4, its most capable open model family, built for advanced reasoning and agentic workflows with on-device deployment via HuggingFace Hub."},
+        {"label": "GOOGLE GEMMA 4", "text": "Google DeepMind released Gemma 4, its most capable open model family, built for advanced reasoning and agentic workflows with on-device deployment via HuggingFace Hub.", "image": {"src": "assets/covers/2026-04-02-0.jpg", "thumb": "assets/covers/2026-04-02-0.sm.jpg", "alt": "Gemma 4 wordmark on a dark dotted pattern", "credit": "Google DeepMind", "credit_url": "https://deepmind.google/blog/gemma-4-byte-for-byte-the-most-capable-open-models/"}},
         {"label": "GOOGLE VIDS AI VIDEO", "text": "Google Vids added free AI video generation powered by Lyria 3 for music and Veo 3.1 for footage, integrated directly into Google Workspace."},
         {"label": "HOLO3 COMPUTER USE", "text": "H Company released Holo3, a model advancing autonomous GUI, browser, and desktop application operation by computer use agents."},
         {"label": "GEMINI API INFERENCE TIERS", "text": "Google added Flex and Priority inference tiers to the Gemini API, letting developers trade response latency for lower cost."}
@@ -288,7 +287,7 @@
       "headline": "ARC-AGI-3 exposes frontier AI adaptation gap as OpenAI rounds $120B and Google ships 6x memory compression",
       "tags": ["OpenAI", "Google", "Anthropic", "Microsoft", "Nvidia"],
       "stories": [
-        {"label": "ARC-AGI-3 BENCHMARK", "text": "ARC-AGI-3 placed all frontier LLMs below 1% of human performance on interactive, goal-free reasoning environments, the benchmark's first major format change since 2019."},
+        {"label": "ARC-AGI-3 BENCHMARK", "text": "ARC-AGI-3 placed all frontier LLMs below 1% of human performance on interactive, goal-free reasoning environments, the benchmark's first major format change since 2019.", "image": {"src": "assets/covers/2026-03-26-0.jpg", "thumb": "assets/covers/2026-03-26-0.sm.jpg", "alt": "ARC-AGI-3 title over a grid of puzzle game screens", "credit": "ARC Prize", "credit_url": "https://arcprize.org/arc-agi/3"}},
         {"label": "OPENAI FUNDING ROUND", "text": "OpenAI's CFO confirmed an additional $10 billion close, pushing the total round past $120 billion at a $730 billion pre-money valuation."},
         {"label": "GOOGLE TURBOQUANT", "text": "Google Research published TurboQuant, a two-stage algorithm delivering 6x KV-cache memory compression at 3-bit quantization with no measurable accuracy degradation and no retraining required."},
         {"label": "PENTAGON MAVEN AI", "text": "The Pentagon designated Palantir's Maven Smart System as an official program of record, locking in multi-year funding with a $13.4 billion FY2026 AI budget line, up from $480 million in May 2024."},
