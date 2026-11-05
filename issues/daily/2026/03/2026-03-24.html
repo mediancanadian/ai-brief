@@ -329,7 +329,7 @@
 
     <section class="lead-section" aria-labelledby="lead-heading">
       <h2 class="lead-headline" id="lead-heading">Anthropic ships computer use, LiteLLM gets backdoored, and the enterprise agent land-grab accelerates</h2>
-      <p class="lead-deck"><a href="https://www.cnbc.com/2026/03/24/anthropic-claude-ai-agent-use-computer-finish-tasks.html">Anthropic</a> turned its computer-use research into a shipping product for paying subscribers as <a href="https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/">LiteLLM's supply chain was compromised</a> with a credential-stealing payload — while <a href="https://openai.com/index/frontier-alliance-partners/">OpenAI</a>, <a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia</a>, and <a href="https://www.figure.ai/news/introducing-figure-03">Figure AI</a> each pushed further into enterprise deployments, agent security infrastructure, and humanoid robotics production scale.</p>
+      <p class="lead-deck"><a href="https://www.cnbc.com/2026/03/24/anthropic-claude-ai-agent-use-computer-finish-tasks.html">Anthropic</a> turned its computer-use research into a shipping product for paying subscribers as <a href="https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/">LiteLLM's supply chain was compromised</a> with a credential-stealing payload, while <a href="https://openai.com/index/frontier-alliance-partners/">OpenAI</a>, <a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia</a>, and <a href="https://www.figure.ai/news/introducing-figure-03">Figure AI</a> each pushed further into enterprise deployments, agent security infrastructure, and humanoid robotics production scale.</p>
     </section>
 
     <div class="content-grid">
@@ -355,7 +355,7 @@
           <div class="story-card">
             <div class="story-card-body">
               <h4 class="story-head">LITELLM SUPPLY CHAIN ATTACK</h4>
-              <p class="story-lead"><a href="https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/">LiteLLM versions 1.82.7 and 1.82.8</a> — a library with 95M monthly PyPI downloads — contained a credential stealer embedded in a <code>.pth</code> file that executes on Python startup regardless of whether LiteLLM is imported.</p>
+              <p class="story-lead"><a href="https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/">LiteLLM versions 1.82.7 and 1.82.8</a>, a library with 95M monthly PyPI downloads, contained a credential stealer embedded in a <code>.pth</code> file that executes on Python startup regardless of whether LiteLLM is imported.</p>
               <ul class="story-facts">
                 <li>Attack attributed to the TeamPCP threat actor, likely via compromised PyPI credentials from an earlier Trivy exploit.</li>
                 <li>Payload targets SSH keys, AWS/GCP/Azure credentials, Kubernetes configs, database passwords, and crypto wallets.</li>
@@ -369,7 +369,7 @@
           <div class="story-card">
             <div class="story-card-body">
               <h4 class="story-head">NVIDIA NEMOCLAW</h4>
-              <p class="story-lead"><a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia announced NemoClaw</a> at GTC — an open-source enterprise agent platform with sandboxed execution, least-privilege access controls, and infrastructure-layer policy enforcement.</p>
+              <p class="story-lead"><a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia announced NemoClaw</a> at GTC, an open-source enterprise agent platform with sandboxed execution, least-privilege access controls, and infrastructure-layer policy enforcement.</p>
               <ul class="story-facts">
                 <li>Built on OpenClaw; policy enforcement operates at the infrastructure layer, meaning compromised agents cannot reach it.</li>
                 <li>Developed with input from Cisco, CrowdStrike, <strong>Google Cloud</strong>, and <strong>Microsoft</strong> Security.</li>
@@ -381,11 +381,11 @@
           <div class="story-card">
             <div class="story-card-body">
               <h4 class="story-head">OPENAI FRONTIER ALLIANCES</h4>
-              <p class="story-lead"><a href="https://openai.com/index/frontier-alliance-partners/">OpenAI formalized Frontier Alliances</a> — multi-year partnerships with McKinsey, BCG, Accenture, and Capgemini to deploy its Frontier agent platform inside Fortune 500 companies.</p>
+              <p class="story-lead"><a href="https://openai.com/index/frontier-alliance-partners/">OpenAI formalized Frontier Alliances</a>, multi-year partnerships with McKinsey, BCG, Accenture, and Capgemini to deploy its Frontier agent platform inside Fortune 500 companies.</p>
               <ul class="story-facts">
                 <li>McKinsey and BCG own strategy engagements; Accenture and Capgemini own systems integration.</li>
                 <li>Early live deployments confirmed at Intuit, State Farm, Thermo Fisher, and Uber.</li>
-                <li>Anthropic holds parallel deals with Accenture and Deloitte — Accenture holds both relationships simultaneously.</li>
+                <li>Anthropic holds parallel deals with Accenture and Deloitte, Accenture holds both relationships simultaneously.</li>
                 <li>Displacement risk for SaaS incumbents including Salesforce, Workday, and ServiceNow is accelerating through these consulting channels.</li>
               </ul>
             </div>
@@ -394,7 +394,7 @@
           <div class="story-card">
             <div class="story-card-body">
               <h4 class="story-head">FIGURE 03 HUMANOID ROBOT</h4>
-              <p class="story-lead"><a href="https://www.figure.ai/news/introducing-figure-03">Figure AI unveiled Figure 03</a> — 9% lighter than its predecessor, with 2x faster actuators and tactile sensors detecting forces as small as 3 grams.</p>
+              <p class="story-lead"><a href="https://www.figure.ai/news/introducing-figure-03">Figure AI unveiled Figure 03</a>, 9% lighter than its predecessor, with 2x faster actuators and tactile sensors detecting forces as small as 3 grams.</p>
               <ul class="story-facts">
                 <li>BotQ manufacturing facility targets 12,000 units/year initially, scaling to 100,000 over four years.</li>
                 <li>Figure 02 already contributed to 30,000 BMW vehicles as of November 2025.</li>
@@ -413,15 +413,15 @@
           <ul class="research-list">
             <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2603.22212">Omni-WorldBench</a></span>
-              <p class="research-desc">Benchmark for interactive 4D world models on temporal dynamics and causal agent-environment interactions — fills the gap left by static-perception evals. 105 votes.</p>
+              <p class="research-desc">Benchmark for interactive 4D world models on temporal dynamics and causal agent-environment interactions, fills the gap left by static-perception evals. 105 votes.</p>
             </li>
             <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2603.21065">LongCat-Flash-Prover</a></span>
-              <p class="research-desc">560B MoE model achieving formal reasoning in Lean4 via tool-integrated RL with hierarchical policy optimization — demonstrates stable long-horizon training for agentic tool use. 61 votes.</p>
+              <p class="research-desc">560B MoE model achieving formal reasoning in Lean4 via tool-integrated RL with hierarchical policy optimization, demonstrates stable long-horizon training for agentic tool use. 61 votes.</p>
             </li>
             <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2603.16932">AwaRes: High-Resolution Crops Retrieval for VLMs</a></span>
-              <p class="research-desc">VLMs using tool-calling and RL to dynamically fetch high-resolution image segments on demand — more efficient than feeding full high-res images; applicable to multimodal agents. 49 votes.</p>
+              <p class="research-desc">VLMs using tool-calling and RL to dynamically fetch high-resolution image segments on demand, more efficient than feeding full high-res images; applicable to multimodal agents. 49 votes.</p>
             </li>
             <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2603.20278">OpenResearcher</a></span>
@@ -477,20 +477,20 @@
     <section class="also-section">
       <h2 class="also-heading">Also in AI today</h2>
       <ul class="also-list">
-        <li class="also-item"><a href="https://openai.com/index/update-on-the-openai-foundation"><strong>OpenAI Foundation</strong></a> — commits $1 billion to disease research, economic opportunity, AI resilience, and community programs.</li>
-        <li class="also-item"><strong>OpenAI</strong> — guaranteeing a 17.5% minimum return to private equity in its enterprise joint venture, a novel financial structure.</li>
-        <li class="also-item"><strong>Meta</strong> — deployed an internal Claude-powered tool called "Second Brain" as an AI chief of staff; Mark Zuckerberg is separately building a personal CEO agent that bypasses org hierarchy.</li>
-        <li class="also-item"><strong>Meta</strong> — acquired agentic software builder <strong>Dreamer</strong>, with the full team joining Meta Superintelligence Labs.</li>
-        <li class="also-item"><strong>Luma AI</strong> — released <strong>Uni-1</strong>, an image model processing text and visuals through a single pipeline at ~$0.09/image at 2K resolution.</li>
-        <li class="also-item"><strong>iPhone 17 Pro</strong> — demonstrated running a 400B LLM locally (HN score: 690), with implications for private, air-gapped agent deployments.</li>
-        <li class="also-item"><a href="https://aws.amazon.com/blogs/machine-learning/integrating-amazon-bedrock-agentcore-with-slack/"><strong>Amazon Bedrock AgentCore</strong></a> — published Slack integration guide using AWS CDK, extending agentic workflows into messaging infrastructure.</li>
-        <li class="also-item"><a href="https://openai.com/index/powering-product-discovery-in-chatgpt"><strong>ChatGPT</strong></a> — launched a richer shopping experience with product discovery and side-by-side comparisons via the Agentic Commerce Protocol.</li>
-        <li class="also-item"><strong>FlashAttention-4</strong> — benchmarks at 1,613 TFLOPs/s, 2.7x faster than Triton, written in Python; direct implications for inference cost reduction.</li>
-        <li class="also-item"><strong>LM Studio</strong> — flagged as potentially infected with sophisticated malware (Reddit, 715 upvotes); investigation ongoing, details unconfirmed.</li>
-        <li class="also-item"><strong>Google</strong> — expanding Gemini into Google TV with visual answers and sports briefs; separately advancing neutral-atom quantum computers alongside superconducting systems.</li>
-        <li class="also-item"><strong>Jensen Huang</strong> — claimed on the Lex Fridman Podcast that AGI has already been achieved.</li>
-        <li class="also-item"><a href="https://blog.mozilla.ai/cq-stack-overflow-for-agents/"><strong>Mozilla.ai</strong></a> — released Cq, a "Stack Overflow for AI coding agents" enabling agents to share learned knowledge units (HN: 196).</li>
-        <li class="also-item"><strong>OpenAI</strong> — hired former Meta VP of global clients Dave Dugan to lead ad sales.</li>
+        <li class="also-item"><a href="https://openai.com/index/update-on-the-openai-foundation"><strong>OpenAI Foundation</strong></a>: commits $1 billion to disease research, economic opportunity, AI resilience, and community programs.</li>
+        <li class="also-item"><strong>OpenAI</strong>: guaranteeing a 17.5% minimum return to private equity in its enterprise joint venture, a novel financial structure.</li>
+        <li class="also-item"><strong>Meta</strong>: deployed an internal Claude-powered tool called "Second Brain" as an AI chief of staff; Mark Zuckerberg is separately building a personal CEO agent that bypasses org hierarchy.</li>
+        <li class="also-item"><strong>Meta</strong>: acquired agentic software builder <strong>Dreamer</strong>, with the full team joining Meta Superintelligence Labs.</li>
+        <li class="also-item"><strong>Luma AI</strong>: released <strong>Uni-1</strong>, an image model processing text and visuals through a single pipeline at ~$0.09/image at 2K resolution.</li>
+        <li class="also-item"><strong>iPhone 17 Pro</strong>: demonstrated running a 400B LLM locally (HN score: 690), with implications for private, air-gapped agent deployments.</li>
+        <li class="also-item"><a href="https://aws.amazon.com/blogs/machine-learning/integrating-amazon-bedrock-agentcore-with-slack/"><strong>Amazon Bedrock AgentCore</strong></a>: published Slack integration guide using AWS CDK, extending agentic workflows into messaging infrastructure.</li>
+        <li class="also-item"><a href="https://openai.com/index/powering-product-discovery-in-chatgpt"><strong>ChatGPT</strong></a>: launched a richer shopping experience with product discovery and side-by-side comparisons via the Agentic Commerce Protocol.</li>
+        <li class="also-item"><strong>FlashAttention-4</strong>: benchmarks at 1,613 TFLOPs/s, 2.7x faster than Triton, written in Python; direct implications for inference cost reduction.</li>
+        <li class="also-item"><strong>LM Studio</strong>: flagged as potentially infected with sophisticated malware (Reddit, 715 upvotes); investigation ongoing, details unconfirmed.</li>
+        <li class="also-item"><strong>Google</strong>: expanding Gemini into Google TV with visual answers and sports briefs; separately advancing neutral-atom quantum computers alongside superconducting systems.</li>
+        <li class="also-item"><strong>Jensen Huang</strong>: claimed on the Lex Fridman Podcast that AGI has already been achieved.</li>
+        <li class="also-item"><a href="https://blog.mozilla.ai/cq-stack-overflow-for-agents/"><strong>Mozilla.ai</strong></a>: released Cq, a "Stack Overflow for AI coding agents" enabling agents to share learned knowledge units (HN: 196).</li>
+        <li class="also-item"><strong>OpenAI</strong>: hired former Meta VP of global clients Dave Dugan to lead ad sales.</li>
       </ul>
     </section>
 
