@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-04",
+      "url": "issues/daily/2026/11/2026-11-04.html",
+      "headline": "Salesforce brings Agentforce Coworker into Microsoft Teams",
+      "tags": ["Salesforce", "Microsoft", "Anthropic", "OpenAI", "Meta", "Cloudflare", "Google", "Amazon", "Apple", "Slack", "CrowdStrike", "Uber", "xAI", "Cohere"],
+      "stories": [
+        {"label": "COWORKER IN TEAMS", "text": "Salesforce announced Agentforce Coworker for Microsoft Teams: an employee hands it a job in a Teams conversation and it coordinates Agentforce agents under the same Salesforce permissions and governance.", "image": {"src": "assets/covers/2026-11-04-0.jpg", "thumb": "assets/covers/2026-11-04-0.sm.jpg", "alt": "Agentforce Coworker release art: a fuzzy blue bear-shaped character wearing sunglasses, with gold and teal sparkles on a blue background", "credit": "Salesforce", "credit_url": "https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/"}},
+        {"label": "CLAUDE AS ISSUER", "text": "Claude can now issue the signed identity assertions that MCP services use to recognize a company’s employees, so plugins connect with no per-user consent screen and no support needed from the company’s identity provider."},
+        {"label": "KERNEL EXPLOIT PIPELINE", "text": "OpenAI described an autonomous pipeline that found, validated and wrote patches for 948 local privilege-escalation vulnerabilities in the Linux kernel."},
+        {"label": "CODING AGENT DEALS", "text": "OpenAI will acquire Pierre Computer Company to expand the tools Codex has for building, understanding and reviewing code, on a day when two other coding-agent startups were also acquired."},
+        {"label": "PERSONAL AGENT TRAFFIC", "text": "Cloudflare launched analytics and per-agent access policies for personal agents, the assistants that browse, sign in and buy on a person’s behalf."}
+      ],
+      "deck": "Elsewhere: Claude begins vouching for employees to MCP services, an OpenAI pipeline finds and patches Linux kernel flaws on its own, three coding-agent startups are acquired, and Cloudflare gives sites per-agent controls."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-03",
       "url": "issues/daily/2026/11/2026-11-03.html",
       "headline": "Half of Slack messages now come from apps and agents, Salesforce says",
