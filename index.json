@@ -2,6 +2,13 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-03",
+      "url": "issues/daily/2026/11/2026-11-03.html",
+      "headline": "Half of Slack messages now come from apps and agents, Salesforce says",
+      "tags": ["Salesforce", "Anthropic", "Apple", "Microsoft", "Google", "Amazon", "OpenAI"]
+    },
+    {
+      "type": "daily",
       "date": "2026-04-24",
       "url": "issues/daily/2026/04/2026-04-24.html",
       "headline": "DeepSeek V4 ships 1M-token context as OpenAI releases GPT-5.5 and Codex goes autonomous",
