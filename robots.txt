@@ -1,4 +1,4 @@
-# AI training crawlers — disallowed
+# AI training crawlers: disallowed
 User-agent: GPTBot
 Disallow: /
 
@@ -77,6 +77,6 @@ Disallow: /
 User-agent: omgili
 Disallow: /
 
-# All other crawlers (search engines etc.) — allowed
+# All other crawlers (search engines etc.): allowed
 User-agent: *
 Allow: /

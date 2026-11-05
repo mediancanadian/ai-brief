@@ -336,7 +336,7 @@
         {"label": "NVIDIA NEMOCLAW", "text": "Nvidia released NemoClaw at GTC 2026, a software stack adding enterprise security to OpenClaw agents with single-command installation."},
         {"label": "OPENAI SORA SHUTDOWN", "text": "OpenAI announced the shutdown of the Sora app and API, citing compute costs and a strategic pivot toward robotics-focused world simulation research."},
         {"label": "FIGURE 03 HUMANOID ROBOT", "text": "Figure 03 debuted in a live demo with reactive autonomy, performing autonomous package sorting with real-time disruption recovery using end-to-end neural networks."},
-        {"label": "IPHONE 17 PRO: 400B MODEL ON-DEVICE", "text": "A developer demonstrated Flash-MoE, a 400-billion parameter Mixture of Experts model, running entirely on-device on an iPhone 17 Pro with no internet connection."}
+        {"label": "IPHONE 17 PRO, 400B MODEL ON-DEVICE", "text": "A developer demonstrated Flash-MoE, a 400-billion parameter Mixture of Experts model, running entirely on-device on an iPhone 17 Pro with no internet connection."}
       ],
       "deck": "TeamPCP's supply chain attack on LiteLLM exposed 97 million monthly PyPI downloads to credential theft; Nvidia countered the week's security narrative at GTC 2026 with NemoClaw, an open-source privacy and sandboxing layer for autonomous agents; while OpenAI shut down the Sora video app six months after launch to redirect compute toward robotics world simulation, Figure AI debuted Figure 03 with reactive autonomy at a $39B valuation, and a developer proved a 400B parameter model can run entirely on an iPhone 17 Pro."
     }
