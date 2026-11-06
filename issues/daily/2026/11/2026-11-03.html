@@ -138,7 +138,7 @@
       line-height: 1.4; margin-bottom: 4px; display: block;
       text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px;
     }
-    .research-desc { font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); font-style: italic; }
+    .research-desc { font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); }
     .signal-p { font-size: 13px; line-height: 1.65; color: var(--ink-muted); }
     .signal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .signal-item { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding-left: 12px; border-left: 2px solid var(--border-mid); }
@@ -204,7 +204,7 @@
     .story-card-body .story-card-media { float: right; width: 104px; margin: 2px 0 6px 14px; }
     .story-facts { clear: both; }
     .story-card--wide > .story-card-media { padding: 14px 16px 0; }
-    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; }
+    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; aspect-ratio: auto; object-fit: contain; }
     @media (min-width: 601px) {
       .story-card--wide.story-card--media { flex-direction: row; }
       .story-card--wide > .story-card-media { flex: 0 0 44%; padding: 14px 0 14px 16px; }
@@ -233,6 +233,25 @@
       color: var(--accent); font-size: 14px; line-height: 1.2;
     }
     .story-facts a { color: var(--ink-muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    /* The PM take: its own block under the details, never inline. */
+    .take-label {
+      display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
+    }
+    .story-facts li.story-take {
+      margin-top: 9px; padding: 9px 11px 10px; background: var(--accent-bg);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+      font-size: 12.5px; line-height: 1.55; color: var(--ink);
+    }
+    .story-facts li.story-take::before { content: none; }
+    .research-take {
+      margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
+      font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;
+    }
+    /* Emphasis: bold for the term that names the point, one highlight for the figure that carries it. */
+    .story-facts strong, .research-desc strong, .research-take strong, .signal-item strong { color: var(--ink); font-weight: 600; }
+    mark.hl { background: linear-gradient(transparent 52%, #f6d5c6 52%); color: var(--ink); font-weight: 600; padding: 0 1px; }
+    .signal-item > a:first-child { font-weight: 600; }
     .trending-section { border-top: 0.5px solid var(--border-mid); padding-top: 20px; margin-bottom: 32px; }
     h2.trending-heading {
       font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
@@ -557,7 +576,7 @@
         <li class="also-item"><a href="https://aws.amazon.com/blogs/machine-learning/servicenow-on-behalf-of-token-exchange-with-bedrock-agentcore-gateway/"><strong>AWS AgentCore Gateway</strong></a>: walkthrough of on-behalf-of token exchange with Microsoft Entra ID, so an agent calls ServiceNow as the signed-in user; <a href="https://aws.amazon.com/about-aws/whats-new/2026/11/workspaces-ai-agents-linux-windows-11">WorkSpaces for AI agents</a> adds Linux and Windows 11 cloud desktops.</li>
         <li class="also-item"><a href="https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/"><strong>Google and schools</strong></a>: Gemini, Gemini Notebook, Gemini in Classroom and Search will be off for K-12 student accounts until administrators turn them on; <a href="https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/">schools that keep AI off also lose student Search</a>.</li>
         <li class="also-item"><a href="https://antigravity.google/docs/changelog"><strong>Google Antigravity 2.29</strong></a>: voice mode and cloud-run remote agents start rolling out; Google Cloud&rsquo;s new <a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-physical-engineerings-last-exam-for-agents">Physical-Engineering&rsquo;s Last Exam</a> benchmark has all 14 frontier models tested below 50%, top score 48.3%.</li>
-        <li class="also-item"><a href="https://openai.com/index/accelerating-engineering-for-the-physical-world"><strong>OpenAI</strong></a>: research post on using its models for physical engineering; <a href="https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer">Jill Hazelbaker appointed</a> chief corporate affairs officer.</li>
+        <li class="also-item"><a href="https://openai.com/index/accelerating-engineering-for-the-physical-world"><strong>OpenAI</strong></a>: research post on using its models for physical engineering; <a href="https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer">Jill Hazelbaker appointed</a> chief corporate affairs officer; <a href="https://x.com/ChatGPT/status/2117678200700682732">ChatGPT Voice now works inside Finances</a>, for <a href="https://cryptobriefing.com/openai-chatgpt-voice-finance-us/">US users with linked accounts</a>.</li>
         <li class="also-item"><a href="https://platform.claude.com/docs/en/release-notes/overview"><strong>Anthropic</strong></a>: text watermark extended to Claude Mythos 5, Opus 4.7 and Sonnet 4.6; its 15-person chip design team <a href="https://ca.finance.yahoo.com/news/anthropic-touts-claude-chip-design-153547636.html">reportedly uses Claude</a> to design custom silicon.</li>
         <li class="also-item"><a href="https://cohere.com/blog/open-source-model-vault"><strong>Cohere</strong></a>: open models such as DeepSeek V4.1 Flash, Gemma 4, GPT-OSS and Phi now run in Model Vault, live in the US, EU and Canada; <a href="https://news.sap.com/2026/11/sap-cohere-empower-regulated-industries-innovate-deploy-ai-faster/">North is generally available on SAP Business AI Platform</a>.</li>
         <li class="also-item"><a href="https://technode.com/2026/11/04/deepseek-reportedly-plans-to-train-v5-model-on-huawei-ascend-chips/"><strong>DeepSeek V5</strong></a>: reportedly to be trained on Huawei Ascend chips, which so far mainly ran inference for DeepSeek (unconfirmed); <a href="https://technode.com/2026/11/04/baidu-launches-apollo-world-model-to-train-robotaxis-in-simulated-environments/">Baidu unveiled Apollo World</a>, a world model generating up to 100,000 km of simulated driving a day.</li>
@@ -566,6 +585,7 @@
         <li class="also-item"><a href="https://newsroom.amd.com/news/amd-reports-third-quarter-2026-earnings/"><strong>AMD Q3</strong></a>: revenue $13.4 billion, up 45%; Data Center a record $8.5 billion, up 97%; Q4 guided to about $17 billion.</li>
         <li class="also-item"><a href="https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/"><strong>Fal</strong></a>: $1.3 billion Series F led by Bessemer at a $16 billion valuation; <a href="https://fireworks.ai/blog/fireworks-unveils-new-products-at-forge-to-help-companies-build-specialized-intelligence">Fireworks previewed Ultra-fast inference</a> at up to 1,500 tokens per second on DeepSeek V4.1 Flash.</li>
         <li class="also-item"><a href="https://www.theregister.com/systems/2026/11/04/america-unites-on-one-issue-reining-in-datacenters/5307536"><strong>US midterms</strong></a>: 43 of 46 local measures to tighten data center rules passed, with one rejected and two pending in a tracker count on November 4; <a href="https://www.kut.org/politics/2026-11-03/texas-governor-election-2026-hinojosa-early-results">the AP called the Texas governor&rsquo;s race</a> for Gina Hinojosa, who backs a temporary pause on new data centers.</li>
+        <li class="also-item"><a href="https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/"><strong>Netflix AI Discover</strong></a>: a new tab that recommends titles by mood and available time is starting to roll out in the US; Netflix calls it a test kitchen for discovery features before they reach the main app.</li>
       </ul>
     </section>
 
