@@ -138,7 +138,7 @@
       line-height: 1.4; margin-bottom: 4px; display: block;
       text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px;
     }
-    .research-desc { font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); font-style: italic; }
+    .research-desc { font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); }
     .signal-p { font-size: 13px; line-height: 1.65; color: var(--ink-muted); }
     .signal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .signal-item { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding-left: 12px; border-left: 2px solid var(--border-mid); }
@@ -204,7 +204,7 @@
     .story-card-body .story-card-media { float: right; width: 104px; margin: 2px 0 6px 14px; }
     .story-facts { clear: both; }
     .story-card--wide > .story-card-media { padding: 14px 16px 0; }
-    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; }
+    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; aspect-ratio: auto; object-fit: contain; }
     @media (min-width: 601px) {
       .story-card--wide.story-card--media { flex-direction: row; }
       .story-card--wide > .story-card-media { flex: 0 0 44%; padding: 14px 0 14px 16px; }
@@ -233,6 +233,25 @@
       color: var(--accent); font-size: 14px; line-height: 1.2;
     }
     .story-facts a { color: var(--ink-muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    /* The PM take: its own block under the details, never inline. */
+    .take-label {
+      display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
+    }
+    .story-facts li.story-take {
+      margin-top: 9px; padding: 9px 11px 10px; background: var(--accent-bg);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+      font-size: 12.5px; line-height: 1.55; color: var(--ink);
+    }
+    .story-facts li.story-take::before { content: none; }
+    .research-take {
+      margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
+      font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;
+    }
+    /* Emphasis: bold for the term that names the point, one highlight for the figure that carries it. */
+    .story-facts strong, .research-desc strong, .research-take strong, .signal-item strong { color: var(--ink); font-weight: 600; }
+    mark.hl { background: linear-gradient(transparent 52%, #f6d5c6 52%); color: var(--ink); font-weight: 600; padding: 0 1px; }
+    .signal-item > a:first-child { font-weight: 600; }
     .trending-section { border-top: 0.5px solid var(--border-mid); padding-top: 20px; margin-bottom: 32px; }
     h2.trending-heading {
       font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
@@ -471,20 +490,20 @@
           <h3 class="sidebar-head">Research worth watching</h3>
           <ul class="research-list">
             <li class="research-item">
+              <span class="research-label"><a href="https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-97a.pdf">OCC Supervisory Framework</a></span>
+              <p class="research-desc"><a href="https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-97.html">Issued by the US bank regulator</a> for its examiners, on banks&rsquo; use of AI and AI agents. Risk follows consequence, autonomy and human oversight, not model sophistication: an autonomous payment agent sits in Tier 1, internal productivity tools in Tier 4. Controls it lists include kill switches, least privilege and treating agent identities like privileged users. A framework, not a rule.</p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://www.anthropic.com/research/investigating-vault-particles-with-claude">Vault particles with Claude</a></span>
+              <p class="research-desc">Anthropic&rsquo;s biology lab reports the first 3D structure of a vault particle from prokaryotic cells. In a multi-agent harness Claude set up and ran the microscopy processing while scientists advised: a first model in 34 hours, and a three-day purification cut to about 90 minutes. It also lists Claude&rsquo;s errors; one cost two weeks. Preprint submitted.</p>
+            </li>
+            <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2611.05275">Route Anything</a></span>
               <p class="research-desc">Study of routing each input to the best model or policy, built on 374,401 scored runs from 452 candidate configurations over 25 benchmarks. The authors report learned routers beat the best fixed candidate by 0.3 points across 16 benchmarks and that routing raises efficiency 8.82x on average. Most upvoted paper of the day.</p>
             </li>
             <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2611.05036">ToolSpace</a></span>
               <p class="research-desc">Builds training and test environments for tool-using agents from execution traces of real MCP services instead of synthetic databases. The authors report its harder versions of two agent benchmarks cut the scores of 7 frontier models by up to 38.2 points, and that its data lifts GLM-5.2 from 44.6 to 56.6 on seven long-horizon suites.</p>
-            </li>
-            <li class="research-item">
-              <span class="research-label"><a href="https://huggingface.co/papers/2610.39813">EvoTeam</a></span>
-              <p class="research-desc">Multi-agent framework that evolves team organization, interaction rules and individual agent skills together, and keeps a library of reusable teams. The authors report gains on four benchmarks; the abstract gives no numbers.</p>
-            </li>
-            <li class="research-item">
-              <span class="research-label"><a href="https://huggingface.co/papers/2611.03634">WebHarbor</a></span>
-              <p class="research-desc">153 dockerized reconstructions of real websites with 3,518 tasks, including multi-step and post-login workflows, for training and testing web agents. The authors report that a 4B-class agent trained only inside WebHarbor is competitive with leading open-source web agents.</p>
             </li>
           </ul>
         </section>
@@ -544,11 +563,12 @@
     <section class="also-section">
       <h2 class="also-heading">Also in AI today</h2>
       <ul class="also-list">
+        <li class="also-item"><a href="https://news.adobe.com/news/2026/11/adobe-integrates-agentic-cx-enterprise-coworker-into-ai-platforms"><strong>Adobe CX Enterprise Coworker</strong></a>: Adobe&rsquo;s customer experience agent is now available in Microsoft Copilot, ChatGPT, Claude, Gemini for business and Databricks Genie; new connectors add pre-built MCP server integrations, Microsoft Work IQ among them.</li>
         <li class="also-item"><a href="https://claude.com/resources/articles/new-agents-and-products-claude-marketplace"><strong>Claude Marketplace</strong></a>: new partner agents and products include Asana AI Teammates, monday agents, Zoom Agentic Search, Glean and Datadog Agent Observability; eligible enterprise customers can put part of their committed Anthropic spend toward them.</li>
         <li class="also-item"><a href="https://openai.com/index/introducing-images-2-6"><strong>OpenAI Images 2.6</strong></a>: faster image generation, GIF creation and saved reference images are rolling out in ChatGPT, with new API controls; <a href="https://openai.com/index/daybreak-red-aws-govcloud">Daybreak Red</a> brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock.</li>
         <li class="also-item"><a href="https://devblogs.microsoft.com/agent-framework/give-your-coding-agent-a-head-start-with-microsoft-agent-framework-skills-for-net-and-python/"><strong>Microsoft Agent Framework</strong></a>: installable builder skills for .NET and Python give coding agents Microsoft-maintained guidance; <a href="https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant">GitHub Copilot is in public preview inside Xcode&rsquo;s built-in coding assistant</a>, starting with Xcode 27.3 beta.</li>
         <li class="also-item"><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes"><strong>Microsoft 365 Copilot</strong></a>: the release notes dated November 4 list an agents usage report for the admin center (active agents and users, split by licence and by publisher) and admin control over up to 100 authoritative SharePoint sites for Copilot Search.</li>
-        <li class="also-item"><a href="https://teslanorth.com/2026/11/04/grok-bot-phone-calls-live/"><strong>Grok Bot</strong></a>: xAI&rsquo;s assistant can now place phone calls for its users, announced on X with a demo. It shows a card naming who it will call before dialing, a live transcript during the call, and Take over and End call buttons.</li>
+        <li class="also-item"><a href="https://teslanorth.com/2026/11/04/grok-bot-phone-calls-live/"><strong>Grok Bot</strong></a>: SpaceXSI&rsquo;s assistant can now place phone calls, announced on X with a demo: a card names who it will call, with a live transcript and a Take over button. <a href="https://x.ai/legal/grok-bot-terms">Its terms</a> make the user the caller of record, and calls say they come from a virtual assistant.</li>
         <li class="also-item"><a href="https://docs.slack.dev/changelog/2026/11/04/slack-cli"><strong>Slack CLI 4.13.0</strong></a>: the slack --help output now carries a hint for coding agents, suggesting they ask the user whether to install the Slack MCP and Skills Plugin; nothing changes for people running the CLI themselves.</li>
         <li class="also-item"><a href="https://aws.amazon.com/blogs/machine-learning/smart-approvals-in-amazon-quick-human-oversight-where-it-matters/"><strong>Amazon Quick Smart Approvals</strong></a>: AWS detailed the feature: a separate classifier model checks each eligible action against the user&rsquo;s request, then approves it or returns it for human review. On by default; it cannot override approvals that policy requires.</li>
         <li class="also-item"><a href="https://cloud.google.com/blog/products/databases/introducing-alloydb-express-for-rapid-testing-and-prototyping/"><strong>Google AlloyDB Express</strong></a>: preview of a PostgreSQL service aimed at coding agents; a database is created in under two seconds through CLI, REST or MCP and pauses after 15 idle minutes. <a href="https://cloud.google.com/blog/products/databases/whats-new-across-googles-agentic-data-cloud/">Cross-cloud lakehouse queries on AWS and Azure data</a> are generally available.</li>

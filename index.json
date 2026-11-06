@@ -20,7 +20,7 @@
       "date": "2026-11-04",
       "url": "issues/daily/2026/11/2026-11-04.html",
       "headline": "Salesforce brings Agentforce Coworker into Microsoft Teams",
-      "tags": ["Salesforce", "Microsoft", "Anthropic", "OpenAI", "Meta", "Cloudflare", "Google", "Amazon", "Apple", "Slack", "CrowdStrike", "Uber", "xAI", "Cohere"],
+      "tags": ["Salesforce", "Microsoft", "Anthropic", "OpenAI", "Meta", "Cloudflare", "Adobe", "Google", "Amazon", "Apple", "Slack", "CrowdStrike", "Uber", "SpaceXSI", "Cohere"],
       "stories": [
         {"label": "COWORKER IN TEAMS", "text": "Salesforce announced Agentforce Coworker for Microsoft Teams: an employee hands it a job in a Teams conversation and it coordinates Agentforce agents under the same Salesforce permissions and governance.", "image": {"src": "assets/covers/2026-11-04-0.jpg", "thumb": "assets/covers/2026-11-04-0.sm.jpg", "alt": "Agentforce Coworker release art: a fuzzy blue bear-shaped character wearing sunglasses, with gold and teal sparkles on a blue background", "credit": "Salesforce", "credit_url": "https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/"}},
         {"label": "CLAUDE AS ISSUER", "text": "Claude can now issue the signed identity assertions that MCP services use to recognize a company’s employees, so plugins connect with no per-user consent screen and no support needed from the company’s identity provider."},
