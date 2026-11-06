@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-05",
+      "url": "issues/daily/2026/11/2026-11-05.html",
+      "headline": "Work IQ agents get enterprise data and user memory",
+      "tags": ["Microsoft", "Anthropic", "Perplexity", "Notion", "Dropbox", "OpenAI", "GitHub", "Google", "Amazon", "Salesforce", "Mistral AI", "Cloudflare", "Meta", "Nvidia", "Moonshot AI", "Baidu", "Cursor", "METR"],
+      "stories": [
+        {"label": "WORK IQ FOR AGENTS", "text": "Microsoft is bringing Copilot connectors to the Work IQ APIs and giving agents read access to a user’s Copilot memory.", "image": {"src": "assets/covers/2026-11-05-0.jpg", "thumb": "assets/covers/2026-11-05-0.sm.jpg", "alt": "Microsoft&#x27;s diagram of Work IQ: business data, context, memory and skills feeding Copilot and agents", "credit": "Microsoft", "credit_url": "https://devblogs.microsoft.com/microsoft365dev/work-iq-sharepoint-mcp-tools/"}},
+        {"label": "MIXED HARNESSES", "text": "VS Code 1.145 lets one session mix agent harnesses: Claude can review a plan Copilot wrote, or Codex can run the same task alongside."},
+        {"label": "CLAUDE ADMIN CONTROLS", "text": "Claude Enterprise can now send every prompt and tool call through a company’s own security tools before it runs.", "image": {"src": "assets/covers/2026-11-05-2.jpg", "thumb": "assets/covers/2026-11-05-2.sm.jpg", "alt": "Illustration of a hand holding a key, from Anthropic&#x27;s announcement", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/claude-enterprise-security-updates"}},
+        {"label": "TEAMMATES IN SLACK", "text": "Perplexity launched teammates: always-on agents you add to a Slack channel, where colleagues hand them work and ask for updates."},
+        {"label": "NOTION AS CONTEXT", "text": "Notion is repositioning as the shared context layer for every agent, including agents built by other companies.", "image": {"src": "assets/covers/2026-11-05-4.jpg", "thumb": "assets/covers/2026-11-05-4.sm.jpg", "alt": "Chart from Notion&#x27;s post: its MCP volume rising steeply through 2026", "credit": "Notion", "credit_url": "https://www.notion.com/blog/the-next-era-of-notion"}}
+      ],
+      "deck": "Also: VS Code mixes Copilot, Claude and Codex in one session, Claude gets security hooks before every tool call, Perplexity puts agents in Slack channels, and Notion wants to hold every agent’s context."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-04",
       "url": "issues/daily/2026/11/2026-11-04.html",
       "headline": "Salesforce brings Agentforce Coworker into Microsoft Teams",
