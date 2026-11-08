@@ -510,8 +510,29 @@
 
   <footer role="contentinfo">
     <span class="foot-wordmark">AI Brief</span>
+    <span class="foot-meta" id="foot-views" data-date="2026-03-30" hidden></span>
     <span class="foot-meta">Monday edition · March 30, 2026</span>
   </footer>
+<script>
+(function(){
+  var el = document.getElementById('foot-views');
+  if (!el) return;
+  var m = location.pathname.match(/\/issues\/(.+)\.html$/);
+  var key = (m ? m[1] : ('draft-' + (el.dataset.date || 'unknown'))).replace(/[^A-Za-z0-9_-]+/g, '-');
+  var live = location.hostname === 'sjvadrevu.github.io' && !!m;
+  var mark = 'ai-brief-viewed:' + key, seen = false;
+  try { seen = !!sessionStorage.getItem(mark); } catch (e) {}
+  var action = (live && !seen) ? 'hit' : 'get';
+  fetch('https://abacus.jasoncameron.dev/' + action + '/sjvadrevu-ai-brief/' + key)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || typeof d.value !== 'number') return;
+      if (action === 'hit') { try { sessionStorage.setItem(mark, '1'); } catch (e) {} }
+      el.textContent = d.value.toLocaleString('en-US') + (d.value === 1 ? ' view' : ' views');
+      el.hidden = false;
+    }).catch(function(){});
+})();
+</script>
 
   <nav class="issue-nav" aria-label="Browse issues" data-date="2026-03-30">
     <a class="issue-nav-link" id="nav-prev" href="../../../../">← Previous</a>
