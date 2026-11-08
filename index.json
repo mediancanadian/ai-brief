@@ -2,6 +2,20 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-07",
+      "url": "issues/daily/2026/11/2026-11-07.html",
+      "headline": "Claude Code's saved approvals leak secrets on GitHub",
+      "tags": ["Anthropic", "Apiiro", "Nous Research", "Alibaba", "Huawei", "Microsoft", "Amazon", "Google", "Apple", "Vercel", "DeepSeek", "Tencent", "xAI", "OpenAI"],
+      "stories": [
+        {"label": "SAVED APPROVALS LEAK", "text": "Claude Code's saved approvals put secrets in public repositories."},
+        {"label": "VALUES ONE TUNE AWAY", "text": "Nous Research turns Qwen3.8-27B into Arete-27B (November 6).", "image": {"src": "assets/covers/2026-11-07-1.jpg", "thumb": "assets/covers/2026-11-07-1.sm.jpg", "alt": "Release art for Arete-27B: the model name over a snow-covered mountain ridge", "credit": "Nous Research", "credit_url": "https://nousresearch.com/arete"}},
+        {"label": "HUAWEI OFFICE AGENT", "text": "Huawei releases Xiaoyi Work, an office agent for HarmonyOS PCs (November 6)."},
+        {"label": "AGENT FRAMEWORK 1.25", "text": "Microsoft's Agent Framework 1.25 bounds MCP discovery and workflow scope."}
+      ],
+      "deck": "Also: Nous fine-tunes the state line out of Qwen, Huawei ships a work agent for HarmonyOS PCs, Microsoft's Agent Framework caps MCP discovery, and Kiro explains how it routes work between models."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-06",
       "url": "issues/daily/2026/11/2026-11-06.html",
       "headline": "GitHub's coding agent goes live in Slack and Teams",
