@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-06",
+      "url": "issues/daily/2026/11/2026-11-06.html",
+      "headline": "GitHub's coding agent goes live in Slack and Teams",
+      "tags": ["GitHub", "Microsoft", "Anthropic", "Meta", "Vercel", "Thinking Machines", "OpenAI", "Salesforce", "Dropbox", "Amazon", "Cursor", "LangChain", "Atlassian", "Factory", "DeepSeek", "Google"],
+      "stories": [
+        {"label": "GITHUB IN TEAMS", "text": "GitHub's coding agent is now generally available in Slack and Teams.", "image": {"src": "assets/covers/2026-11-06-0.jpg", "thumb": "assets/covers/2026-11-06-0.sm.jpg", "alt": "A chat thread where a user asks @GitHub to create an issue from a bug report and the agent replies with the created issue", "credit": "GitHub", "credit_url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available"}},
+        {"label": "DREAMING FOR MEMORY", "text": "Anthropic explains how Claude organizes its own memory.", "image": {"src": "assets/covers/2026-11-06-1.jpg", "thumb": "assets/covers/2026-11-06-1.sm.jpg", "alt": "Anthropic&#x27;s diagram of dreaming: transcripts and memory notes feed memory representations and injected context for the next session", "credit": "Anthropic", "credit_url": "https://www.anthropic.com/research/components-of-agent-memory"}},
+        {"label": "MUSE LEARNS TO PERSIST", "text": "Meta ships Wonder-trained models and spaces to every Muse user.", "image": {"src": "assets/covers/2026-11-06-2.jpg", "thumb": "assets/covers/2026-11-06-2.sm.jpg", "alt": "Meta&#x27;s release art for spaces in the Muse app", "credit": "Meta", "credit_url": "https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/"}},
+        {"label": "AGENTS IN TEAM CHAT", "text": "Vercel's Chat SDK streams native cards; Ampersand arrives on AI Gateway."},
+        {"label": "INKLING 2 SMALL", "text": "Thinking Machines introduces Inkling 2 Small, 594B parameters, 17B active."}
+      ],
+      "deck": "Also: Claude tidies its own memory offline, Muse learns to remember and persevere, Vercel gives chat agents native cards and a quiet-by-default model, and Thinking Machines ships a second model."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-05",
       "url": "issues/daily/2026/11/2026-11-05.html",
       "headline": "Work IQ agents get enterprise data and user memory",
