@@ -2,6 +2,19 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-08",
+      "url": "issues/daily/2026/11/2026-11-08.html",
+      "headline": "Apple reportedly speeds up an agentic Siri",
+      "tags": ["Apple", "Nvidia", "Anthropic", "Rebellions", "SK Telecom", "Hyundai", "Goldman Sachs", "Thinking Machines Lab"],
+      "stories": [
+        {"label": "SIRI GOES AGENTIC", "text": "Apple is reportedly racing to make Siri an agent.", "image": {"src": "assets/covers/2026-11-08-0.jpg", "thumb": "assets/covers/2026-11-08-0.sm.jpg", "alt": "Apple Intelligence art: an iPhone showing a typed request asking Siri to draft an email, among other app screens", "credit": "Apple", "credit_url": "https://www.apple.com/apple-intelligence/"}},
+        {"label": "POWER, BOUGHT DIRECT", "text": "Anthropic reportedly buys 1.7 GW of gas-fired generators."},
+        {"label": "PREFILL HERE, DECODE THERE", "text": "Rebellions will link its Korean inference chips to Nvidia over NVLink Fusion.", "image": {"src": "assets/covers/2026-11-08-2.jpg", "thumb": "assets/covers/2026-11-08-2.sm.jpg", "alt": "Nvidia press image from the NVLink Fusion announcement: a compute board with two large chips above a third", "credit": "Nvidia", "credit_url": "https://nvidianews.nvidia.com/news/nvidia-rebellions-and-sk-telecom-announce-collaboration-to-advance-sovereign-ai-infrastructure-with-nvidia-nvlink-fusion"}}
+      ],
+      "deck": "Also: Anthropic reportedly buys a place in the generator queue, a Korean chip will handle decode inside Nvidia racks, and Nvidia's board opens an inquiry over its CEO."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-07",
       "url": "issues/daily/2026/11/2026-11-07.html",
       "headline": "Claude Code's saved approvals leak secrets on GitHub",
