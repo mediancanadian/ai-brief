@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-09",
+      "url": "issues/daily/2026/11/2026-11-09.html",
+      "headline": "Anthropic ships Claude Fable 5.2 at a lower price",
+      "tags": ["Anthropic", "Microsoft", "Google", "Meta", "GitHub", "OpenAI", "Amazon", "Sourcegraph", "ElevenLabs", "ByteDance", "Apple", "Adobe"],
+      "stories": [
+        {"label": "FABLE 5.2 SHIPS", "text": "Anthropic releases Claude Fable 5.2 and Mythos 5.2.", "image": {"src": "assets/covers/2026-11-09-0.jpg", "thumb": "assets/covers/2026-11-09-0.sm.jpg", "alt": "GitHub release art: the Copilot model picker with Claude Fable 5.2 selected", "credit": "GitHub", "credit_url": "https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot"}},
+        {"label": "AGENTS ON EVERY SEAT", "text": "Microsoft will show Cowork, Code and Autopilot to every Copilot user.", "image": {"src": "assets/covers/2026-11-09-1.jpg", "thumb": "assets/covers/2026-11-09-1.sm.jpg", "alt": "Microsoft screenshot: a Cowork prompt offering Learn more and a link to the organization&#x27;s guidance", "credit": "Microsoft", "credit_url": "https://mc.merill.net/message/MC1546354"}},
+        {"label": "SKILLS COME TO WORKSPACE", "text": "Gemini skills reach Gmail, Docs, Slides, Drive and Chat."},
+        {"label": "A CHEAP MODEL FOR SUB-TASKS", "text": "Meta releases Muse Ember for agent sub-tasks."},
+        {"label": "TPUS FOR AGENTS", "text": "Google adds two TPU systems built for agents.", "image": {"src": "assets/covers/2026-11-09-4.jpg", "thumb": "assets/covers/2026-11-09-4.sm.jpg", "alt": "Google render of the TPU 8tx board beside the larger TPU 8i Max board", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/"}}
+      ],
+      "deck": "Also: Microsoft puts its usage-billed agents in front of every Copilot seat, Google brings skills to Workspace, Meta prices a model for agent sub-tasks, and Google builds TPUs for agents."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-08",
       "url": "issues/daily/2026/11/2026-11-08.html",
       "headline": "Apple reportedly speeds up an agentic Siri",
