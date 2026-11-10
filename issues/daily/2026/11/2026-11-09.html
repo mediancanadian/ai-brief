@@ -489,14 +489,14 @@
           <h3 class="sidebar-head">Research worth watching</h3>
           <ul class="research-list">
             <li class="research-item">
+              <span class="research-label"><a href="https://openai.com/index/control-room/">An off switch for every agent run</a></span>
+              <p class="research-desc">OpenAI's Control Room makes every research inference request check a central service, so a monitor can <strong>stop a job's model output within 35 seconds</strong>; if the service goes down, all requests are denied.</p>
+              <p class="research-take"><span class="take-label">Why it matters</span>The kill switch lives in the inference layer, not in each agent's code: a pattern worth copying.</p>
+            </li>
+            <li class="research-item">
               <span class="research-label"><a href="https://www.anthropic.com/research/claude-electronics-design">Claude designs working hardware</a></span>
               <p class="research-desc">With Diode, Fable 5.2 wrote specs, laid out circuit boards, designed enclosures and firmware for a speakerphone, a voice hub and a handheld pet: <strong>all three prototypes worked with no circuit fixes</strong>.</p>
               <p class="research-take"><span class="take-label">Why it matters</span>Agents move from code into physical product work, with people as the build crew.</p>
-            </li>
-            <li class="research-item">
-              <span class="research-label"><a href="https://devblogs.microsoft.com/blog/do-ai-coding-agents-care-about-semver/">A version label changes how agents check upgrades</a></span>
-              <p class="research-desc">Same breaking code, labeled patch or major: <strong>Claude Sonnet 5.5 checked it in 2 of 10 runs as a patch, 10 of 10 as major</strong>. Opus 5.5 and GPT-6.1 models checked every time.</p>
-              <p class="research-take"><span class="take-label">Why it matters</span>Agents inherit human shortcuts; test the cheap model on the cases people skip.</p>
             </li>
             <li class="research-item">
               <span class="research-label"><a href="https://huggingface.co/papers/2610.35959">Hand off from a strong model to a cheap one</a></span>
@@ -567,6 +567,7 @@
       <h2 class="also-heading">Also in AI today</h2>
       <ul class="also-list">
         <li class="also-item"><a href="https://mc.merill.net/message/MC1545695"><strong>Microsoft 365 Copilot App Blocks</strong></a>: calculators, dashboards, forms and simulations render inside Copilot Chat; rolling out worldwide, due to complete in early November.</li>
+        <li class="also-item"><a href="https://devblogs.microsoft.com/blog/do-ai-coding-agents-care-about-semver/"><strong>Microsoft on agents and SemVer</strong></a>: with identical breaking code, Claude Sonnet 5.5 checked a patch-labeled upgrade in 2 of 10 runs and a major one in 10 of 10; Opus 5.5 and GPT-6.1 models checked every time.</li>
         <li class="also-item"><a href="https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs"><strong>GitHub secret scanning</strong></a>: now scans Actions workflow logs; public preview for Enterprise Cloud with Secret Protection or Advanced Security; off by default.</li>
         <li class="also-item"><a href="https://openai.com/index/chatgpt-enterprise-aws-marketplace"><strong>ChatGPT Enterprise</strong></a>: now sold through AWS Marketplace, on existing AWS purchasing and billing.</li>
         <li class="also-item"><a href="https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-quick-aws-quick/"><strong>AWS Quick</strong></a>: Amazon Quick, its AI workspace with agents, is renamed AWS Quick; Quick Sight becomes AWS Quick Sight; nothing else changes.</li>
