@@ -39,6 +39,10 @@
     .band { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; }
     .band strong { font-weight: 600; }
     .band span { color: var(--ink-muted); }
+    .band-link { margin-bottom: 36px; }
+    .band-link b { font-weight: 400; color: var(--accent); }
+    .band-link:hover span, .strap-link:hover { color: var(--accent); }
+    .strap-link { color: var(--ink); border-bottom: 1px solid var(--line); }
 
     /* Latest issue */
     .feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: center; padding: 40px 0 64px; }
@@ -140,11 +144,13 @@
 <div class="wrap">
   <header class="masthead">
     <div class="wordmark"><b>AI</b>Brief</div>
-    <p class="strap">Daily AI intelligence briefing</p>
+    <p class="strap">Daily AI intelligence briefing · <a class="strap-link" href="trends.html">Trends</a></p>
   </header>
 
   <div class="band"><strong>Latest</strong><span id="latest-date"></span></div>
   <section class="feature" id="feature" aria-label="Latest issue" hidden></section>
+
+  <a class="band band-link" href="trends.html"><strong>Trends</strong><span>What is rising in AI, and what is fading <b aria-hidden="true">→</b></span></a>
 
   <main>
     <div class="band"><strong>Archive</strong><span id="archive-count"></span></div>
