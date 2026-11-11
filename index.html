@@ -318,7 +318,7 @@
     render();
   });
   document.getElementById('type-select').addEventListener('change', function () {
-    state.type = this.value; state.month = null; state.tag = null; state.openMonths = {}; render();
+    state.type = this.value; state.month = defaultMonth(); state.tag = null; state.openMonths = {}; render();
   });
   document.getElementById('tag-select').addEventListener('change', function () { state.tag = this.value || null; renderIssues(); });
   document.getElementById('search-input').addEventListener('input', function () { state.q = this.value.trim().toLowerCase(); renderIssues(); });
@@ -358,9 +358,18 @@
     currentBtn = btn;
   }
 
+  /* The page opens on the current month (Toronto time); if it has no issue of this type yet, on the
+     latest month that does. "All" stays one tap away. */
+  function defaultMonth() {
+    var now = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Toronto' }).slice(0, 7);
+    var list = ofType();
+    if (list.some(function (x) { return monthKey(x) === now; })) return now;
+    return list.length ? monthKey(list[0]) : null;
+  }
   function start(data) {
     all = (data.issues || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
     if (!all.some(function (x) { return x.type === state.type; }) && all.length) state.type = all[0].type;
+    state.month = defaultMonth();
     render();
   }
   if (window.AI_BRIEF_INDEX) { start(window.AI_BRIEF_INDEX); }
