@@ -15,6 +15,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
       padding: 48px 24px;
       font-family: 'Lora', Georgia, serif;
       -webkit-font-smoothing: antialiased;
@@ -99,6 +100,11 @@
       display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; margin-bottom: 28px;
       align-items: start;
     }
+    /* The sidebar sits beside the stories only when there is room for both; below that it follows them. */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; position: static; }
+    }
     @media (max-width: 600px) {
       body { padding: 16px; }
       .brief { padding: 24px 20px 32px; }
@@ -180,7 +186,7 @@
     details.expand-more .also-list { margin-top: 4px; }
     details.expand-more .research-list { margin-top: 8px; }
     .stories-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: grid; grid-template-columns: 1fr;
       gap: 14px;
     }
     @media (max-width: 600px) { .stories-grid { grid-template-columns: 1fr; } }
@@ -192,23 +198,16 @@
     }
     .story-card:hover { box-shadow: 0 4px 16px rgba(26,25,23,0.11); }
     .story-card--wide { grid-column: 1 / -1; }
-    /* A story may carry the image its announcer published, shown whole and credited:
-       large beside the lead story, small inside the other cards. */
-    .story-card-media { margin: 0; }
-    .story-card-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+    /* A story may carry the image its announcer published, shown whole and credited,
+       always across the top of its card. Cards read top to bottom: no floats, no inner columns. */
+    .story-card-media { margin: 0; padding: 14px 16px 0; }
+    .story-card-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 220px; margin: 0 auto; border-radius: 6px; }
+    .story-card--wide .story-card-img { max-height: 280px; }
     .story-card-credit {
       font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.04em;
       color: var(--ink-faint); padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .story-card-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
-    .story-card-body .story-card-media { float: right; width: 104px; margin: 2px 0 6px 14px; }
-    .story-facts { clear: both; }
-    .story-card--wide > .story-card-media { padding: 14px 16px 0; }
-    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; aspect-ratio: auto; object-fit: contain; }
-    @media (min-width: 601px) {
-      .story-card--wide.story-card--media { flex-direction: row; }
-      .story-card--wide > .story-card-media { flex: 0 0 44%; padding: 14px 0 14px 16px; }
-    }
     .story-card-body { padding: 14px 16px; flex: 1; }
     h4.story-head {
       font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 500;
@@ -238,12 +237,14 @@
       display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
     }
-    .story-facts li.story-take {
-      margin-top: 9px; padding: 9px 11px 10px; background: var(--accent-bg);
+    .story-take {
+      margin-top: 10px; padding: 9px 12px 10px; background: var(--accent-bg);
       border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
       font-size: 12.5px; line-height: 1.55; color: var(--ink);
     }
-    .story-facts li.story-take::before { content: none; }
+    .story-card--wide .story-lead { font-size: 15px; }
+    .story-facts li { font-size: 13px; }
+    .story-take { font-size: 13.5px; }
     .research-take {
       margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
       font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;
@@ -420,24 +421,24 @@
                 <li><strong>Available now</strong> on AWS, Google Cloud and Azure at <mark class="hl">$8 input and $40 output per million tokens</mark>, a lower price; output up to 30% faster than 5.1.</li>
                 <li><strong>Scores:</strong> 69.9% on FrontierSWE v2 against 62.3% for Opus 5.5. Mythos 5.2 is the same model with fewer safeguards, for vetted groups only.</li>
                 <li><strong>In Copilot:</strong> <a href="https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot">generally available</a>; needs data retention by default.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>The frontier now ships as one model sold in tiers by trust. For agent builders, safeguards and retention terms become a buying criterion next to price and score.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>The frontier now ships as one model sold in tiers by trust. For agent builders, safeguards and retention terms become a buying criterion next to price and score.</div>
             </div>
           </div>
 
           <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-09-1.jpg" alt="Microsoft screenshot: a Cowork prompt offering Learn more and a link to the organization&#x27;s guidance">
+              <figcaption class="story-card-credit">Image: <a href="https://mc.merill.net/message/MC1546354">Microsoft</a></figcaption>
+            </figure>
             <div class="story-card-body">
-              <figure class="story-card-media">
-                  <img class="story-card-img" src="../../../../assets/covers/2026-11-09-1.jpg" alt="Microsoft screenshot: a Cowork prompt offering Learn more and a link to the organization&#x27;s guidance">
-                  <figcaption class="story-card-credit">Image: <a href="https://mc.merill.net/message/MC1546354">Microsoft</a></figcaption>
-              </figure>
               <h4 class="story-head">AGENTS ON EVERY SEAT</h4>
               <p class="story-lead"><a href="https://mc.merill.net/message/MC1546354">Microsoft will show Cowork, Code and Autopilot to every Copilot user</a>.</p>
               <ul class="story-facts">
                 <li><strong>Default:</strong> from the end of January 2027 the entry points appear for <mark class="hl">all Microsoft 365 Copilot licensed users</mark>, even where the organization has not turned them on.</li>
                 <li><strong>Billing:</strong> all three are usage-based; users without a spending policy see Request access or Learn more. Admin setting in mid-November, a custom guidance link in mid-December.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>The Copilot seat becomes a storefront: the license buys reach, metered use pays for the agent. Budget fights move from annual procurement to per-task spend.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>The Copilot seat becomes a storefront: the license buys reach, metered use pays for the agent. Budget fights move from annual procurement to per-task spend.</div>
             </div>
           </div>
 
@@ -448,8 +449,8 @@
               <ul class="story-facts">
                 <li><strong>What:</strong> reusable instructions in the open <mark class="hl">SKILL.md format</mark>, built in Workspace Studio or Docs, applied automatically or by @mention; they can start Studio flows.</li>
                 <li><strong>Rollout:</strong> Rapid Release from November 9, Scheduled Release from November 30; on by default; English only; not yet in Sheets or Meet.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>With a shared file format, a team's know-how becomes portable between assistants. Lock-in moves away from the instructions and toward the data, flows and chat surface where skills run.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>With a shared file format, a team's know-how becomes portable between assistants. Lock-in moves away from the instructions and toward the data, flows and chat surface where skills run.</div>
             </div>
           </div>
 
@@ -460,24 +461,24 @@
               <ul class="story-facts">
                 <li><strong>Price:</strong> <mark class="hl">$0.10 input and $0.50 output per million tokens</mark> on the Meta Model API; 1M-token context, up to 512K output.</li>
                 <li><strong>Meta's numbers:</strong> 37.8% on AutomationBench-AA against 13.9% for Claude Haiku 5.5 and 20.2% for GPT-6 Luna; Haiku's best score at about a third of the cost.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>Agent runs split by job: a frontier model plans, a cheap one does the repeat steps. As sub-task prices fall, margin moves to whoever owns the harness that routes between them.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Agent runs split by job: a frontier model plans, a cheap one does the repeat steps. As sub-task prices fall, margin moves to whoever owns the harness that routes between them.</div>
             </div>
           </div>
 
           <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-09-4.jpg" alt="Google render of the TPU 8tx board beside the larger TPU 8i Max board">
+              <figcaption class="story-card-credit">Image: <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/">Google</a></figcaption>
+            </figure>
             <div class="story-card-body">
-              <figure class="story-card-media">
-                  <img class="story-card-img" src="../../../../assets/covers/2026-11-09-4.jpg" alt="Google render of the TPU 8tx board beside the larger TPU 8i Max board">
-                  <figcaption class="story-card-credit">Image: <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/">Google</a></figcaption>
-              </figure>
               <h4 class="story-head">TPUS FOR AGENTS</h4>
               <p class="story-lead"><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/">Google adds two TPU systems built for agents</a>.</p>
               <ul class="story-facts">
                 <li><strong>TPU 8tx:</strong> <mark class="hl">confidential inference</mark> that keeps data and weights protected while in use, with up to 2x lower latency than TPU 8t.</li>
                 <li><strong>TPU 8i Max:</strong> two 8i chips on one package for long context, with double the compute, SRAM and HBM bandwidth of TPU 8i. Google counts nearly 100 TPU customers.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>Chips are now sold by agent workload: secure execution for regulated data, memory for million-token context. The confidential tier targets buyers who keep sensitive work off cloud agents.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Chips are now sold by agent workload: secure execution for regulated data, memory for million-token context. The confidential tier targets buyers who keep sensitive work off cloud agents.</div>
             </div>
           </div>
 

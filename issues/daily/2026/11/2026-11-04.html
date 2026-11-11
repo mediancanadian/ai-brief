@@ -15,6 +15,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
       padding: 48px 24px;
       font-family: 'Lora', Georgia, serif;
       -webkit-font-smoothing: antialiased;
@@ -99,6 +100,11 @@
       display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; margin-bottom: 28px;
       align-items: start;
     }
+    /* The sidebar sits beside the stories only when there is room for both; below that it follows them. */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; position: static; }
+    }
     @media (max-width: 600px) {
       body { padding: 16px; }
       .brief { padding: 24px 20px 32px; }
@@ -134,11 +140,11 @@
     .research-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 0.5px solid var(--border); }
     .research-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .research-label a {
-      font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--ink);
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600; color: var(--ink);
       line-height: 1.4; margin-bottom: 4px; display: block;
-      text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px;
+      text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px;
     }
-    .research-desc { font-size: 12.5px; line-height: 1.6; color: var(--ink-muted); }
+    .research-desc { font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
     .signal-p { font-size: 13px; line-height: 1.65; color: var(--ink-muted); }
     .signal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .signal-item { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding-left: 12px; border-left: 2px solid var(--border-mid); }
@@ -180,7 +186,7 @@
     details.expand-more .also-list { margin-top: 4px; }
     details.expand-more .research-list { margin-top: 8px; }
     .stories-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: grid; grid-template-columns: 1fr;
       gap: 14px;
     }
     @media (max-width: 600px) { .stories-grid { grid-template-columns: 1fr; } }
@@ -192,23 +198,16 @@
     }
     .story-card:hover { box-shadow: 0 4px 16px rgba(26,25,23,0.11); }
     .story-card--wide { grid-column: 1 / -1; }
-    /* A story may carry the image its announcer published, shown whole and credited:
-       large beside the lead story, small inside the other cards. */
-    .story-card-media { margin: 0; }
-    .story-card-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+    /* A story may carry the image its announcer published, shown whole and credited,
+       always across the top of its card. Cards read top to bottom: no floats, no inner columns. */
+    .story-card-media { margin: 0; padding: 14px 16px 0; }
+    .story-card-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 220px; margin: 0 auto; border-radius: 6px; }
+    .story-card--wide .story-card-img { max-height: 280px; }
     .story-card-credit {
       font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.04em;
       color: var(--ink-faint); padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .story-card-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
-    .story-card-body .story-card-media { float: right; width: 104px; margin: 2px 0 6px 14px; }
-    .story-facts { clear: both; }
-    .story-card--wide > .story-card-media { padding: 14px 16px 0; }
-    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; aspect-ratio: auto; object-fit: contain; }
-    @media (min-width: 601px) {
-      .story-card--wide.story-card--media { flex-direction: row; }
-      .story-card--wide > .story-card-media { flex: 0 0 44%; padding: 14px 0 14px 16px; }
-    }
     .story-card-body { padding: 14px 16px; flex: 1; }
     h4.story-head {
       font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 500;
@@ -238,12 +237,14 @@
       display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
     }
-    .story-facts li.story-take {
-      margin-top: 9px; padding: 9px 11px 10px; background: var(--accent-bg);
+    .story-take {
+      margin-top: 10px; padding: 9px 12px 10px; background: var(--accent-bg);
       border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
       font-size: 12.5px; line-height: 1.55; color: var(--ink);
     }
-    .story-facts li.story-take::before { content: none; }
+    .story-card--wide .story-lead { font-size: 15px; }
+    .story-facts li { font-size: 13px; }
+    .story-take { font-size: 13.5px; }
     .research-take {
       margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
       font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;

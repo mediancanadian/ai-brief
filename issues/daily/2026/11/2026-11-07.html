@@ -15,6 +15,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
       padding: 48px 24px;
       font-family: 'Lora', Georgia, serif;
       -webkit-font-smoothing: antialiased;
@@ -99,6 +100,11 @@
       display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; margin-bottom: 28px;
       align-items: start;
     }
+    /* The sidebar sits beside the stories only when there is room for both; below that it follows them. */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; position: static; }
+    }
     @media (max-width: 600px) {
       body { padding: 16px; }
       .brief { padding: 24px 20px 32px; }
@@ -180,7 +186,7 @@
     details.expand-more .also-list { margin-top: 4px; }
     details.expand-more .research-list { margin-top: 8px; }
     .stories-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: grid; grid-template-columns: 1fr;
       gap: 14px;
     }
     @media (max-width: 600px) { .stories-grid { grid-template-columns: 1fr; } }
@@ -192,23 +198,16 @@
     }
     .story-card:hover { box-shadow: 0 4px 16px rgba(26,25,23,0.11); }
     .story-card--wide { grid-column: 1 / -1; }
-    /* A story may carry the image its announcer published, shown whole and credited:
-       large beside the lead story, small inside the other cards. */
-    .story-card-media { margin: 0; }
-    .story-card-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; }
+    /* A story may carry the image its announcer published, shown whole and credited,
+       always across the top of its card. Cards read top to bottom: no floats, no inner columns. */
+    .story-card-media { margin: 0; padding: 14px 16px 0; }
+    .story-card-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 220px; margin: 0 auto; border-radius: 6px; }
+    .story-card--wide .story-card-img { max-height: 280px; }
     .story-card-credit {
       font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.04em;
       color: var(--ink-faint); padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .story-card-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
-    .story-card-body .story-card-media { float: right; width: 104px; margin: 2px 0 6px 14px; }
-    .story-facts { clear: both; }
-    .story-card--wide > .story-card-media { padding: 14px 16px 0; }
-    .story-card--wide > .story-card-media .story-card-img { border-radius: 6px; aspect-ratio: auto; object-fit: contain; }
-    @media (min-width: 601px) {
-      .story-card--wide.story-card--media { flex-direction: row; }
-      .story-card--wide > .story-card-media { flex: 0 0 44%; padding: 14px 0 14px 16px; }
-    }
     .story-card-body { padding: 14px 16px; flex: 1; }
     h4.story-head {
       font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 500;
@@ -238,12 +237,14 @@
       display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
     }
-    .story-facts li.story-take {
-      margin-top: 9px; padding: 9px 11px 10px; background: var(--accent-bg);
+    .story-take {
+      margin-top: 10px; padding: 9px 12px 10px; background: var(--accent-bg);
       border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
       font-size: 12.5px; line-height: 1.55; color: var(--ink);
     }
-    .story-facts li.story-take::before { content: none; }
+    .story-card--wide .story-lead { font-size: 15px; }
+    .story-facts li { font-size: 13px; }
+    .story-take { font-size: 13.5px; }
     .research-take {
       margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
       font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;
@@ -416,24 +417,24 @@
                 <li><strong>Apiiro's figures:</strong> "don't ask again" saves the approved command to <code>.claude/settings.local.json</code>; <mark class="hl">1,122 of 104,185 public copies</mark> hold 1,379 secrets.</li>
                 <li><strong>What leaked:</strong> 379 database passwords, 43 SSH logins, 42 GitHub, GitLab and npm tokens, 23 AWS keys; gitleaks and TruffleHog both missed 215 files.</li>
                 <li><strong>Default:</strong> of 16 agents compared, only Claude Code saves the full approved command in a project file.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>An approval memory is a write path into the repository. Store the pattern a user allowed, not the command, keep the file out of version control, and scan agent folders like .env.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>An approval memory is a write path into the repository. Store the pattern a user allowed, not the command, keep the file out of version control, and scan agent folders like .env.</div>
             </div>
           </div>
 
           <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-07-1.jpg" alt="Release art for Arete-27B: the model name over a snow-covered mountain ridge">
+              <figcaption class="story-card-credit">Image: <a href="https://nousresearch.com/arete">Nous Research</a></figcaption>
+            </figure>
             <div class="story-card-body">
-              <figure class="story-card-media">
-                  <img class="story-card-img" src="../../../../assets/covers/2026-11-07-1.jpg" alt="Release art for Arete-27B: the model name over a snow-covered mountain ridge">
-                  <figcaption class="story-card-credit">Image: <a href="https://nousresearch.com/arete">Nous Research</a></figcaption>
-              </figure>
               <h4 class="story-head">VALUES ONE TUNE AWAY</h4>
               <p class="story-lead"><a href="https://nousresearch.com/arete">Nous Research turns Qwen3.8-27B into Arete-27B</a> (November 6).</p>
               <ul class="story-facts">
                 <li><strong>Method:</strong> supervised fine-tuning only, about <mark class="hl">52.8 million tokens</mark> over 1,202 steps with Inkling as teacher; no RL; weights on Hugging Face under Apache 2.0.</li>
                 <li><strong>Result:</strong> on Nous's 803-prompt eval, state-framed answers fell from 22% to 1% and the fact score rose from 2.32 to 2.98 of 5; Hermes Bench 65.60% against the base's 65.77%.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>The values layer in an open model is thin and cheap to replace, either way. On open Chinese weights, test the framing yourself; on your own weights, assume a fine-tune can undo it.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>The values layer in an open model is thin and cheap to replace, either way. On open Chinese weights, test the framing yourself; on your own weights, assume a fine-tune can undo it.</div>
             </div>
           </div>
 
@@ -444,8 +445,8 @@
               <ul class="story-facts">
                 <li><strong>What it does:</strong> one instruction for data analysis, slides or a weekly report; it plans the steps, calls tools and returns Word, PowerPoint and Excel files.</li>
                 <li><strong>Stage:</strong> out of beta as a standalone app in the HarmonyOS PC AppGallery; runs on a cloud PC or locally with user-reviewed checkpoints; a phone can dispatch tasks; paid in <mark class="hl">AI points</mark>.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>The office agent as an operating-system feature: execution chosen per task, a phone as the remote control, metered points instead of a seat. Watch the billing model more than the demo.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>The office agent as an operating-system feature: execution chosen per task, a phone as the remote control, metered points instead of a seat. Watch the billing model more than the demo.</div>
             </div>
           </div>
 
@@ -456,8 +457,8 @@
               <ul class="story-facts">
                 <li><strong>MCP:</strong> callable discovery approval policies honouring Foundry Toolbox metadata; discovery capped at <mark class="hl">100 pages and 1,000 items</mark> per catalogue; 30-second default timeouts.</li>
                 <li><strong>Breaking:</strong> live workflow executors bind to one authorization scope and cross-scope calls are rejected before the model call; OpenTelemetry GenAI spans; Python 3.11 or later.</li>
-                <li class="story-take"><span class="take-label">Why it matters</span>Treat tool discovery as an attack surface: cap the catalogue, time out the server, bind a running workflow to one principal. Defaults worth copying in any agent runtime.</li>
               </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Treat tool discovery as an attack surface: cap the catalogue, time out the server, bind a running workflow to one principal. Defaults worth copying in any agent runtime.</div>
             </div>
           </div>
 
@@ -477,6 +478,11 @@
               <span class="research-label"><a href="https://x.com/GoogleDeepMind/status/2118755418675765656">DeepMind agents crack old RSA</a></span>
               <p class="research-desc">DeepMind's agents, guided by cryptographers, found <strong>two new attacks on legacy 1024-bit RSA</strong>: signature forgery about 1,600 times cheaper and bulk factoring about 30 times cheaper per key, DeepMind's count. 2048-bit keys are safe.</p>
               <p class="research-take"><span class="take-label">Why it matters</span>Agents did weeks of expert-level cryptanalysis; the expert stays in the loop.</p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://www.doubleai.com/research/can-llms-redesign-themselves-as-they-train">An agent that redesigns a model mid-training</a></span>
+              <p class="research-desc">doubleAI put an agent inside a training run to read the network and change its data, objective or architecture; code layers it grew lifted accuracy on in-between input sizes <strong>from 33% to 79%</strong>.</p>
+              <p class="research-take"><span class="take-label">Why it matters</span>Model design is becoming an agent's job: architecture turns into something a training run discovers.</p>
             </li>
           </ul>
         </section>
@@ -534,6 +540,7 @@
         <li class="also-item"><a href="https://huggingface.co/tencent/Qwen3.8-27B-DSpine-b16"><strong>Tencent DSpine</strong></a>: a five-layer draft model for Qwen3.8-27B under Apache 2.0; Tencent's figures: 2.7 to 3.8 times autoregressive throughput on agent benchmarks, ahead of DFlash2.</li>
         <li class="also-item"><a href="https://docs.x.ai/developers/advanced-api-usage/watermarking.md"><strong>xAI</strong></a>: text watermarking is on by default from November 7 for seven Grok models on the Responses and Chat Completions APIs; an x-watermark header marks it, and team admins can turn it off per model.</li>
         <li class="also-item"><a href="https://www.miit.gov.cn/gzcy/yjzj/art/2026/art_ef16149bd27e4d7f95e5537e7dc68fdc.html"><strong>Policy in China</strong></a>: draft interim measures from MIIT give every robot a unique product identification code across industrial, service and special-purpose categories; notice dated November 6, comments to December 5.</li>
+        <li class="also-item"><a href="https://openrouter.ai/blog/announcements/auto-and-auto-code-routers/"><strong>OpenRouter</strong></a> (November 6): a rebuilt Auto Router, now live, weighs eleven request factors plus price and provider health; its figures put the new Auto Code level with Claude Opus 5.5 at 74% less per task.</li>
       </ul>
     </section>
 

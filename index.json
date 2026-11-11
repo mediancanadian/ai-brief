@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-10",
+      "url": "issues/daily/2026/11/2026-11-10.html",
+      "headline": "Anthropic turns Claude into a workplace suite",
+      "tags": ["Anthropic", "Google", "OpenAI", "Amazon", "IBM", "Microsoft", "Salesforce", "Adobe", "Cursor", "Nvidia", "xAI", "GitHub"],
+      "stories": [
+        {"label": "CLAUDE BECOMES A WORK SUITE", "text": "Anthropic launches Claude Sheets, Whiteboards and Data.", "image": {"src": "assets/covers/2026-11-10-0.jpg", "thumb": "assets/covers/2026-11-10-0.sm.jpg", "alt": "Anthropic release art: a whiteboard on an easel", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/sheets-whiteboards-data"}},
+        {"label": "GEMINI 4 CARBON FOR ALL", "text": "Google releases Gemini 4 Carbon broadly.", "image": {"src": "assets/covers/2026-11-10-1.jpg", "thumb": "assets/covers/2026-11-10-1.sm.jpg", "alt": "Google release art for Gemini 4 Carbon", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"}},
+        {"label": "BRANDS GET AGENTS IN CHATGPT", "text": "OpenAI brings verified business agents into ChatGPT."},
+        {"label": "A MODEL APPROVES THE AGENT", "text": "Kiro lets a model approve its agent's routine actions."},
+        {"label": "AGENTS SOLD WITH ENGINEERS", "text": "IBM and Microsoft announce Imagine Enterprise."}
+      ],
+      "deck": "Also: Google prices its strongest Gemini like its mid-tier model, brands get verified agents in ChatGPT, Kiro hands routine approvals to a model, and IBM and Microsoft bundle agents with engineers."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-09",
       "url": "issues/daily/2026/11/2026-11-09.html",
       "headline": "Anthropic ships Claude Fable 5.2 at a lower price",
