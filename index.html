@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noai, noimageai">
   <title>AI Brief</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* Layout: an open page, no boxes. The latest issue sits beside a typographic
        cover; below it every issue is one quiet row under its month. */
@@ -139,8 +136,15 @@
       .audio-bar-progress { max-width: 80px; }
     }
   </style>
+<!-- family:css --><link rel="stylesheet" href="assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
+<!-- family:header -->
+<nav class="mcf-head mcf-archive" aria-label="The Median Canadian">
+  <a class="mcf-logo" href="https://mediancanadian.ca/"><img class="mcf-logo-light" src="assets/family/logo.png" alt="The Median Canadian" width="144" height="46"><img class="mcf-logo-dark" src="assets/family/logo-dark.png" alt="" width="144" height="46"></a>
+  <div class="mcf-tabs"><a href="https://mediancanadian.ca/"><span class="mcf-dot" aria-hidden="true"></span>Canada in numbers</a><a href="./" aria-current="page"><span class="mcf-dot mcf-dot-ai" aria-hidden="true"></span>AI Brief</a></div>
+</nav>
+<!-- /family:header -->
 <div class="wrap">
   <header class="masthead">
     <div class="wordmark"><b>AI</b>Brief</div>
@@ -386,5 +390,13 @@
   }
 })();
 </script>
+
+<!-- family:footer -->
+<div class="mcf-foot mcf-archive">
+  <div class="mcf-foot-rule"></div>
+  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
+  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+</div>
+<!-- /family:footer -->
 </body>
 </html>

@@ -1,0 +1,119 @@
+/* The Median Canadian family: one look, one header and one footer line for every site in the family.
+   Master copy: work-ai, workspace/ai-watch/pipeline/family/family.css. family.py copies it to each
+   site at publish, so the sites never drift apart. Agreed with Shashank on November 12, 2026: the
+   Median Canadian look (plain sans type, cool greys, dark mode), red for the weekly Canada posts,
+   blue for the AI Brief. Loaded after a page's own styles, so these rules win. */
+
+:root {
+  --mcf-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --mcf-bg: #f4f5f7; --mcf-surface: #ffffff; --mcf-ink: #1b2330; --mcf-muted: #667080;
+  --mcf-soft: #4d5666; --mcf-ghost: #8f98a7; --mcf-line: #e0e4e9; --mcf-line-mid: #d2d8df; --mcf-chip: #eaedf1;
+  --mcf-red: #c8102e;                       /* The Median Canadian */
+  --mcf-ai: #3b5bdb; --mcf-ai-bg: #eef1fd;  /* AI Brief */
+  --mcf-shadow: 0 1px 2px rgba(27,35,48,.05), 0 6px 18px rgba(27,35,48,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --mcf-bg: #0e1217; --mcf-surface: #161b23; --mcf-ink: #e6eaf0; --mcf-muted: #8f98a7;
+    --mcf-soft: #b4bcc8; --mcf-ghost: #6f7886; --mcf-line: #262d38; --mcf-line-mid: #323a47; --mcf-chip: #1f2530;
+    --mcf-red: #ff6b78; --mcf-ai: #8ea2ff; --mcf-ai-bg: #1c2240;
+    --mcf-shadow: 0 1px 2px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --mcf-bg: #0e1217; --mcf-surface: #161b23; --mcf-ink: #e6eaf0; --mcf-muted: #8f98a7;
+  --mcf-soft: #b4bcc8; --mcf-ghost: #6f7886; --mcf-line: #262d38; --mcf-line-mid: #323a47; --mcf-chip: #1f2530;
+  --mcf-red: #ff6b78; --mcf-ai: #8ea2ff; --mcf-ai-bg: #1c2240;
+  --mcf-shadow: 0 1px 2px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+
+/* The AI Brief pages name their colours in three ways (issue, archive, Trends); all point here. */
+:root {
+  --ink: var(--mcf-ink); --ink-muted: var(--mcf-soft); --ink-faint: var(--mcf-muted); --ink-ghost: var(--mcf-ghost);
+  --bg: var(--mcf-surface); --bg-surface: var(--mcf-bg);
+  --border: var(--mcf-line); --border-mid: var(--mcf-line-mid); --border-heavy: var(--mcf-ink);
+  --accent: var(--mcf-ai); --accent-bg: var(--mcf-ai-bg);
+  --paper: var(--mcf-bg); --line: var(--mcf-line); --on-ink: var(--mcf-surface);
+  --display: var(--mcf-sans); --serif: var(--mcf-sans); --mono: var(--mcf-sans);
+  --muted: var(--mcf-muted); --faint: var(--mcf-muted); --ghost: var(--mcf-ghost);
+  --card: var(--mcf-surface); --surface: var(--mcf-bg); --mid: var(--mcf-line-mid);
+}
+
+html body { background: var(--mcf-bg) !important; color: var(--mcf-ink); border-top: 0 !important; }
+body, body * { font-family: var(--mcf-sans) !important; }
+body [class] { font-style: normal !important; }
+
+/* Shared header: the Median Canadian logo, then the two tabs, in the same place on every site. */
+.mcf-head { box-sizing: border-box; width: 100%; margin: 0 auto; padding: 14px 40px 4px; display: flex; flex-direction: column; gap: 10px; }
+.mcf-logo { align-self: flex-start; display: block; line-height: 0; }
+.mcf-logo img { display: block; height: 46px; width: auto; margin-left: -10px; }
+.mcf-logo .mcf-logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .mcf-logo .mcf-logo-light { display: none; }
+  :root:not([data-theme="light"]) .mcf-logo .mcf-logo-dark { display: block; }
+}
+:root[data-theme="dark"] .mcf-logo .mcf-logo-light { display: none; }
+:root[data-theme="dark"] .mcf-logo .mcf-logo-dark { display: block; }
+.mcf-tabs { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--mcf-chip); width: max-content; max-width: 100%; }
+.mcf-tabs a { display: flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1; color: var(--mcf-muted); text-decoration: none; white-space: nowrap; border: 0; }
+.mcf-tabs a:hover { color: var(--mcf-ink); }
+.mcf-tabs a[aria-current="page"] { background: var(--mcf-surface); color: var(--mcf-ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.mcf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mcf-red); flex: none; }
+.mcf-dot-ai { background: var(--mcf-ai); }
+
+/* Shared footer line: who the site belongs to, and the way to the sister publication. */
+.mcf-foot { box-sizing: border-box; width: 100%; margin: 8px auto 0; padding: 18px 40px 40px; color: var(--mcf-muted); font-size: 14px; line-height: 1.55; }
+.mcf-foot p { margin: 0 0 6px; max-width: 62ch; }
+.mcf-foot a { color: var(--mcf-ink); text-decoration: underline; text-decoration-color: var(--mcf-line-mid); text-underline-offset: 3px; }
+.mcf-foot strong { color: var(--mcf-ink); font-weight: 650; }
+.mcf-foot-rule { height: 1px; background: var(--mcf-line); margin: 0 0 16px; }
+
+/* Widths follow each page's own column. */
+.mcf-archive { max-width: 1040px; }
+.mcf-trends { max-width: 1120px; padding-left: 24px; padding-right: 24px; }
+.mcf-issue { max-width: 1080px; padding-left: 0; padding-right: 0; }
+@media (max-width: 720px) {
+  .mcf-archive, .mcf-trends { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .mcf-tabs a { padding: 9px 12px; font-size: 14.5px; }
+}
+
+/* Issue pages: the header and footer sit above and below the issue card. */
+body:has(> .brief) { flex-direction: column; align-items: center; }
+.brief { border-radius: 16px !important; border: 1px solid var(--mcf-line) !important; box-shadow: var(--mcf-shadow); }
+.pub-name-ai, .pub-name-brief { font-size: 34px !important; font-weight: 800 !important; letter-spacing: -0.01em !important; }
+.pub-name-ai { color: var(--mcf-ai) !important; }
+.pub-name-brief { color: var(--mcf-ink) !important; }
+.pub-date { color: var(--mcf-soft) !important; }
+.rule-heavy { background: var(--mcf-line) !important; }
+.lead-headline { font-weight: 800 !important; letter-spacing: -0.015em !important; }
+.story-card { border-radius: 14px !important; }
+h4.story-head, h3.col-heading, h3.sidebar-head, h2.also-heading, h2.trending-heading, .take-label { letter-spacing: 0.08em !important; font-weight: 700 !important; }
+h4.story-head { font-size: 10px !important; }
+.take-label { font-size: 10px !important; }
+.story-card-credit { font-size: 10px !important; }
+mark.hl { background: linear-gradient(transparent 55%, var(--mcf-ai-bg) 55%) !important; color: var(--mcf-ink) !important; }
+.issue-nav-link { letter-spacing: 0.06em !important; }
+
+/* Archive: the display numbers and wordmark in the family's bold sans. */
+.wordmark { color: var(--mcf-ink) !important; font-weight: 800; letter-spacing: -0.01em !important; }
+.wordmark b { color: var(--mcf-ai) !important; font-weight: 800 !important; }
+.day-num, .cover-label { font-weight: 800; letter-spacing: -0.02em !important; }
+.cover { border-radius: 14px !important; }
+
+/* Trends: the same wordmark treatment. */
+.wm { letter-spacing: -0.01em !important; font-weight: 800; }
+.wm b { color: var(--mcf-ai) !important; font-weight: 800 !important; }
+.wm span { color: var(--mcf-ink) !important; }
+
+/* Trends: its charts are drawn for a light page, so it stays light until they read these colours. */
+:root:has(.mcf-trends) {
+  --mcf-bg: #f4f5f7; --mcf-surface: #ffffff; --mcf-ink: #1b2330; --mcf-muted: #667080;
+  --mcf-soft: #4d5666; --mcf-ghost: #8f98a7; --mcf-line: #e0e4e9; --mcf-line-mid: #d2d8df; --mcf-chip: #eaedf1;
+  --mcf-red: #c8102e; --mcf-ai: #3b5bdb; --mcf-ai-bg: #eef1fd;
+  --mcf-shadow: 0 1px 2px rgba(27,35,48,.05), 0 6px 18px rgba(27,35,48,.06);
+  color-scheme: light;
+}
+:root:has(.mcf-trends) .mcf-logo .mcf-logo-light { display: block; }
+:root:has(.mcf-trends) .mcf-logo .mcf-logo-dark { display: none; }
