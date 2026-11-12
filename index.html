@@ -201,7 +201,8 @@
   }
   function count(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
   function labels(issue) { return (issue.stories || []).map(function (s) { return s.label; }); }
-  // A story's image is the one its announcer published; the lead story's is the issue's cover.
+  // A story's image is the one its announcer published or, without one, its cover art (no credit);
+  // the lead story's is the issue's cover. Every story has one (November 12, 2026).
   function art0(issue) { var s = (issue.stories || [])[0]; return s && s.image && s.image.src ? s.image : null; }
   function src(path) { return /^(data:|https?:)/.test(path) ? path : BASE + path; }
   function creditLink(image) {
@@ -252,16 +253,14 @@
     var names = labels(latest), url = esc(BASE + latest.url);
     document.getElementById('latest-date').textContent = fmt(latest.date, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
     var art = art0(latest), others = (latest.stories || []).slice(1, 5);
-    var credits = [], seen = {};
-    (latest.stories || []).slice(0, 5).forEach(function (s) {
-      if (s.image && s.image.credit && !seen[s.image.credit]) { seen[s.image.credit] = true; credits.push(creditLink(s.image)); }
-    });
+    // only the picture shown here is credited (the topic list with small pictures is hidden in the family look)
+    var credits = art && art.credit ? [creditLink(art)] : [];
     el.classList.toggle('feature--image', !!art);
     el.innerHTML =
       (art
         ? '<figure class="cover-fig"><a href="' + url + '" tabindex="-1"><img src="' + esc(src(art.src)) +
           '" alt="' + esc(art.alt || '') + '" width="1200" height="675"></a>' +
-          '<figcaption class="credit">' + (credits.length > 1 ? 'Images: ' : 'Image: ') + credits.join(', ') + '</figcaption></figure>'
+          (credits.length ? '<figcaption class="credit">' + (credits.length > 1 ? 'Images: ' : 'Image: ') + credits.join(', ') + '</figcaption>' : '') + '</figure>'
         : '<a class="cover" href="' + url + '" aria-hidden="true" tabindex="-1">' +
           '<span class="cover-date">' + esc(fmt(latest.date, { weekday: 'short', month: 'short', day: 'numeric' })) + '</span>' +
           '<span class="cover-label">' + esc(names[0] || 'AI Brief') + '</span></a>') +
@@ -284,7 +283,7 @@
     var art = art0(issue);
     var thumb = art
       ? '<figure class="thumb"><a href="' + url + '" tabindex="-1" aria-hidden="true"><img src="' + esc(src(art.thumb || art.src)) +
-        '" alt="" width="112" height="63" loading="lazy"></a><figcaption>' + creditLink(art) + '</figcaption></figure>'
+        '" alt="" width="112" height="63" loading="lazy"></a>' + (art.credit ? '<figcaption>' + creditLink(art) + '</figcaption>' : '') + '</figure>'
       : '';
     return '<li class="row row--' + esc(issue.type) + '"><a href="' + url + '">' +
       '<span class="day"><span class="day-num">' + day(issue.date).getDate() + '</span>' +

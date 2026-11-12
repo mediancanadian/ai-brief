@@ -243,11 +243,12 @@ mark.hl { background: none !important; color: var(--mcf-ink) !important; font-we
 .research-item:nth-child(5)::before { background: var(--mcf-g5); }
 .research-item > * { grid-column: 2; }
 :root {
-  --mcf-g1: radial-gradient(120% 120% at 15% 15%, #ffd6a5 0%, #ff9f8a 45%, #b79cf0 100%);
-  --mcf-g2: linear-gradient(140deg, #cde7ff 0%, #e9dcff 50%, #ffd1e8 100%);
-  --mcf-g3: radial-gradient(120% 120% at 80% 20%, #fff0a8 0%, #ffb27d 55%, #f59ad3 100%);
-  --mcf-g4: linear-gradient(160deg, #b8f5d0 0%, #a8dcf2 100%);
-  --mcf-g5: radial-gradient(120% 120% at 30% 80%, #ffd0a1 0%, #e19af0 100%);
+  /* the middle of five horizons (covers.py tones), so research items carry the same art as the stories */
+  --mcf-g1: url(tone-1.jpg) center / cover no-repeat;
+  --mcf-g2: url(tone-2.jpg) center / cover no-repeat;
+  --mcf-g3: url(tone-3.jpg) center / cover no-repeat;
+  --mcf-g4: url(tone-4.jpg) center / cover no-repeat;
+  --mcf-g5: url(tone-5.jpg) center / cover no-repeat;
 }
 
 /* Archive, laid out like the reference: the latest issue as a big picture, its title and a text link;
@@ -303,3 +304,12 @@ h4.story-head, .pub-date, .pub-edition, .foot-meta, .foot-wordmark, .mcf-foot-h,
 body strong, body b, .story-facts strong, .also-item strong, .take-label, mark.hl, .mcf-signup-title strong { font-weight: 500 !important; }
 .story-facts li, .also-item, .research-desc, .signal-item, .lead-deck { font-weight: 300 !important; }
 .story-take { font-weight: 300 !important; }
+
+/* Every story shows an image: the announcer's picture or the story's cover art, all in one 16:9 frame
+   (Shashank, November 12, 2026, after OpenAI's site). A picture of another shape sits whole on its cover art. */
+.story-card-img, .story-card--wide .story-card-img, .story-card:not(.story-card--wide) .story-card-img { display: block; width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px !important; background: var(--mcf-panel); }
+.story-card--wide .story-card-img { border-radius: 16px !important; }
+.story-card-frame { display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; padding: 5% 8%; border-radius: 12px; background-size: cover; background-position: center; overflow: hidden; }
+.story-card--wide .story-card-frame { border-radius: 16px; }
+.story-card-frame .story-card-img { width: auto !important; max-width: 100%; max-height: 100% !important; aspect-ratio: auto; object-fit: contain; border-radius: 8px !important; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18); background: transparent; }
+.thumb figcaption:empty { display: none; }
