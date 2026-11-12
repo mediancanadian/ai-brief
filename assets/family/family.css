@@ -311,5 +311,5 @@ body strong, body b, .story-facts strong, .also-item strong, .take-label, mark.h
 .story-card--wide .story-card-img { border-radius: 16px !important; }
 .story-card-frame { display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; padding: 5% 8%; border-radius: 12px; background-size: cover; background-position: center; overflow: hidden; }
 .story-card--wide .story-card-frame { border-radius: 16px; }
-.story-card-frame .story-card-img { width: auto !important; max-width: 100%; max-height: 100% !important; aspect-ratio: auto; object-fit: contain; border-radius: 8px !important; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18); background: transparent; }
+.story-card-frame .story-card-img { width: auto !important; min-width: 0; min-height: 0; max-width: 100%; max-height: 100% !important; aspect-ratio: auto !important; object-fit: contain !important; border-radius: 8px !important; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18); background: transparent; }
 .thumb figcaption:empty { display: none; }
