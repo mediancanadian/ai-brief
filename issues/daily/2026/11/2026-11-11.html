@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
+  <title>AI Brief / Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f5f4f0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 48px 24px;
+      font-family: 'Lora', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --ink:        #1a1917;
+      --ink-muted:  #4a4845;
+      --ink-faint:  #888580;
+      --ink-ghost:  #b8b5b0;
+      --bg:         #fffef9;
+      --bg-surface: #f5f4f0;
+      --border:     rgba(26,25,23,0.12);
+      --border-mid: rgba(26,25,23,0.22);
+      --border-heavy: rgba(26,25,23,0.55);
+      --accent:     #b5451b;
+      --accent-bg:  #fdf2ee;
+      --red-bg:     #fcebeb;
+      --red-border: #f09595;
+      --red-dark:   #791f1f;
+      --red-mid:    #a32d2d;
+      --radius-sm:  6px;
+      --radius-md:  8px;
+    }
+    .brief {
+      background: var(--bg);
+      max-width: 1080px;
+      width: 100%;
+      padding: 40px 56px 56px;
+      border: 0.5px solid var(--border-mid);
+      border-radius: 4px;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+    header[role="banner"] { border-top: 4px solid var(--accent); padding-top: 14px; }
+    .masthead-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
+    }
+    .pub-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-ghost); display: block; margin-bottom: 6px;
+    }
+    .pub-wordmark { display: flex; align-items: baseline; gap: 10px; }
+    .pub-name-ai {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 52px; letter-spacing: 0.05em; line-height: 1; color: var(--accent);
+    }
+    .pub-name-brief {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 52px; letter-spacing: 0.05em; line-height: 1; color: var(--ink-ghost);
+    }
+    .pub-name-sub {
+      font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted);
+    }
+    .masthead-right { text-align: right; padding-bottom: 4px; }
+    .pub-date {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted);
+      display: block; margin-bottom: 3px;
+    }
+    .pub-edition { font-family: 'Lora', serif; font-size: 11px; font-style: italic; color: var(--ink-faint); }
+    .rule-heavy { height: 1px; background: var(--border-heavy); margin-bottom: 1px; }
+    .rule-light { height: 0.5px; background: var(--border); margin-bottom: 22px; }
+    .lead-section { margin-bottom: 20px; }
+    .brief-audio { margin: 16px 0 28px; }
+    .brief-audio audio { width: 100%; height: 36px; accent-color: var(--accent); }
+    .lead-headline {
+      font-family: 'Lora', serif; font-size: 28px; font-weight: 600;
+      line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px;
+    }
+    .lead-deck {
+      font-size: 16.5px; line-height: 1.7; font-style: italic; font-weight: 400;
+      color: var(--ink-muted); padding-left: 16px; border-left: 3px solid var(--accent);
+    }
+    .content-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; margin-bottom: 28px;
+      align-items: start;
+    }
+    /* The sidebar sits beside the stories only when there is room for both; below that it follows them. */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; position: static; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      .brief { padding: 24px 20px 32px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; align-self: auto; }
+      .theme-grid, .theme-grid.count-4, .theme-grid.count-5, .theme-grid.count-6 { grid-template-columns: 1fr; }
+    }
+    h3.col-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+    }
+    h3.col-heading::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .body-p { font-size: 15px; line-height: 1.78; color: var(--ink); margin-bottom: 14px; }
+    .body-p:last-child { margin-bottom: 0; }
+    .body-p a, .research-desc a, .signal-p a, .signal-item a {
+      color: var(--ink); text-decoration: underline;
+      text-decoration-color: var(--border-mid); text-underline-offset: 3px;
+    }
+    .body-ul { font-size: 15px; line-height: 1.78; color: var(--ink); margin: 0 0 14px 0; padding-left: 18px; }
+    .body-ul li { margin-bottom: 6px; }
+    .body-ul li:last-child { margin-bottom: 0; }
+    .body-ul a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px; }
+    .sidebar { border-left: 0.5px solid var(--border-mid); padding-left: 20px; align-self: start; position: sticky; top: 24px; }
+    .sidebar-section { margin-bottom: 24px; }
+    .sidebar-section:last-child { margin-bottom: 0; }
+    h3.sidebar-head {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      padding-bottom: 8px; border-bottom: 0.5px solid var(--border); margin-bottom: 12px;
+    }
+    .research-list { list-style: none; }
+    .research-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 0.5px solid var(--border); }
+    .research-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .research-label a {
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600; color: var(--ink);
+      line-height: 1.4; margin-bottom: 4px; display: block;
+      text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px;
+    }
+    .research-desc { font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+    .signal-p { font-size: 13px; line-height: 1.65; color: var(--ink-muted); }
+    .signal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .signal-item { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding-left: 12px; border-left: 2px solid var(--border-mid); }
+    .also-section { border-top: 0.5px solid var(--border-mid); padding-top: 20px; margin-bottom: 28px; }
+    h2.also-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    }
+    h2.also-heading::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent); }
+    .also-list { list-style: none; column-count: 2; column-gap: 32px; }
+    @media (max-width: 600px) { .also-list { column-count: 1; } }
+    .also-item {
+      font-size: 13px; line-height: 1.6; color: var(--ink);
+      padding: 5px 0; border-bottom: 0.5px solid var(--border);
+      break-inside: avoid;
+    }
+    .also-item:last-child { border-bottom: none; }
+    .also-item strong { color: var(--ink); font-weight: 600; }
+    .also-item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    /* Weekly themed "Also in AI" */
+    .also-themes { display: flex; flex-direction: column; gap: 20px; }
+    .also-theme { }
+    h3.also-theme-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 6px;
+    }
+    /* Expand / collapse */
+    details.expand-more { margin-top: 4px; }
+    details.expand-more summary {
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+      cursor: pointer; list-style: none; padding: 4px 0; -webkit-user-select: none; user-select: none;
+    }
+    details.expand-more summary::-webkit-details-marker { display: none; }
+    details.expand-more summary::before { content: '+ '; }
+    details.expand-more[open] summary::before { content: '- '; }
+    details.expand-more .also-list { margin-top: 4px; }
+    details.expand-more .research-list { margin-top: 8px; }
+    .stories-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 600px) { .stories-grid { grid-template-columns: 1fr; } }
+    .story-card {
+      background: var(--bg); border-radius: 10px; overflow: hidden;
+      box-shadow: 0 1px 3px rgba(26,25,23,0.07), 0 1px 8px rgba(26,25,23,0.04);
+      border: 0.5px solid var(--border); display: flex; flex-direction: column;
+      transition: box-shadow 0.15s;
+    }
+    .story-card:hover { box-shadow: 0 4px 16px rgba(26,25,23,0.11); }
+    .story-card--wide { grid-column: 1 / -1; }
+    /* A story may carry the image its announcer published, shown whole and credited,
+       always across the top of its card. Cards read top to bottom: no floats, no inner columns. */
+    .story-card-media { margin: 0; padding: 14px 16px 0; }
+    .story-card-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 220px; margin: 0 auto; border-radius: 6px; }
+    .story-card--wide .story-card-img { max-height: 280px; }
+    .story-card-credit {
+      font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.04em;
+      color: var(--ink-faint); padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .story-card-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    .story-card-body { padding: 14px 16px; flex: 1; }
+    h4.story-head {
+      font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 7px;
+    }
+    .story-lead {
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600;
+      line-height: 1.5; color: var(--ink);
+    }
+    .story-lead a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px; }
+    .story-facts {
+      list-style: none; padding: 0; margin: 10px 0 0;
+      border-top: 0.5px solid var(--border); padding-top: 8px;
+    }
+    .story-facts li {
+      font-size: 12px; line-height: 1.55; color: var(--ink-muted);
+      padding: 3px 0 3px 13px; position: relative;
+    }
+    .story-facts li::before {
+      content: '.'; position: absolute; left: 2px;
+      color: var(--accent); font-size: 14px; line-height: 1.2;
+    }
+    .story-facts a { color: var(--ink-muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    /* The PM take: its own block under the details, never inline. */
+    .take-label {
+      display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
+    }
+    .story-take {
+      margin-top: 10px; padding: 9px 12px 10px; background: var(--accent-bg);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+      font-size: 12.5px; line-height: 1.55; color: var(--ink);
+    }
+    .story-card--wide .story-lead { font-size: 15px; }
+    .story-facts li { font-size: 13px; }
+    .story-take { font-size: 13.5px; }
+    .research-take {
+      margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
+      font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;
+    }
+    /* Emphasis: bold for the term that names the point, one highlight for the figure that carries it. */
+    .story-facts strong, .research-desc strong, .research-take strong, .signal-item strong { color: var(--ink); font-weight: 600; }
+    mark.hl { background: linear-gradient(transparent 52%, #f6d5c6 52%); color: var(--ink); font-weight: 600; padding: 0 1px; }
+    .signal-item > a:first-child { font-weight: 600; }
+    .trending-section { border-top: 0.5px solid var(--border-mid); padding-top: 20px; margin-bottom: 32px; }
+    h2.trending-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    h2.trending-heading::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent); }
+    .trend-items {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 0.5px solid var(--border);
+    }
+    .trend-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 12px; border-bottom: 0.5px solid var(--border);
+    }
+    .trend-item .trend-rank { min-width: 22px; flex-shrink: 0; }
+    .trend-item .trend-main { flex: 1; min-width: 0; }
+    .trend-item .trend-votes { flex-shrink: 0; }
+    .trend-item:nth-child(odd) { border-right: 0.5px solid var(--border); padding-left: 0; }
+    .trend-item:nth-child(even) { padding-right: 0; }
+    @media (max-width: 600px) {
+      .trend-items { grid-template-columns: 1fr; }
+      .trend-item { padding: 11px 0; }
+      .trend-item:nth-child(odd) { border-right: none; }
+    }
+    .trend-thumb {
+      width: 32px; height: 32px; border-radius: 8px; object-fit: cover;
+      flex-shrink: 0; border: 0.5px solid var(--border);
+    }
+    .trend-rank {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--ink-ghost); text-align: right;
+    }
+    .trend-main { min-width: 0; }
+    .trend-name {
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600;
+      color: var(--ink); display: block; margin-bottom: 2px;
+    }
+    .trend-name a {
+      color: var(--ink); text-decoration: underline;
+      text-decoration-color: var(--border-mid); text-underline-offset: 3px;
+    }
+    .trend-why {
+      font-family: 'Lora', serif; font-size: 12px; font-style: italic;
+      color: var(--ink-muted); display: block;
+    }
+    .trend-votes {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--ink-ghost); white-space: nowrap;
+    }
+    .issue-nav {
+      max-width: 1080px; width: 100%; margin: 16px auto 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0;
+    }
+    .issue-nav-link {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted);
+      text-decoration: none;
+    }
+    .issue-nav-link:hover { color: var(--accent); }
+    .issue-nav-index { color: var(--ink-ghost); }
+    footer[role="contentinfo"] {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 2px solid var(--ink); padding-top: 10px; flex-wrap: wrap; gap: 8px;
+    }
+    .foot-wordmark {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-ghost);
+    }
+    .foot-meta {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      letter-spacing: 0.1em; color: var(--ink-ghost); text-transform: uppercase;
+    }
+    .media-figure {
+      margin: 20px 0; border-radius: var(--radius-sm); overflow: hidden;
+      border: 0.5px solid var(--border-mid);
+    }
+    .media-figure img {
+      display: block; width: 100%; height: auto; max-height: 320px;
+      object-fit: cover;
+    }
+    .media-caption {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--ink-ghost); padding: 8px 12px;
+      background: var(--bg-surface); letter-spacing: 0.05em;
+    }
+    .media-video {
+      margin: 20px 0; border-radius: var(--radius-sm); overflow: hidden;
+      border: 0.5px solid var(--border-mid);
+      position: relative; padding-bottom: 56.25%; height: 0;
+    }
+    .media-video iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+    .link-card {
+      display: flex; align-items: flex-start; gap: 12px;
+      border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+      background: var(--bg); padding: 12px 14px; margin: 12px 0;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.15s;
+    }
+    .link-card:hover { border-color: var(--border-heavy); }
+    .link-card-body { min-width: 0; }
+    .link-card-domain {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-ghost); margin-bottom: 4px; display: block;
+    }
+    .link-card-title {
+      font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+      color: var(--ink); line-height: 1.4; display: block; margin-bottom: 3px;
+    }
+    .link-card-desc {
+      font-size: 12px; color: var(--ink-muted); line-height: 1.5;
+      font-style: italic; display: block;
+    }
+  </style>
+  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
+  <script>
+    microsoftTeams.app.initialize().then(() => {
+      microsoftTeams.app.notifySuccess();
+    });
+  </script>
+</head>
+<body>
+<article class="brief" aria-label="AI Brief newsletter">
+
+  <header role="banner">
+    <div class="masthead-inner">
+      <div class="pub-wordmark">
+        <span class="pub-name-ai">AI</span>
+        <span class="pub-name-brief">Brief</span>
+      </div>
+      <div class="masthead-right">
+        <time class="pub-date" datetime="2026-11-11">November 11, 2026</time>
+        <span class="pub-edition">Wednesday edition</span>
+      </div>
+    </div>
+    <div class="rule-heavy" role="separator" aria-hidden="true"></div>
+    <div class="rule-light" role="separator" aria-hidden="true"></div>
+  </header>
+
+  <main>
+
+    <section class="lead-section" aria-labelledby="lead-heading">
+      <h2 class="lead-headline" id="lead-heading">Google ships a model that decides instead of writes</h2>
+      <p class="lead-deck">Also: SpaceXSI makes Grok Bot a teammate in Teams and Slack, Databricks sells business context to rival agents, AWS ships an emulator its agents wrote, and United shuts agents out of booking.</p>
+    </section>
+
+    <div class="content-grid">
+      <section aria-labelledby="matters-heading">
+        <h3 class="col-heading" id="matters-heading">What matters today</h3>
+        <div class="stories-grid">
+
+          <div class="story-card story-card--wide story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-11-0.jpg" alt="Google example: Gemini Decision 1 scores a spill on a counter with confidence values">
+              <figcaption class="story-card-credit">Image: <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/">Google</a></figcaption>
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">A MODEL THAT ONLY DECIDES</h4>
+              <p class="story-lead"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/">Google launches a model that scores choices instead of writing</a>.</p>
+              <ul class="story-facts">
+                <li><strong>Gemini Decision 1:</strong> answers up to 1,000 yes/no, choice and rubric questions about one input in <mark class="hl">a single forward pass</mark>, each with a confidence score.</li>
+                <li><strong>Available now</strong> in the Gemini API at $0.10 per million input tokens and nothing for output; Google's figures: 150 to 250 ms end to end. Gemini Notebook uses it to route queries.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Routing, tool choice and policy checks stop being a job for a chat model. They become a cheap, calibrated layer of their own, so an agent can afford many small checks on every step.</div>
+            </div>
+          </div>
+
+          <div class="story-card">
+            <div class="story-card-body">
+              <h4 class="story-head">GROK BOT JOINS THE TEAM</h4>
+              <p class="story-lead"><a href="https://x.ai/news/grok-bot-1-0">SpaceXSI takes Grok Bot out of beta as a team agent</a>.</p>
+              <ul class="story-facts">
+                <li><strong>Available now:</strong> shared Team Bots work in Slack and in <mark class="hl">Microsoft Teams</mark>, and join video calls to answer in the chat; Team and Enterprise plans.</li>
+                <li><strong>Proactive:</strong> bots spot work, offer to take it, follow up and bring people in for decisions. Out of beta November 11; the company's page is dated November 2.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Agents are moving from one person's assistant to a shared teammate in the team's chat and meetings. Outside bots now compete inside Teams and Slack with each platform's own agent.</div>
+            </div>
+          </div>
+
+          <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-11-2.jpg" alt="Databricks art: Genie linked to ChatGPT, Claude, Grok and Copilot">
+              <figcaption class="story-card-credit">Image: <a href="https://www.databricks.com/blog/bring-your-business-context-chatgpt-claude-microsoft-copilot-cowork-and-grok-bot">Databricks</a></figcaption>
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">CONTEXT SOLD TO EVERY AGENT</h4>
+              <p class="story-lead"><a href="https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work">Databricks turns Genie into an always-on coworker</a>.</p>
+              <ul class="story-facts">
+                <li><strong>Announced:</strong> Genie takes long-running jobs on a schedule or trigger, works through Genie One, email, Slack and Microsoft Teams, and asks for approval where you set it.</li>
+                <li><strong>Plugins:</strong> <a href="https://www.databricks.com/blog/bring-your-business-context-chatgpt-claude-microsoft-copilot-cowork-and-grok-bot">Genie plugins</a> give <mark class="hl">ChatGPT, Claude, Copilot Cowork and Grok Bot</mark> governed business definitions; <a href="https://www.databricks.com/blog/announcing-ga-genie-ontology">Genie Ontology</a> is generally available.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>The data platform stops fighting for the chat window and sells business context to every agent instead. Whoever owns the definition of revenue becomes a supplier every assistant has to call.</div>
+            </div>
+          </div>
+
+          <div class="story-card">
+            <div class="story-card-body">
+              <h4 class="story-head">AGENTS WROTE ALL THE CODE</h4>
+              <p class="story-lead"><a href="https://www.aboutamazon.com/news/aws/how-autonomous-ai-agents-built-aws-emulator">AWS ships an emulator written entirely by agents</a>.</p>
+              <ul class="story-facts">
+                <li><strong>AWS Emulator:</strong> a free, open-source <a href="https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/">local copy of the AWS APIs</a>, so tests and coding agents run without deploying; available now.</li>
+                <li><strong>How:</strong> three agent teams write tests against real AWS, file the failures and fix them; <mark class="hl">the team has not written or reviewed any of the code</mark>.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>A spec plus a reference system is now enough for agents to build and maintain a product. The scarce work moves to the test suite and the gates that decide what agents may merge.</div>
+            </div>
+          </div>
+
+          <div class="story-card">
+            <div class="story-card-body">
+              <h4 class="story-head">AIRLINE SHUTS OUT AGENTS</h4>
+              <p class="story-lead"><a href="https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents">United bars personal AI agents from booking its flights</a>.</p>
+              <ul class="story-facts">
+                <li><strong>The rule:</strong> agents can still show United flights but not complete the purchase, over privacy and federal rules on what airlines must confirm with travelers.</li>
+                <li><strong>The reason:</strong> CEO Scott Kirby: <mark class="hl">"I don't want to create another middleman"</mark>. The airline could reconsider as agents advance.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Agent checkout only works where merchants let agents in, and big brands are guarding the customer relationship. Personal agents will need sanctioned channels and deals, not browser automation.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <aside class="sidebar" aria-label="Supporting intelligence">
+        <section class="sidebar-section">
+          <h3 class="sidebar-head">Research worth watching</h3>
+          <ul class="research-list">
+            <li class="research-item">
+              <span class="research-label"><a href="https://www.microsoft.com/en-us/security/blog/2026/11/11/lessons-from-59-linux-kernel-bug-reports/">AI found 59 Linux kernel bugs</a></span>
+              <p class="research-desc">Microsoft researchers scanned kernel code with frontier models: <strong>26,502 raw findings</strong> became 621 proof-backed cases and <strong>59 upstream reports with 33 CVEs</strong>, after months of expert work.</p>
+              <p class="research-take"><span class="take-label">Why it matters</span>Finding bugs is now cheap; triage and patching are where the human hours go.</p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://www.salesforce.com/news/stories/agents-that-improve-ai-models/">Agents that improve a production model</a></span>
+              <p class="research-desc">Salesforce's SFR-AutoR&amp;D agents form hypotheses, run experiments and keep only proven gains; they improved the embedding model behind Data Cloud retrieval in <strong>about 80 hours</strong>.</p>
+              <p class="research-take"><span class="take-label">Why it matters</span>Research loops on your own models can run unattended once the evals are trusted.</p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://huggingface.co/papers/2611.14320">Agent memory that checks its sources</a></span>
+              <p class="research-desc">Lessons stored without their source can mislead an agent. <strong>WikiTrace links each lesson to the run it came from</strong>, so the agent can check it first; it beat other memory methods on five benchmarks.</p>
+              <p class="research-take"><span class="take-label">Why it matters</span>Agent memory needs provenance, or old lessons quietly make the agent worse.</p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/">Predicting DNA effects cell by cell</a></span>
+              <p class="research-desc">DeepMind's AlphaGenome 2 predicts how DNA variants act in specific cell types and finds <strong>nearly twice as many</strong> expression-changing variants as its earlier model; free for non-commercial research.</p>
+              <p class="research-take"><span class="take-label">Why it matters</span>Models conditioned on the exact case beat models that report averages.</p>
+            </li>
+          </ul>
+        </section>
+        <section class="sidebar-section">
+          <h3 class="sidebar-head">Community signal</h3>
+          <ul class="signal-list">
+            <li class="signal-item"><a href="https://news.ycombinator.com/item?id=50452455">Agents and a Maya site</a>: a developer's agents flagged a Maya site in lidar data; it had already been mapped, and commenters argued over trusting agent claims without expert checks. 993 points, 364 comments.</li>
+            <li class="signal-item"><a href="https://news.ycombinator.com/item?id=50453637">Agent sessions everywhere</a>: a shell tool now syncs coding-agent sessions across machines; commenters weighed the convenience against keeping every session on a shared server. 220 points, 80 comments.</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <nav class="trending-section">
+      <h2 class="trending-heading">Top launches yesterday</h2>
+      <ol class="trend-items">
+        <li class="trend-item">
+          <span class="trend-rank">1</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/64ca41cb-9c52-452d-a847-822d4b7c675a.png?auto=format" alt="Nod by n8n">
+          <span class="trend-main"><a class="trend-name" href="https://www.producthunt.com/products/n8n-io">Nod by n8n</a><span class="trend-why">An open-source personal agent that runs on its own computer.</span></span>
+          <span class="trend-votes">▲ 245</span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">2</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/7dd39baf-e0c9-4819-84d6-8e118d869ae5.png?auto=format" alt="ScroogeFrog AI">
+          <span class="trend-main"><a class="trend-name" href="https://www.producthunt.com/products/scroogefrog-ai-antifraud">ScroogeFrog AI</a><span class="trend-why">Spots ad fraud so marketing budgets go to real clicks.</span></span>
+          <span class="trend-votes">▲ 234</span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">3</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/b2021026-b38c-4ddc-a663-63380b00c406.png?auto=format" alt="CALL-E">
+          <span class="trend-main"><a class="trend-name" href="https://www.producthunt.com/products/call-e">CALL-E</a><span class="trend-why">Gives AI agents a phone line to make and take calls.</span></span>
+          <span class="trend-votes">▲ 181</span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">4</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/0cd475d6-dc2a-444b-b382-f2d1b8c93440.png?auto=format" alt="Scribe v3 by ElevenLabs">
+          <span class="trend-main"><a class="trend-name" href="https://www.producthunt.com/products/elevenlabs">Scribe v3 by ElevenLabs</a><span class="trend-why">Speech to text with fewer errors across more than 90 languages.</span></span>
+          <span class="trend-votes">▲ 153</span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">5</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/a66a4673-1478-4d6d-9e64-531fa9b4252b.vnd.microsoft.icon?auto=format" alt="Skillbox">
+          <span class="trend-main"><a class="trend-name" href="https://www.producthunt.com/products/skillbox-5">Skillbox</a><span class="trend-why">One library of AI skills, kept in sync across your agents.</span></span>
+          <span class="trend-votes">▲ 129</span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">6</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/e5393711-6392-457f-a3ec-880830655e0d.jpeg?auto=format" alt="MiniMax H3-Image">
+          <span class="trend-main"><a class="trend-name" href="https://www.producthunt.com/products/minimax">MiniMax H3-Image</a><span class="trend-why">Open-weight image model aimed at 4K pictures in seconds.</span></span>
+          <span class="trend-votes">▲ 112</span>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="also-section">
+      <h2 class="also-heading">Also in AI today</h2>
+      <ul class="also-list">
+        <li class="also-item"><a href="https://code.visualstudio.com/updates/v1_146"><strong>VS Code 1.146</strong></a>: the Local agent harness is deprecated, removed February 2027, in favor of the Copilot harness; Inbox mode for agent sessions is experimental.</li>
+        <li class="also-item"><a href="https://devblogs.microsoft.com/foundry/content-understanding-adds-gpt-5-6-gpt-6-and-gpt-6-1-choose-the-right-model-for-your-workload/"><strong>Azure Content Understanding</strong></a>: now supports GPT-5.6, GPT-6 and GPT-6.1; Microsoft recommends GPT-6.1 Sol for standard document extraction.</li>
+        <li class="also-item"><a href="https://workspaceupdates.googleblog.com/2026/11/publish-sheets-canvas-as-standalone-link.html"><strong>Sheets canvas</strong></a>: Gemini-built mini-apps can be published to their own read-only link; rolling out to Rapid Release domains.</li>
+        <li class="also-item"><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/"><strong>Google Tabletop</strong></a>: a Labs experiment where a group prompts an agent to build shared itineraries, polls and brackets; US waitlist.</li>
+        <li class="also-item"><a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/"><strong>Gemini on CarPlay</strong></a>: Gemini Live comes to Apple CarPlay, with Gmail and Calendar by voice; available globally.</li>
+        <li class="also-item"><a href="https://blog.jetbrains.com/ai/2026/11/air-in-jetbrains-ides-ga/"><strong>JetBrains Air</strong></a>: ships in the 2026.3 IDEs to run and review agents such as Codex, Claude Agent and GitHub Copilot in one place.</li>
+        <li class="also-item"><a href="https://blog.modelcontextprotocol.io/posts/mcp-release-cycle/"><strong>MCP</strong></a>: spec releases move to every six months; the next is targeted for March 30, 2027. A <a href="https://thenewstack.io/mcp-file-upload-extension/">draft file-upload extension</a> was outlined November 10.</li>
+        <li class="also-item"><a href="https://technode.com/2026/11/11/alibaba-opens-qwen4-max-preview-with-a-million-token-context-window/"><strong>Qwen4-Max</strong></a>: preview through Alibaba's Token Plan, with a 1 million token context. <a href="https://pandaily.com/alibaba-qwen-code-1-0-preview-qoder-harness-open-source-agent-core">Qwen Code 1.0</a> preview open-sources its agent harness.</li>
+        <li class="also-item"><a href="https://runway.com/news/company-news/praxis-1-is-now-available"><strong>Runway Praxis-1</strong></a>: its 27B robotics world action model is now open weight under Apache 2.0.</li>
+        <li class="also-item"><a href="https://elevenlabs.io/blog/nyc-summit"><strong>ElevenLabs</strong></a>: Memory and Routines are coming to its voice agents; the ElevenAI meeting notes app opens free early access; Interaction Engine previewed.</li>
+        <li class="also-item"><a href="https://devin.ai/blog/claude-mythos-5-2-security"><strong>Devin Security</strong></a>: Claude Mythos 5.2 is available for eligible enterprise customers; it scored 73.5 on Cognition's cyber benchmark against 32.7 for Opus 5.5.</li>
+        <li class="also-item"><a href="https://openai.com/index/chatgpt-plus-for-veterans"><strong>ChatGPT Plus for veterans</strong></a>: OpenAI's figures: more than 20,000 veterans and transitioning service members have claimed a free year.</li>
+        <li class="also-item"><a href="https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/"><strong>OpenAI revenue</strong></a>: quarterly revenue reportedly crossed $10 billion for the first time, up from $6.7 billion.</li>
+        <li class="also-item"><a href="https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/"><strong>Nvidia</strong></a>: the board is reportedly preparing to remove CEO Jensen Huang; shares fell about 8% after hours.</li>
+        <li class="also-item"><a href="https://qz.com/anthropic-ipo-oversubscribed-roadshow-demand-111126"><strong>Anthropic IPO</strong></a>: orders reportedly several times the shares on offer. <a href="https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/">TSMC</a> approved up to $500 million each in Anthropic and OpenAI stock.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <span class="foot-wordmark">AI Brief</span>
+    <span class="foot-meta" id="foot-views" data-date="2026-11-11" hidden></span>
+    <span class="foot-meta">Wednesday edition · November 11, 2026</span>
+  </footer>
+<script>
+(function(){
+  var el = document.getElementById('foot-views');
+  if (!el) return;
+  var m = location.pathname.match(/\/issues\/(.+)\.html$/);
+  var key = (m ? m[1] : ('draft-' + (el.dataset.date || 'unknown'))).replace(/[^A-Za-z0-9_-]+/g, '-');
+  var live = location.hostname === 'mediancanadian.ca' && !!m;
+  var mark = 'ai-brief-viewed:' + key, seen = false;
+  try { seen = !!sessionStorage.getItem(mark); } catch (e) {}
+  var action = (live && !seen) ? 'hit' : 'get';
+  fetch('https://abacus.jasoncameron.dev/' + action + '/sjvadrevu-ai-brief/' + key)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || typeof d.value !== 'number') return;
+      if (action === 'hit') { try { sessionStorage.setItem(mark, '1'); } catch (e) {} }
+      el.textContent = d.value.toLocaleString('en-US') + (d.value === 1 ? ' view' : ' views');
+      el.hidden = false;
+    }).catch(function(){});
+})();
+</script>
+
+  <nav class="issue-nav" aria-label="Browse issues" data-date="2026-11-11">
+    <a class="issue-nav-link" id="nav-prev" href="../../../../">← Previous</a>
+    <a class="issue-nav-link issue-nav-index" href="../../../../">All issues</a>
+    <a class="issue-nav-link" id="nav-next" href="../../../../">Next →</a>
+  </nav>
+
+</article>
+
+<script>
+(function(){
+  var date = document.querySelector('.issue-nav').dataset.date;
+  fetch('../../../../index.json').then(function(r){return r.json();}).then(function(data){
+    var issues = data.issues || [];
+    var i = issues.findIndex(function(x){return x.date===date;});
+    var prev = document.getElementById('nav-prev');
+    var next = document.getElementById('nav-next');
+    if(i < issues.length-1){ prev.href = '../../../../'+issues[i+1].url; prev.textContent = '← '+issues[i+1].date; }
+    else { prev.style.visibility='hidden'; }
+    if(i > 0){ next.href = '../../../../'+issues[i-1].url; next.textContent = issues[i-1].date+' →'; }
+    else { next.style.visibility='hidden'; }
+  }).catch(function(){ document.querySelector('.issue-nav').style.display='none'; });
+})();
+</script>
+</body>
+</html>

@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-11",
+      "url": "issues/daily/2026/11/2026-11-11.html",
+      "headline": "Google ships a model that decides instead of writes",
+      "tags": ["Google", "Databricks", "Amazon", "United Airlines", "ElevenLabs", "Microsoft", "Salesforce", "Alibaba", "Runway", "Cognition", "OpenAI", "TSMC", "Anthropic", "Nvidia", "JetBrains", "xAI"],
+      "stories": [
+        {"label": "A MODEL THAT ONLY DECIDES", "text": "Google launches a model that scores choices instead of writing.", "image": {"src": "assets/covers/2026-11-11-0.jpg", "thumb": "assets/covers/2026-11-11-0.sm.jpg", "alt": "Google example: Gemini Decision 1 scores a spill on a counter with confidence values", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"}},
+        {"label": "GROK BOT JOINS THE TEAM", "text": "SpaceXSI takes Grok Bot out of beta as a team agent."},
+        {"label": "CONTEXT SOLD TO EVERY AGENT", "text": "Databricks turns Genie into an always-on coworker.", "image": {"src": "assets/covers/2026-11-11-2.jpg", "thumb": "assets/covers/2026-11-11-2.sm.jpg", "alt": "Databricks art: Genie linked to ChatGPT, Claude, Grok and Copilot", "credit": "Databricks", "credit_url": "https://www.databricks.com/blog/bring-your-business-context-chatgpt-claude-microsoft-copilot-cowork-and-grok-bot"}},
+        {"label": "AGENTS WROTE ALL THE CODE", "text": "AWS ships an emulator written entirely by agents."},
+        {"label": "AIRLINE SHUTS OUT AGENTS", "text": "United bars personal AI agents from booking its flights."}
+      ],
+      "deck": "Also: SpaceXSI makes Grok Bot a teammate in Teams and Slack, Databricks sells business context to rival agents, AWS ships an emulator its agents wrote, and United shuts agents out of booking."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-10",
       "url": "issues/daily/2026/11/2026-11-10.html",
       "headline": "Anthropic turns Claude into a workplace suite",
