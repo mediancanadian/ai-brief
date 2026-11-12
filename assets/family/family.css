@@ -323,3 +323,39 @@ body strong, body b, .story-facts strong, .also-item strong, .take-label, mark.h
 .band-link .band-inset { display: block; width: 100%; max-width: 460px; height: auto; margin: 10px auto 0; border-radius: 14px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.07); }
 .band-link > b { margin-top: 8px; }
 @media (max-width: 720px) { .band-link { padding: 32px 16px !important; } }
+
+/* ---- Email sign-up (November 12, 2026) ---- */
+/* Header: the logo on the left, one black Subscribe button on the right, the tabs underneath */
+.mcf-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.mcf-top .mcf-logo { align-self: center; }
+.mcf-sub { display: inline-flex; align-items: center; height: 36px; padding: 0 18px; border-radius: 999px; background: var(--mcf-solid); color: var(--mcf-on-solid) !important; font-size: 14.5px; font-weight: 500; letter-spacing: -0.005em; text-decoration: none !important; white-space: nowrap; }
+.mcf-sub:hover { opacity: .86; }
+.mcf-sub[aria-current="page"] { display: none; }
+
+/* The form at the foot of a page: a quiet line and the field, no small print */
+.mcf-signup-title { font-size: 16px; line-height: 1.45; color: var(--mcf-soft); }
+.mcf-signup-title strong { color: var(--mcf-ink); }
+
+/* subscribe.html: the name large and light, one line, the form, then the latest issues */
+.mcf-join { box-sizing: border-box; max-width: 1080px; margin: 0 auto; padding: 48px 40px 8px; }
+.mcf-join-hero { max-width: 640px; }
+.mcf-join-hero h1 { margin: 0 0 18px; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: var(--mcf-ink); }
+.mcf-join-lede { margin: 0; font-size: 21px; line-height: 1.45; font-weight: 400; letter-spacing: -0.01em; color: var(--mcf-soft); max-width: 600px; }
+.mcf-join .mcf-signup { margin: 28px 0 0; }
+.mcf-join .mcf-signup-row { margin: 0; }
+.mcf-join-fine { margin: 22px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--mcf-muted); max-width: 560px; }
+.mcf-join-fine a { color: var(--mcf-ink); }
+.mcf-join-recent { margin: 64px 0 0; padding-top: 22px; border-top: 1px solid var(--mcf-line); }
+.mcf-join-recent h2 { margin: 0 0 18px; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: var(--mcf-ink); }
+.mcf-join-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.mcf-join-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none !important; color: var(--mcf-ink); }
+.mcf-join-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; display: block; }
+.mcf-join-card-title { font-size: 17px; line-height: 1.35; font-weight: 400; letter-spacing: -0.01em; margin-top: 4px; }
+.mcf-join-card-date { font-size: 14px; color: var(--mcf-muted); }
+@media (max-width: 760px) {
+  .mcf-join { padding: 32px 20px 8px; }
+  .mcf-join-hero h1 { font-size: 52px; }
+  .mcf-join-lede { font-size: 19px; }
+  .mcf-join-cards { grid-template-columns: 1fr; gap: 26px; }
+  .mcf-join-recent { margin-top: 48px; }
+}
