@@ -359,3 +359,9 @@ body strong, body b, .story-facts strong, .also-item strong, .take-label, mark.h
   .mcf-join-cards { grid-template-columns: 1fr; gap: 26px; }
   .mcf-join-recent { margin-top: 48px; }
 }
+
+/* One row, nothing else (Shashank, November 12, 2026: "just a text box for email and click subscribe") */
+.mcf-signup-archive { background: none !important; padding: 0 !important; margin: 18px 0 10px !important; max-width: 520px; border-radius: 0; }
+.mcf-signup-archive .mcf-signup-row { margin: 0; }
+.mcf-signup-issue .mcf-signup-title { margin-bottom: 12px; }
+.mcf-signup-issue .mcf-signup-row { margin: 0; max-width: 520px; }
