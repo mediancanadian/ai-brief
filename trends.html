@@ -23,7 +23,7 @@ h1{font-size:28px;font-weight:600;letter-spacing:-.01em;margin:18px 0 4px}
 .chip[aria-pressed=false]{opacity:.38}
 .panel{background:var(--bg);border:.5px solid var(--mid);border-radius:12px;padding:18px 20px 16px;position:relative}
 .legend{display:flex;gap:18px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);flex-wrap:wrap;margin-bottom:6px}
-.legend svg{vertical-align:middle;margin-right:5px}
+.legend svg{vertical-align:middle;margin-right:5px}.legend .move svg{margin:0 8px}
 .foot{font-size:12.5px;color:var(--faint);font-style:italic;margin-top:14px;line-height:1.5}
 /* rise and fall rows */
 .rows{width:100%}
@@ -122,24 +122,34 @@ function renderRise(){var el=document.getElementById('rise'),ideas=vis().slice()
  var mx=Math.ceil(d3.max(IDEAS,function(i){return Math.max(i.before,i.latest)})/5)*5;
  var up=ideas.filter(function(i){return i.delta>=1}),st=ideas.filter(function(i){return Math.abs(i.delta)<1}),dn=ideas.filter(function(i){return i.delta<=-1});
  var N=showAll?99:(mob?6:8),more=Math.max(0,up.length-N)+st.length;if(!showAll){up=up.slice(0,N);st=[]}
- var lg='<div class="legend"><span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="#fff" stroke="#9a958b" stroke-width="1.5"/></svg>'+esc(D.beforeLabel)+'</span><span><svg width="14" height="14"><circle cx="7" cy="7" r="6" fill="#1a1917"/></svg>'+esc(D.latestLabel)+'</span><span><svg width="'+(P.length*8+4)+'" height="14">'+P.map(function(p,k){return '<rect x="'+(k*8+(k===LAST?3:0))+'" y="'+(k===LAST?1:[5,3,7,4,6][k%5])+'" width="6" height="'+(k===LAST?13:[9,11,7,10,8][k%5])+'" fill="'+(k===LAST?'#1a1917':'#d9d3ca')+'"/>'}).join('')+'</svg>'+P.map(function(p){return p.short}).join(' · ')+'</span></div>';
+ var lg='<div class="legend"><span class="move">'+esc(mob?D.beforeName:D.beforeLabel)+'<svg width="54" height="16" aria-hidden="true"><defs><linearGradient id="lgc"><stop offset="0" stop-color="#1a1917" stop-opacity=".1"/><stop offset="1" stop-color="#1a1917" stop-opacity=".95"/></linearGradient></defs><path d="M6,7 L44,3.5 L44,12.5 L6,9 Z" fill="url(#lgc)"/><circle cx="6" cy="8" r="3.6" fill="#fff" stroke="#9a958b" stroke-width="1.3"/><circle cx="45" cy="8" r="6" fill="#1a1917"/></svg>'+esc(mob?D.latestName:D.latestLabel)+'</span><span><svg width="'+(P.length*8+4)+'" height="14">'+P.map(function(p,k){return '<rect x="'+(k*8+(k===LAST?3:0))+'" y="'+(k===LAST?1:[5,3,7,4,6][k%5])+'" width="6" height="'+(k===LAST?13:[9,11,7,10,8][k%5])+'" fill="'+(k===LAST?'#1a1917':'#d9d3ca')+'"/>'}).join('')+'</svg>'+P.map(function(p){return p.short}).join(' · ')+'</span></div>';
  var ax='<div class="axisrow"><span class="a1"></span><svg class="a2" id="axsvg"></svg><span class="a3" style="text-align:right">over time</span></div>';
  function rows(list){return list.map(function(x){return '<div class="row" data-id="'+esc(x.id)+'"><div class="nm">'+esc(nice(x.id))+'<small style="color:'+GC[x.group]+'">'+x.group+'</small></div><svg class="tr" data-id="'+esc(x.id)+'"></svg><svg class="spk" viewBox="0 0 92 30" preserveAspectRatio="none">'+spark(x,92,30)+'</svg></div>'}).join('')}
  el.innerHTML=lg+ax+(up.length?'<div class="sec">Rising</div>'+rows(up):'')+(st.length?'<div class="sec down">About the same</div>'+rows(st):'')+(dn.length?'<div class="sec down">Fading</div>'+rows(dn):'')+'<button class="more" id="more">'+(showAll?'Show only the biggest changes':'Show '+more+' more ideas')+'</button>';
  var axs=d3.select('#axsvg'),W=axs.node().getBoundingClientRect().width,x=d3.scaleLinear().domain([0,mx]).range([mob?40:8,W-8]);
  axs.selectAll('g').remove();var gx=axs.append('g');d3.range(0,mx+1,5).forEach(function(t){gx.append('text').attr('x',x(t)).attr('y',12).attr('text-anchor','middle').text(t+'%')});
- d3.selectAll('svg.tr').each(function(){var s=d3.select(this),id=this.getAttribute('data-id'),it=IDEAS.filter(function(z){return z.id===id})[0],w=this.getBoundingClientRect().width,xs=d3.scaleLinear().domain([0,mx]).range([mob?40:8,w-8]);
-  var c=GC[it.group],rise=it.delta>=1,fall=it.delta<=-1,y=15;
+ // Each idea is a comet (Shashank, November 12, 2026: the move from left to right has to explain itself):
+ // a faint thin tail where it was, growing into a solid head where it is now. It travels when the row comes into view.
+ if(window.trIO)window.trIO.disconnect();
+ window.trIO=('IntersectionObserver' in window&&!navigator.webdriver)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){window.trIO.unobserve(e.target);if(e.target.__go)e.target.__go()}})},{threshold:.6}):null;
+ d3.selectAll('svg.tr').each(function(d0,k){var s=d3.select(this),id=this.getAttribute('data-id'),it=IDEAS.filter(function(z){return z.id===id})[0],w=this.getBoundingClientRect().width,xs=d3.scaleLinear().domain([0,mx]).range([mob?40:8,w-8]);
+  var c=GC[it.group],rise=it.delta>=1,fall=it.delta<=-1,y=15,col=fall?'#8f8a81':(rise?c:'#b8b3aa');
   d3.range(0,mx+1,5).forEach(function(t){s.append('line').attr('x1',xs(t)).attr('x2',xs(t)).attr('y1',2).attr('y2',28).attr('stroke','#efebe4')});
-  var x0=xs(it.before),x1=xs(it.latest),dir=x1>=x0?1:-1;
-  var ln=s.append('line').attr('x1',x0).attr('x2',x0).attr('y1',y).attr('y2',y).attr('stroke',rise?c:'#b8b3aa').attr('stroke-width',rise?4:3).attr('stroke-linecap','round').attr('opacity',rise?.85:.9);
-  ln.transition().delay(150).duration(900).ease(d3.easeCubicOut).attr('x2',x1-dir*7);
-  s.append('circle').attr('cx',x0).attr('cy',y).attr('r',5.5).attr('fill','#fff').attr('stroke','#9a958b').attr('stroke-width',1.5);
-  var end=s.append('circle').attr('cx',x0).attr('cy',y).attr('r',7).attr('fill',fall?'#8f8a81':c);
-  end.transition().delay(150).duration(900).ease(d3.easeCubicOut).attr('cx',x1);
-  var lab=s.append('text').attr('x',x1+(dir>0?12:-12)).attr('y',y+4).attr('text-anchor',dir>0?'start':'end').attr('font-family','JetBrains Mono').attr('font-size',11).attr('font-weight',500).attr('fill',fall?'#6f6b64':c).attr('opacity',0).text(pc(it.latest));
-  lab.transition().delay(950).duration(300).attr('opacity',1);
-  s.append('text').attr('x',x0+(dir>0?-10:10)).attr('y',y+4).attr('text-anchor',dir>0?'end':'start').attr('font-family','JetBrains Mono').attr('font-size',10).attr('fill','#a29d95').text(pc(it.before));
+  var x0=xs(it.before),x1=xs(it.latest),dir=x1>=x0?1:-1,gid='tg'+k;
+  var gr=s.append('defs').append('linearGradient').attr('id',gid).attr('gradientUnits','userSpaceOnUse').attr('x1',x0).attr('x2',x1===x0?x0+1:x1).attr('y1',0).attr('y2',0);
+  gr.append('stop').attr('offset',0).attr('stop-color',col).attr('stop-opacity',.1);
+  gr.append('stop').attr('offset',1).attr('stop-color',col).attr('stop-opacity',.95);
+  function wedge(xe){return 'M'+x0+','+(y-1.2)+'L'+xe+','+(y-5)+'L'+xe+','+(y+5)+'L'+x0+','+(y+1.2)+'Z'}
+  var tail=s.append('path').attr('d',wedge(x0)).attr('fill','url(#'+gid+')');
+  s.append('circle').attr('cx',x0).attr('cy',y).attr('r',4).attr('fill','#fff').attr('stroke','#b3aea5').attr('stroke-width',1.4);
+  var end=s.append('circle').attr('cx',x0).attr('cy',y).attr('r',7.5).attr('fill',col);
+  var lab=s.append('text').attr('x',x1+(dir>0?13:-13)).attr('y',y+4).attr('text-anchor',dir>0?'start':'end').attr('font-family','JetBrains Mono').attr('font-size',11).attr('font-weight',500).attr('fill',fall?'#6f6b64':c).attr('opacity',0).text(pc(it.latest));
+  s.append('text').attr('x',x0+(dir>0?-9:9)).attr('y',y+4).attr('text-anchor',dir>0?'end':'start').attr('font-family','JetBrains Mono').attr('font-size',10).attr('fill','#a29d95').text(pc(it.before));
+  function go(){var ix=d3.interpolateNumber(x0,x1);
+   tail.transition().duration(1000).ease(d3.easeCubicOut).attrTween('d',function(){return function(t){return wedge(ix(t))}});
+   end.transition().duration(1000).ease(d3.easeCubicOut).attr('cx',x1);
+   lab.transition().delay(850).duration(300).attr('opacity',1)}
+  if(window.trIO){this.__go=go;window.trIO.observe(this)}else go();
  });
 }
 
