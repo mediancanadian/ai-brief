@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Subscribe · AI Brief</title>
-<meta name="description" content="What changed in AI agents today, and why it matters. For people building AI agents, every day.">
-<meta property="og:title" content="AI Brief">
-<meta property="og:description" content="What changed in AI agents today, and why it matters. For people building AI agents, every day.">
-<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap"><link rel="stylesheet" href="assets/family/family.css?v=88532af006"><!-- /family:css -->
+<meta name="robots" content="noindex">
+<title>AI Brief by email</title>
+<script>
+(function () {
+  var step = new URLSearchParams(location.search).get('step');
+  if (step !== 'check' && step !== 'done') location.replace('./');
+})();
+</script>
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap"><link rel="stylesheet" href="assets/family/family.css?v=cb4431a3f3"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -17,39 +21,23 @@
 </nav>
 <!-- /family:header -->
 <main class="mcf-join">
-  <section class="mcf-join-hero" data-step="start">
-    <h1>AI Brief</h1>
-    <p class="mcf-join-lede">What changed in AI agents today, and why it matters. For people building AI agents, every day.</p>
-<form class="mcf-signup mcf-signup-subscribe" action="https://buttondown.com/api/emails/embed-subscribe/mediancanadian" method="post">
-  <div class="mcf-signup-row"><label class="mcf-sr" for="mcf-email-subscribe">Email address</label><input id="mcf-email-subscribe" type="email" name="email" required autocomplete="email" placeholder="you@example.com"><button type="submit">Subscribe</button></div>
-  <input type="hidden" name="embed" value="1"><input type="hidden" name="metadata__source" value="ai-brief-subscribe">
-</form>
-
-  </section>
-  <section class="mcf-join-hero" data-step="check" hidden>
+  <section class="mcf-join-hero" data-step="check">
     <h1>Check your inbox</h1>
     <p class="mcf-join-lede">We sent you a link. Tap it to confirm, and the AI Brief starts with the next issue.</p>
     <p class="mcf-join-fine">You will get the AI Brief by email from The Median Canadian, one email a day. Unsubscribe at any time with the link in any email. Questions: <a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a>. <a href="https://ai.mediancanadian.ca/privacy.html">Privacy</a>.</p>
+    <p class="mcf-join-back"><a href="./">Back to the AI Brief</a></p>
   </section>
   <section class="mcf-join-hero" data-step="done" hidden>
     <h1>You're in</h1>
     <p class="mcf-join-lede">The next AI Brief arrives in your inbox tomorrow morning.</p>
     <p class="mcf-join-fine">You will get the AI Brief by email from The Median Canadian, one email a day. Unsubscribe at any time with the link in any email. Questions: <a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a>. <a href="https://ai.mediancanadian.ca/privacy.html">Privacy</a>.</p>
-  </section>
-  <section class="mcf-join-recent" aria-label="Latest issues">
-    <h2>Latest issues</h2>
-    <div class="mcf-join-cards">
-      <a class="mcf-join-card" href="issues/daily/2026/11/2026-11-11.html"><img src="assets/covers/2026-11-11-0.sm.jpg" alt="" loading="lazy"><span class="mcf-join-card-title">Google ships a model that decides instead of writes</span><span class="mcf-join-card-date">November 11, 2026</span></a>
-      <a class="mcf-join-card" href="issues/daily/2026/11/2026-11-10.html"><img src="assets/covers/2026-11-10-0.sm.jpg" alt="" loading="lazy"><span class="mcf-join-card-title">Anthropic turns Claude into a workplace suite</span><span class="mcf-join-card-date">November 10, 2026</span></a>
-      <a class="mcf-join-card" href="issues/daily/2026/11/2026-11-09.html"><img src="assets/covers/2026-11-09-0.sm.jpg" alt="" loading="lazy"><span class="mcf-join-card-title">Anthropic ships Claude Fable 5.2 at a lower price</span><span class="mcf-join-card-date">November 9, 2026</span></a>
-    </div>
+    <p class="mcf-join-back"><a href="./">Read the latest issue</a></p>
   </section>
 </main>
 <script>
 (function () {
   var step = new URLSearchParams(location.search).get('step');
-  if (step !== 'check' && step !== 'done') return;
-  document.querySelectorAll('[data-step]').forEach(function (el) { el.hidden = el.getAttribute('data-step') !== step; });
+  if (step === 'done') document.querySelectorAll('[data-step]').forEach(function (el) { el.hidden = el.getAttribute('data-step') !== 'done'; });
 })();
 </script>
 
