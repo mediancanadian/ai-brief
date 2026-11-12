@@ -545,7 +545,7 @@
   if (!el) return;
   var m = location.pathname.match(/\/issues\/(.+)\.html$/);
   var key = (m ? m[1] : ('draft-' + (el.dataset.date || 'unknown'))).replace(/[^A-Za-z0-9_-]+/g, '-');
-  var live = location.hostname === 'sjvadrevu.github.io' && !!m;
+  var live = location.hostname === 'mediancanadian.ca' && !!m;
   var mark = 'ai-brief-viewed:' + key, seen = false;
   try { seen = !!sessionStorage.getItem(mark); } catch (e) {}
   var action = (live && !seen) ? 'hit' : 'get';
