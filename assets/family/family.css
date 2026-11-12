@@ -234,14 +234,10 @@ mark.hl { background: none !important; color: var(--mcf-ink) !important; font-we
 .mcf-foot-line { color: var(--mcf-muted); font-size: 13.5px; }
 @media (max-width: 600px) { .mcf-foot-cols { grid-template-columns: 1fr; gap: 28px; } }
 
-/* Issue: research picks as a news list, each with a soft gradient square like the reference's. */
-.research-item { display: grid !important; grid-template-columns: 76px minmax(0, 1fr); column-gap: 14px; align-items: start; }
-.research-item::before { content: ""; grid-row: 1 / span 3; width: 76px; height: 76px; border-radius: 12px; background: var(--mcf-g1); }
-.research-item:nth-child(2)::before { background: var(--mcf-g2); }
-.research-item:nth-child(3)::before { background: var(--mcf-g3); }
-.research-item:nth-child(4)::before { background: var(--mcf-g4); }
-.research-item:nth-child(5)::before { background: var(--mcf-g5); }
-.research-item > * { grid-column: 2; }
+/* Issue: research picks as a plain news list under hairlines, with no picture squares
+   (Shashank, November 12, 2026: the gradient squares read as "weird sunsets"). */
+.research-item { display: block !important; }
+.research-item::before { content: none !important; display: none !important; }
 :root {
   /* the middle of five horizons (covers.py tones), so research items carry the same art as the stories */
   --mcf-g1: url(tone-1.jpg) center / cover no-repeat;
