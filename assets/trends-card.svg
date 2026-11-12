@@ -1,13 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 278" width="360" height="278" role="img" aria-label="Rising fastest since spring: Agent governance controls, MCP and connectors, Coding agents">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 292" width="360" height="292" role="img" aria-label="Rising fastest since spring: Agent governance controls, MCP and connectors, Coding agents">
 <style>text{font-family:Geist,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}.bg{fill:#fff}.ink{fill:#141414}.mute{fill:#8a8a8a}.track{stroke:#ececec}.ring{fill:#fff;stroke:#a3a3a3}@media (prefers-color-scheme:dark){.bg{fill:#161616}.ink{fill:#ededed}.mute{fill:#9a9a9a}.track{stroke:#2b2b2b}.ring{fill:#161616;stroke:#7a7a7a}}</style>
-<rect class="bg" width="360" height="278" rx="16"/>
+<rect class="bg" width="360" height="292" rx="16"/>
 <text class="mute" x="22" y="30" font-size="11" letter-spacing="1.1">RISING FASTEST</text>
-<text class="mute" x="228" y="30" font-size="12" text-anchor="end">Spring</text>
-<defs><linearGradient id="lg"><stop offset="0" stop-color="#8a8a8a" stop-opacity=".15"/><stop offset="1" stop-color="#8a8a8a" stop-opacity="1"/></linearGradient></defs>
-<path d="M236,25 L272,22 L272,30 L236,27 Z" fill="url(#lg)"/>
-<circle class="ring" cx="236" cy="26" r="3.4" stroke-width="1.2"/>
-<circle class="ink" cx="273" cy="26" r="5"/>
-<text class="mute" x="284" y="30" font-size="12">November</text>
 <text class="ink" x="22" y="66" font-size="15.5">Agent governance controls</text>
 <line class="track" x1="22" y1="88" x2="270" y2="88" stroke-width="2" stroke-linecap="round"/>
 <defs><linearGradient id="c0" gradientUnits="userSpaceOnUse" x1="55.5" y1="0" x2="158.4" y2="0"><stop offset="0" stop-color="#2f7fb5" stop-opacity=".1"/><stop offset="1" stop-color="#2f7fb5" stop-opacity=".95"/></linearGradient></defs>
@@ -15,19 +9,21 @@
 <circle class="ring" cx="55.5" cy="88" r="4" stroke-width="1.3"/>
 <circle cx="158.4" cy="88" r="7" fill="#2f7fb5"/>
 <text x="338" y="93" font-size="14" text-anchor="end" fill="#2f7fb5">11.0%</text>
-<text class="ink" x="22" y="132" font-size="15.5">MCP and connectors</text>
-<line class="track" x1="22" y1="154" x2="270" y2="154" stroke-width="2" stroke-linecap="round"/>
+<text class="mute" x="60.5" y="109" font-size="11.5" text-anchor="end">Spring</text>
+<text x="152.4" y="109" font-size="11.5" font-weight="500" fill="#2f7fb5">November</text>
+<text class="ink" x="22" y="146" font-size="15.5">MCP and connectors</text>
+<line class="track" x1="22" y1="168" x2="270" y2="168" stroke-width="2" stroke-linecap="round"/>
 <defs><linearGradient id="c1" gradientUnits="userSpaceOnUse" x1="67.9" y1="0" x2="167.1" y2="0"><stop offset="0" stop-color="#2f7fb5" stop-opacity=".1"/><stop offset="1" stop-color="#2f7fb5" stop-opacity=".95"/></linearGradient></defs>
-<path d="M67.9,152.8 L167.1,149 L167.1,159 L67.9,155.2 Z" fill="url(#c1)"/>
-<circle class="ring" cx="67.9" cy="154" r="4" stroke-width="1.3"/>
-<circle cx="167.1" cy="154" r="7" fill="#2f7fb5"/>
-<text x="338" y="159" font-size="14" text-anchor="end" fill="#2f7fb5">11.7%</text>
-<text class="ink" x="22" y="198" font-size="15.5">Coding agents</text>
-<line class="track" x1="22" y1="220" x2="270" y2="220" stroke-width="2" stroke-linecap="round"/>
+<path d="M67.9,166.8 L167.1,163 L167.1,173 L67.9,169.2 Z" fill="url(#c1)"/>
+<circle class="ring" cx="67.9" cy="168" r="4" stroke-width="1.3"/>
+<circle cx="167.1" cy="168" r="7" fill="#2f7fb5"/>
+<text x="338" y="173" font-size="14" text-anchor="end" fill="#2f7fb5">11.7%</text>
+<text class="ink" x="22" y="212" font-size="15.5">Coding agents</text>
+<line class="track" x1="22" y1="234" x2="270" y2="234" stroke-width="2" stroke-linecap="round"/>
 <defs><linearGradient id="c2" gradientUnits="userSpaceOnUse" x1="155.9" y1="0" x2="220.4" y2="0"><stop offset="0" stop-color="#2f7fb5" stop-opacity=".1"/><stop offset="1" stop-color="#2f7fb5" stop-opacity=".95"/></linearGradient></defs>
-<path d="M155.9,218.8 L220.4,215 L220.4,225 L155.9,221.2 Z" fill="url(#c2)"/>
-<circle class="ring" cx="155.9" cy="220" r="4" stroke-width="1.3"/>
-<circle cx="220.4" cy="220" r="7" fill="#2f7fb5"/>
-<text x="338" y="225" font-size="14" text-anchor="end" fill="#2f7fb5">16.0%</text>
-<text class="mute" x="22" y="262" font-size="11.5">Share of the brief&#8217;s stories about each idea</text>
+<path d="M155.9,232.8 L220.4,229 L220.4,239 L155.9,235.2 Z" fill="url(#c2)"/>
+<circle class="ring" cx="155.9" cy="234" r="4" stroke-width="1.3"/>
+<circle cx="220.4" cy="234" r="7" fill="#2f7fb5"/>
+<text x="338" y="239" font-size="14" text-anchor="end" fill="#2f7fb5">16.0%</text>
+<text class="mute" x="22" y="276" font-size="11.5">Share of the brief&#8217;s stories about each idea</text>
 </svg>

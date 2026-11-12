@@ -131,6 +131,9 @@ function renderRise(){var el=document.getElementById('rise'),ideas=vis().slice()
  // Each idea is a comet (Shashank, November 12, 2026: the move from left to right has to explain itself):
  // a faint thin tail where it was, growing into a solid head where it is now. It travels when the row comes into view.
  if(window.trIO)window.trIO.disconnect();
+ // The first comet of each section is labelled at both ends with its period, so the reader sees that the move is over time
+ // (Shashank, November 12, 2026: how would people know it is against time?). The rest follow the same reading.
+ var teach={};if(up.length)teach[up[0].id]=1;if(dn.length)teach[dn[0].id]=1;
  window.trIO=('IntersectionObserver' in window&&!navigator.webdriver)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){window.trIO.unobserve(e.target);if(e.target.__go)e.target.__go()}})},{threshold:.6}):null;
  d3.selectAll('svg.tr').each(function(d0,k){var s=d3.select(this),id=this.getAttribute('data-id'),it=IDEAS.filter(function(z){return z.id===id})[0],w=this.getBoundingClientRect().width,xs=d3.scaleLinear().domain([0,mx]).range([mob?40:8,w-8]);
   var c=GC[it.group],rise=it.delta>=1,fall=it.delta<=-1,y=15,col=fall?'#8f8a81':(rise?c:'#b8b3aa');
@@ -145,7 +148,10 @@ function renderRise(){var el=document.getElementById('rise'),ideas=vis().slice()
   var end=s.append('circle').attr('cx',x0).attr('cy',y).attr('r',7.5).attr('fill',col);
   var lab=s.append('text').attr('x',x1+(dir>0?13:-13)).attr('y',y+4).attr('text-anchor',dir>0?'start':'end').attr('font-family','JetBrains Mono').attr('font-size',11).attr('font-weight',500).attr('fill',fall?'#6f6b64':c).attr('opacity',0).text(pc(it.latest));
   s.append('text').attr('x',x0+(dir>0?-9:9)).attr('y',y+4).attr('text-anchor',dir>0?'end':'start').attr('font-family','JetBrains Mono').attr('font-size',10).attr('fill','#a29d95').text(pc(it.before));
-  function go(){var ix=d3.interpolateNumber(x0,x1);
+  var when=null;if(teach[id]){this.style.height=(mob?54:48)+'px';var wy=y+(mob?26:24);
+   s.append('text').attr('x',x0+(dir>0?5:-5)).attr('y',wy).attr('text-anchor',dir>0?'end':'start').attr('font-size',mob?11.5:10.5).attr('fill','#a29d95').text(D.beforeName);
+   when=s.append('text').attr('x',x1+(dir>0?-6:6)).attr('y',wy).attr('text-anchor',dir>0?'start':'end').attr('font-size',mob?11.5:10.5).attr('font-weight',500).attr('fill',fall?'#6f6b64':c).attr('opacity',0).text(D.latestName)}
+  function go(){var ix=d3.interpolateNumber(x0,x1);if(when)when.transition().delay(850).duration(300).attr('opacity',1);
    tail.transition().duration(1000).ease(d3.easeCubicOut).attrTween('d',function(){return function(t){return wedge(ix(t))}});
    end.transition().duration(1000).ease(d3.easeCubicOut).attr('cx',x1);
    lab.transition().delay(850).duration(300).attr('opacity',1)}
