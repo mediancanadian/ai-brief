@@ -367,3 +367,14 @@ body strong, body b, .story-facts strong, .also-item strong, .take-label, mark.h
 .mcf-signup-issue .mcf-signup-row { margin: 0; max-width: 520px; }
 .mcf-join-back { margin: 26px 0 0; font-size: 16px; }
 .mcf-join-back a { color: var(--mcf-ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* After Subscribe: the box gives way to "Check your inbox" (Shashank, November 12, 2026) */
+.mcf-signup-done { display: none; }
+.mcf-signup-sent .mcf-signup-row, .mcf-signup-sent .mcf-signup-title, .mcf-signup-sent .mcf-signup-choice { display: none !important; }
+.mcf-signup-sent .mcf-signup-done { display: block; }
+.mcf-signup-done-title { margin: 0; font-size: 17px; line-height: 1.45; color: var(--mcf-soft); }
+.mcf-signup-done-title strong { color: var(--mcf-ink); font-weight: 600; }
+.mcf-signup-done-fine { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--mcf-muted); max-width: 560px; }
+.mcf-signup-done-fine a { color: var(--mcf-ink); }
+.mcf-signup-archive.mcf-signup-sent { padding: 16px 18px !important; background: var(--mcf-panel) !important; border-radius: 16px !important; }
+.mcf-signup-again { display: inline-block; margin-top: 6px; font-size: 13px; color: var(--mcf-muted) !important; text-decoration: underline; text-underline-offset: 3px; }

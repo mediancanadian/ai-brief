@@ -313,7 +313,7 @@
       font-style: italic; display: block;
     }
   </style>
-<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css?v=cb4431a3f3"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css?v=7c9a4198e9"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -605,7 +605,22 @@
   <p class="mcf-signup-title"><strong>Get the AI Brief by email.</strong></p>
   <div class="mcf-signup-row"><label class="mcf-sr" for="mcf-email-issue">Email address</label><input id="mcf-email-issue" type="email" name="email" required autocomplete="email" placeholder="you@example.com"><button type="submit">Subscribe</button></div>
   <input type="hidden" name="embed" value="1"><input type="hidden" name="metadata__source" value="ai-brief-issue">
+  <div class="mcf-signup-done" role="status"><p class="mcf-signup-done-title"><strong>Check your inbox.</strong> We sent you a link to confirm.</p><a href="#" class="mcf-signup-again">Use a different address</a></div>
 </form>
+<script>
+(function () {
+  var KEY = 'ai-brief-signup', LIMIT = 30 * 60 * 1000, forms = document.querySelectorAll('form.mcf-signup');
+  function sent(on) { forms.forEach(function (f) { f.classList.toggle('mcf-signup-sent', on); }); }
+  forms.forEach(function (f) {
+    f.addEventListener('submit', function () { try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {} sent(true); });
+    var again = f.querySelector('.mcf-signup-again');
+    if (again) again.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.removeItem(KEY); } catch (e2) {} sent(false); });
+  });
+  var at = 0;
+  try { at = Number(localStorage.getItem(KEY)) || 0; } catch (e) {}
+  if (at && Date.now() - at < LIMIT) sent(true);
+})();
+</script>
 <!-- /family:signup -->
   <div class="mcf-foot-rule"></div>
   <div class="mcf-foot-cols">
