@@ -1,0 +1,43 @@
+# Emails each new AI Brief issue through Buttondown once the push that publishes it is live.
+# Written by the private pipeline (newsletter.py site); do not edit it in this repo.
+# The key lives in this repository's secrets as BUTTONDOWN_API_KEY.
+name: Email new issues
+
+on:
+  push:
+    branches: [main]
+    paths: ["email/daily/**"]
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "Email file to send, for example email/daily/2026-11-13.json"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: email
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - name: Send new issues
+        if: github.event_name == 'push'
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BEFORE: ${{ github.event.before }}
+        run: python3 tools/send_email.py --new-since "$BEFORE"
+      - name: Send one issue
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          FILE: ${{ inputs.file }}
+        run: python3 tools/send_email.py "$FILE"

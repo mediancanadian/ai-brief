@@ -79,4 +79,6 @@ Disallow: /
 
 # All other crawlers (search engines etc.): allowed
 User-agent: *
+Disallow: /email/
+Disallow: /tools/
 Allow: /
