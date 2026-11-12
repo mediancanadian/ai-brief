@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 278" width="360" height="278" role="img" aria-label="Rising fastest since spring: Agent governance controls, MCP and connectors, Coding agents">
+<style>text{font-family:Geist,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}.bg{fill:#fff}.ink{fill:#141414}.mute{fill:#8a8a8a}.track{stroke:#ececec}.ring{fill:#fff;stroke:#a3a3a3}@media (prefers-color-scheme:dark){.bg{fill:#161616}.ink{fill:#ededed}.mute{fill:#9a9a9a}.track{stroke:#2b2b2b}.ring{fill:#161616;stroke:#7a7a7a}}</style>
+<rect class="bg" width="360" height="278" rx="16"/>
+<text class="mute" x="22" y="30" font-size="11" letter-spacing="1.1">RISING FASTEST</text>
+<circle class="ring" cx="218" cy="26" r="4.5" stroke-width="1.4"/><text class="mute" x="227" y="30" font-size="12">Spring</text>
+<circle class="ink" cx="280" cy="26" r="5"/><text class="mute" x="289" y="30" font-size="12">November</text>
+<text class="ink" x="22" y="66" font-size="15.5">Agent governance controls</text>
+<line class="track" x1="22" y1="88" x2="270" y2="88" stroke-width="2" stroke-linecap="round"/>
+<line x1="55.5" y1="88" x2="158.4" y2="88" stroke="#2f7fb5" stroke-width="3" stroke-linecap="round"/>
+<circle class="ring" cx="55.5" cy="88" r="5" stroke-width="1.4"/>
+<circle cx="158.4" cy="88" r="6.5" fill="#2f7fb5"/>
+<text x="338" y="93" font-size="14" text-anchor="end" fill="#2f7fb5">11.0%</text>
+<text class="ink" x="22" y="132" font-size="15.5">MCP and connectors</text>
+<line class="track" x1="22" y1="154" x2="270" y2="154" stroke-width="2" stroke-linecap="round"/>
+<line x1="67.9" y1="154" x2="167.1" y2="154" stroke="#2f7fb5" stroke-width="3" stroke-linecap="round"/>
+<circle class="ring" cx="67.9" cy="154" r="5" stroke-width="1.4"/>
+<circle cx="167.1" cy="154" r="6.5" fill="#2f7fb5"/>
+<text x="338" y="159" font-size="14" text-anchor="end" fill="#2f7fb5">11.7%</text>
+<text class="ink" x="22" y="198" font-size="15.5">Coding agents</text>
+<line class="track" x1="22" y1="220" x2="270" y2="220" stroke-width="2" stroke-linecap="round"/>
+<line x1="155.9" y1="220" x2="220.4" y2="220" stroke="#2f7fb5" stroke-width="3" stroke-linecap="round"/>
+<circle class="ring" cx="155.9" cy="220" r="5" stroke-width="1.4"/>
+<circle cx="220.4" cy="220" r="6.5" fill="#2f7fb5"/>
+<text x="338" y="225" font-size="14" text-anchor="end" fill="#2f7fb5">16.0%</text>
+<text class="mute" x="22" y="262" font-size="11.5">Share of the brief&#8217;s stories about each idea</text>
+</svg>

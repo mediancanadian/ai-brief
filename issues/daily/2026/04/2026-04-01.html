@@ -339,7 +339,7 @@
 <!-- family:header -->
 <nav class="mcf-head mcf-issue" aria-label="The Median Canadian">
   <a class="mcf-logo" href="https://mediancanadian.ca/"><img class="mcf-logo-light" src="../../../../assets/family/logo.png" alt="The Median Canadian" width="144" height="46"><img class="mcf-logo-dark" src="../../../../assets/family/logo-dark.png" alt="" width="144" height="46"></a>
-  <div class="mcf-tabs"><a href="https://mediancanadian.ca/"><span class="mcf-dot" aria-hidden="true"></span>Canada in numbers</a><a href="../../../../" aria-current="page"><span class="mcf-dot mcf-dot-ai" aria-hidden="true"></span>AI Brief</a></div>
+  <div class="mcf-tabs"><a href="https://mediancanadian.ca/"><span class="mcf-dot" aria-hidden="true"></span>The Median Canadian</a><a href="../../../../" aria-current="page"><span class="mcf-dot mcf-dot-ai" aria-hidden="true"></span>AI Brief</a></div>
 </nav>
 <!-- /family:header -->
 <article class="brief" aria-label="AI Brief newsletter">
@@ -490,9 +490,9 @@
     var i = issues.findIndex(function(x){return x.date===date;});
     var prev = document.getElementById('nav-prev');
     var next = document.getElementById('nav-next');
-    if(i < issues.length-1){ prev.href = '../../../../'+issues[i+1].url; prev.textContent = '← '+issues[i+1].date; }
+    if(i < issues.length-1){ prev.href = '../../../../'+issues[i+1].url; prev.textContent = '← '+new Date(issues[i+1].date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
     else { prev.style.visibility='hidden'; }
-    if(i > 0){ next.href = '../../../../'+issues[i-1].url; next.textContent = issues[i-1].date+' →'; }
+    if(i > 0){ next.href = '../../../../'+issues[i-1].url; next.textContent = new Date(issues[i-1].date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+' →'; }
     else { next.style.visibility='hidden'; }
   }).catch(function(){ document.querySelector('.issue-nav').style.display='none'; });
 })();

@@ -69,6 +69,8 @@ h1{font-size:28px;font-weight:600;letter-spacing:-.01em;margin:18px 0 4px}
  .wrap{padding:16px 14px 50px}h1{font-size:23px}.sub{font-size:14px}
  .row{grid-template-columns:1fr 64px;grid-template-areas:"nm spk" "tr tr";row-gap:0;padding:7px 4px}
  .row .nm{grid-area:nm}.row .spk{grid-area:spk}.row .tr{grid-area:tr}
+ /* readable on a phone (Shashank, November 12, 2026: the graph was too small to see) */
+ .row .nm{font-size:16px}.row .nm small{font-size:10.5px}.row svg.tr{height:36px}.row svg.tr text{font-size:13px}
  .axisrow{grid-template-columns:1fr;padding:0 4px}.axisrow .a1,.axisrow .a3{display:none}
  .panel{padding:14px 12px}
  #detail{width:100vw;top:auto;height:86vh;border-left:none;border-top:3px solid var(--accent);border-radius:14px 14px 0 0;transform:translateY(105%)}
@@ -80,7 +82,7 @@ h1{font-size:28px;font-weight:600;letter-spacing:-.01em;margin:18px 0 4px}
 <!-- family:header -->
 <nav class="mcf-head mcf-trends" aria-label="The Median Canadian">
   <a class="mcf-logo" href="https://mediancanadian.ca/"><img class="mcf-logo-light" src="assets/family/logo.png" alt="The Median Canadian" width="144" height="46"><img class="mcf-logo-dark" src="assets/family/logo-dark.png" alt="" width="144" height="46"></a>
-  <div class="mcf-tabs"><a href="https://mediancanadian.ca/"><span class="mcf-dot" aria-hidden="true"></span>Canada in numbers</a><a href="./" aria-current="page"><span class="mcf-dot mcf-dot-ai" aria-hidden="true"></span>AI Brief</a></div>
+  <div class="mcf-tabs"><a href="https://mediancanadian.ca/"><span class="mcf-dot" aria-hidden="true"></span>The Median Canadian</a><a href="./" aria-current="page"><span class="mcf-dot mcf-dot-ai" aria-hidden="true"></span>AI Brief</a></div>
 </nav>
 <!-- /family:header --><div class="wrap">
 <header><a class="wm" href="./" aria-label="AI Brief archive"><b>AI</b> <span>Brief</span></a><a class="nav" href="./">← All issues</a></header>
@@ -124,9 +126,9 @@ function renderRise(){var el=document.getElementById('rise'),ideas=vis().slice()
  var ax='<div class="axisrow"><span class="a1"></span><svg class="a2" id="axsvg"></svg><span class="a3" style="text-align:right">over time</span></div>';
  function rows(list){return list.map(function(x){return '<div class="row" data-id="'+esc(x.id)+'"><div class="nm">'+esc(nice(x.id))+'<small style="color:'+GC[x.group]+'">'+x.group+'</small></div><svg class="tr" data-id="'+esc(x.id)+'"></svg><svg class="spk" viewBox="0 0 92 30" preserveAspectRatio="none">'+spark(x,92,30)+'</svg></div>'}).join('')}
  el.innerHTML=lg+ax+(up.length?'<div class="sec">Rising</div>'+rows(up):'')+(st.length?'<div class="sec down">About the same</div>'+rows(st):'')+(dn.length?'<div class="sec down">Fading</div>'+rows(dn):'')+'<button class="more" id="more">'+(showAll?'Show only the biggest changes':'Show '+more+' more ideas')+'</button>';
- var axs=d3.select('#axsvg'),W=axs.node().getBoundingClientRect().width,x=d3.scaleLinear().domain([0,mx]).range([8,W-8]);
+ var axs=d3.select('#axsvg'),W=axs.node().getBoundingClientRect().width,x=d3.scaleLinear().domain([0,mx]).range([mob?40:8,W-8]);
  axs.selectAll('g').remove();var gx=axs.append('g');d3.range(0,mx+1,5).forEach(function(t){gx.append('text').attr('x',x(t)).attr('y',12).attr('text-anchor','middle').text(t+'%')});
- d3.selectAll('svg.tr').each(function(){var s=d3.select(this),id=this.getAttribute('data-id'),it=IDEAS.filter(function(z){return z.id===id})[0],w=this.getBoundingClientRect().width,xs=d3.scaleLinear().domain([0,mx]).range([8,w-8]);
+ d3.selectAll('svg.tr').each(function(){var s=d3.select(this),id=this.getAttribute('data-id'),it=IDEAS.filter(function(z){return z.id===id})[0],w=this.getBoundingClientRect().width,xs=d3.scaleLinear().domain([0,mx]).range([mob?40:8,w-8]);
   var c=GC[it.group],rise=it.delta>=1,fall=it.delta<=-1,y=15;
   d3.range(0,mx+1,5).forEach(function(t){s.append('line').attr('x1',xs(t)).attr('x2',xs(t)).attr('y1',2).attr('y2',28).attr('stroke','#efebe4')});
   var x0=xs(it.before),x1=xs(it.latest),dir=x1>=x0?1:-1;
