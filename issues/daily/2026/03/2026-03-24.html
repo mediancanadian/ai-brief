@@ -297,13 +297,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -343,7 +337,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC COMPUTER USE</h4>
+              <h4 class="story-head">Anthropic Computer Use</h4>
               <p class="story-lead"><a href="https://www.cnbc.com/2026/03/24/anthropic-claude-ai-agent-use-computer-finish-tasks.html">Anthropic</a> launched Computer Use in research preview for Claude Pro and Max subscribers, enabling Claude to click, type, open apps, and navigate browsers on macOS.</p>
               <ul class="story-facts">
                 <li>Available to Claude Pro ($20/mo) and Max ($100/mo) subscribers in research preview.</li>
@@ -358,7 +352,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">LITELLM SUPPLY CHAIN ATTACK</h4>
+              <h4 class="story-head">LiteLLM supply chain attack</h4>
               <p class="story-lead"><a href="https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/">LiteLLM versions 1.82.7 and 1.82.8</a>, a library with 95M monthly PyPI downloads, contained a credential stealer embedded in a <code>.pth</code> file that executes on Python startup regardless of whether LiteLLM is imported.</p>
               <ul class="story-facts">
                 <li>Attack attributed to the TeamPCP threat actor, likely via compromised PyPI credentials from an earlier Trivy exploit.</li>
@@ -372,7 +366,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">NVIDIA NEMOCLAW</h4>
+              <h4 class="story-head">Nvidia NemoClaw</h4>
               <p class="story-lead"><a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia announced NemoClaw</a> at GTC, an open-source enterprise agent platform with sandboxed execution, least-privilege access controls, and infrastructure-layer policy enforcement.</p>
               <ul class="story-facts">
                 <li>Built on OpenClaw; policy enforcement operates at the infrastructure layer, meaning compromised agents cannot reach it.</li>
@@ -384,7 +378,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">OPENAI FRONTIER ALLIANCES</h4>
+              <h4 class="story-head">OpenAI Frontier Alliances</h4>
               <p class="story-lead"><a href="https://openai.com/index/frontier-alliance-partners/">OpenAI formalized Frontier Alliances</a>, multi-year partnerships with McKinsey, BCG, Accenture, and Capgemini to deploy its Frontier agent platform inside Fortune 500 companies.</p>
               <ul class="story-facts">
                 <li>McKinsey and BCG own strategy engagements; Accenture and Capgemini own systems integration.</li>
@@ -397,7 +391,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">FIGURE 03 HUMANOID ROBOT</h4>
+              <h4 class="story-head">Figure 03 humanoid robot</h4>
               <p class="story-lead"><a href="https://www.figure.ai/news/introducing-figure-03">Figure AI unveiled Figure 03</a>, 9% lighter than its predecessor, with 2x faster actuators and tactile sensors detecting forces as small as 3 grams.</p>
               <ul class="story-facts">
                 <li>BotQ manufacturing facility targets 12,000 units/year initially, scaling to 100,000 over four years.</li>
@@ -531,8 +525,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

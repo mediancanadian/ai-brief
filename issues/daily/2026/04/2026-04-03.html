@@ -78,9 +78,7 @@
     .foot-wordmark { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-ghost); }
     .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--ink-ghost); text-transform: uppercase; }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>microsoftTeams.app.initialize().then(() => { microsoftTeams.app.notifySuccess(); });</script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -116,7 +114,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">OPENAI ACQUIRES TBPN</h4>
+              <h4 class="story-head">OpenAI acquires TBPN</h4>
               <p class="story-lead">OpenAI acquired TBPN, a daily live tech talk show that pulls 70,000 viewers per episode and regularly hosts major tech CEOs, in its first media acquisition.</p>
               <ul class="story-facts">
                 <li>Deal reportedly in the low hundreds of millions. Marks OpenAI's first move into media ownership.</li>
@@ -129,7 +127,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">$1.8B SOLO FOUNDER</h4>
+              <h4 class="story-head">$1.8B solo founder</h4>
               <p class="story-lead">Matthew Gallagher launched Medvi, a telehealth startup, with $20K and AI tools including ChatGPT, Claude, Grok, and Midjourney, reaching $1.8B in projected sales in 18 months.</p>
               <ul class="story-facts">
                 <li>Fulfills Sam Altman's 2024 prediction that AI would enable solo-founder billion-dollar companies.</li>
@@ -141,7 +139,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">CALIFORNIA AI RULES</h4>
+              <h4 class="story-head">California AI rules</h4>
               <p class="story-lead">Gov. Newsom signed an AI executive order and California legislators advanced multiple AI bills, making the state the de facto national standard-setter for AI regulation.</p>
               <ul class="story-facts">
                 <li>Companies adapt products to California requirements to avoid losing the world's fifth-largest economy as a market.</li>
@@ -284,8 +282,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

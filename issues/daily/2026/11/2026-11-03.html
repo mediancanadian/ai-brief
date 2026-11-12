@@ -369,13 +369,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -419,7 +413,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://www.salesforce.com/news/stories/slack-stats/">Slack</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">SLACK BY THE NUMBERS</h4>
+              <h4 class="story-head">Slack by the numbers</h4>
               <p class="story-lead"><a href="https://www.salesforce.com/news/stories/slack-stats/">Salesforce published Slack usage figures</a> that show how much of the traffic is automated: 127 million MCP tool calls a week, doubling quarter over quarter.</p>
               <ul class="story-facts">
                 <li>1.9 million users interact with third-party agents in Slack every week.</li>
@@ -433,7 +427,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AGENT KILL SWITCH</h4>
+              <h4 class="story-head">Agent Kill Switch</h4>
               <p class="story-lead"><a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-introduces-ai-kill-switch-for-ai-safety/">CrowdStrike announced an AI Kill Switch</a> in Falcon Guardian: an administrator can terminate a running agent, block it from relaunching and cut its network access.</p>
               <ul class="story-facts">
                 <li>Available now at the AI Gateway, with endpoint enforcement described as coming soon. Every action is written to the audit trail.</li>
@@ -451,7 +445,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://developer.apple.com/news/?id=gdk2umrf">Apple</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">SIRI AI</h4>
+              <h4 class="story-head">Siri AI</h4>
               <p class="story-lead"><a href="https://developer.apple.com/news/?id=gdk2umrf">Apple opened Siri AI to all developers</a> through a Developer Preview in the iOS, iPadOS, macOS and visionOS 27.3 betas.</p>
               <ul class="story-facts">
                 <li>Any app can bring its content and actions into Siri AI using App Intents.</li>
@@ -469,7 +463,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://www.anthropic.com/research/provable-inference">Anthropic</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">PROVABLE INFERENCE</h4>
+              <h4 class="story-head">Provable inference</h4>
               <p class="story-lead"><a href="https://www.anthropic.com/research/provable-inference">Anthropic released FlashProve</a>, an open-source prototype that lets a provider prove a response came from a specific model without revealing its weights. The post is dated November 2 and was <a href="https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/">announced on November 3</a>.</p>
               <ul class="story-facts">
                 <li>On Llama 4 Maverick (400B parameters, 4-bit weights), one H100 GPU generates proofs at about 110 tokens per second.</li>
@@ -483,7 +477,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AGENT CONFIG TRUST</h4>
+              <h4 class="story-head">Agent config trust</h4>
               <p class="story-lead">A developer&rsquo;s bug report says <a href="https://thenewstack.io/postman-plugin-coding-agents/">Postman&rsquo;s desktop app installed plugins into Claude Code and OpenAI Codex without asking</a>. It was the most discussed developer story of the day.</p>
               <ul class="story-facts">
                 <li>Postman 12.33.4 on macOS logged the install on October 24 as auto-existing-upgrade; the <a href="https://github.com/postmanlabs/postman-app-support/issues/14370">issue</a> was opened October 25.</li>
@@ -649,8 +643,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

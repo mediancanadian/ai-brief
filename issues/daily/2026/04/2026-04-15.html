@@ -333,13 +333,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -379,7 +373,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC ACQUIRES BUN</h4>
+              <h4 class="story-head">Anthropic acquires Bun</h4>
               <p class="story-lead"><a href="https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone">Anthropic acquired Bun</a>, the all-in-one JavaScript runtime built by Jarred Sumner, to anchor the coding infrastructure behind Claude Code as the agent hit $1 billion in annualized revenue.</p>
               <ul class="story-facts">
                 <li><a href="https://bun.com/blog/bun-joins-anthropic">Bun</a> combines runtime, package manager, bundler, and test runner in a single tool, replacing the need to manage separate dependencies.</li>
@@ -394,7 +388,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">GEMINI ROBOTICS-ER 1.6</h4>
+              <h4 class="story-head">Gemini Robotics-ER 1.6</h4>
               <p class="story-lead"><a href="https://deepmind.google/blog/gemini-robotics-er-1-6/">Google DeepMind released Gemini Robotics-ER 1.6</a>, a robotics-focused embodied reasoning model with large gains in visual and spatial accuracy over ER 1.5, now available via Gemini API and Google AI Studio.</p>
               <ul class="story-facts">
                 <li>Instrument reading accuracy improved from 23% (ER 1.5) to 93% (ER 1.6) using agentic vision.</li>
@@ -408,7 +402,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">OPENAI GPT-5.4-CYBER</h4>
+              <h4 class="story-head">OpenAI GPT-5.4-Cyber</h4>
               <p class="story-lead"><a href="https://openai.com/index/scaling-trusted-access-for-cyber-defense/">OpenAI announced Trusted Access for Cyber</a>, an identity-verification program granting vetted cybersecurity professionals access to GPT-5.4-Cyber, a version of GPT-5.4 fine-tuned with lower refusal thresholds for defensive security work.</p>
               <ul class="story-facts">
                 <li>GPT-5.4-Cyber allows capabilities restricted in standard models, including binary reverse engineering and vulnerability research.</li>
@@ -562,8 +556,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

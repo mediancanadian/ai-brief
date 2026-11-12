@@ -369,13 +369,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -419,7 +413,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available">GitHub</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">GITHUB IN TEAMS</h4>
+              <h4 class="story-head">GitHub in Teams</h4>
               <p class="story-lead"><a href="https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available">GitHub's coding agent is now generally available in Slack and Teams</a>.</p>
               <ul class="story-facts">
                 <li><strong>Canvas in Teams:</strong> a thread turns into issues and pull requests; plans, code changes and previews open beside it for review.</li>
@@ -435,7 +429,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://www.anthropic.com/research/components-of-agent-memory">Anthropic</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">DREAMING FOR MEMORY</h4>
+              <h4 class="story-head">Dreaming for memory</h4>
               <p class="story-lead"><a href="https://www.anthropic.com/research/components-of-agent-memory">Anthropic explains how Claude organizes its own memory</a>.</p>
               <ul class="story-facts">
                 <li><strong>Dreaming:</strong> an offline pass where Claude rereads its transcripts to fix notes and build wikis; on Pok&eacute;mon Red, Fable 5 kept nine memory files where Sonnet 3.7 wrote 413.</li>
@@ -451,7 +445,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/">Meta</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">MUSE LEARNS TO PERSIST</h4>
+              <h4 class="story-head">Muse learns to persist</h4>
               <p class="story-lead"><a href="https://research.meta.ai/blog/specialized-models-for-muse-and-metaai">Meta ships Wonder-trained models</a> and <a href="https://about.fb.com/news/2026/11/introducing-spaces-customize-muse-app/">spaces</a> to every Muse user.</p>
               <ul class="story-facts">
                 <li><strong>Active Memory:</strong> tasks correctly using critical context rose from 76% to <mark class="hl">90%</mark>; the models separate stale from relevant information.</li>
@@ -463,7 +457,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AGENTS IN TEAM CHAT</h4>
+              <h4 class="story-head">Agents in team Chat</h4>
               <p class="story-lead"><a href="https://vercel.com/changelog/json-render-and-chat-sdk-agents">Vercel's Chat SDK streams native cards</a>; <a href="https://vercel.com/changelog/humans-and-ampersand-now-available-on-ai-gateway">Ampersand</a> arrives on AI Gateway.</p>
               <ul class="story-facts">
                 <li><strong>json-render:</strong> the agent writes a JSON spec against a typed catalogue of tables, charts and buttons; adapters post it as Block Kit or an Adaptive Card and update it as it streams.</li>
@@ -475,7 +469,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">INKLING 2 SMALL</h4>
+              <h4 class="story-head">Inkling 2 Small</h4>
               <p class="story-lead"><a href="https://thinkingmachines.ai/news/inkling-2-small/">Thinking Machines introduces Inkling 2 Small</a>, 594B parameters, 17B active.</p>
               <ul class="story-facts">
                 <li><strong>Model:</strong> released November 5 with image input and variable effort; a score of <mark class="hl">31</mark> on the Artificial Analysis Intelligence Index; trained with RL on long-horizon coding tasks.</li>
@@ -644,8 +638,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

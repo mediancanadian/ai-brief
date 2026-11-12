@@ -333,13 +333,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -379,7 +373,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">DEEPSEEK V4</h4>
+              <h4 class="story-head">DeepSeek V4</h4>
               <p class="story-lead"><a href="https://felloai.com/deepseek-v4/">DeepSeek V4</a> ships with native 1 million-token context support at no price premium, releasing two open-weight variants under MIT license on April 24.</p>
               <ul class="story-facts">
                 <li>Two variants: V4-Pro (1.6T parameters, 49B active) and V4-Flash (284B parameters, 13B active).</li>
@@ -407,7 +401,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC POSTMORTEM</h4>
+              <h4 class="story-head">Anthropic postmortem</h4>
               <p class="story-lead"><a href="https://www.anthropic.com/engineering/april-23-postmortem">Anthropic published a postmortem</a> identifying three separate changes between March and April 2026 that degraded Claude Code quality, with all issues fixed in v2.1.116 on April 20.</p>
               <ul class="story-facts">
                 <li>Reasoning effort downgrade (March 4-April 7): default shifted from high to medium to reduce latency, later reverted to xhigh for Opus 4.7 and high for other models.</li>
@@ -421,7 +415,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">QWEN3.6-27B</h4>
+              <h4 class="story-head">Qwen3.6-27B</h4>
               <p class="story-lead">Alibaba released <a href="https://qwen.ai/blog?id=qwen3.6-27b">Qwen3.6-27B</a> on April 22, an open-weight dense model that outperforms the larger Qwen3.6-397B MoE on agentic coding benchmarks.</p>
               <ul class="story-facts">
                 <li>27B parameters; 262K-1.01M token context window.</li>
@@ -436,7 +430,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">OPENAI CODEX</h4>
+              <h4 class="story-head">OpenAI Codex</h4>
               <p class="story-lead"><a href="https://openai.com/index/introducing-gpt-5-3-codex/">GPT-5.3-Codex</a> extends beyond code generation into debugging, deployment, testing, and monitoring, with full software lifecycle automation now available.</p>
               <ul class="story-facts">
                 <li>April 2026 updates added macOS computer use, GitHub pull request inspection, Amazon Bedrock provider support, multi-environment app-server sessions, and deny-read sandboxing policies.</li>
@@ -591,8 +585,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

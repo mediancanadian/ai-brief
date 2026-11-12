@@ -369,13 +369,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -415,7 +409,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">SAVED APPROVALS LEAK</h4>
+              <h4 class="story-head">Saved approvals leak</h4>
               <p class="story-lead"><a href="https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again">Claude Code's saved approvals put secrets in public repositories</a>.</p>
               <ul class="story-facts">
                 <li><strong>Apiiro's figures:</strong> "don't ask again" saves the approved command to <code>.claude/settings.local.json</code>; <mark class="hl">1,122 of 104,185 public copies</mark> hold 1,379 secrets.</li>
@@ -432,7 +426,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://nousresearch.com/arete">Nous Research</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">VALUES ONE TUNE AWAY</h4>
+              <h4 class="story-head">Values one tune away</h4>
               <p class="story-lead"><a href="https://nousresearch.com/arete">Nous Research turns Qwen3.8-27B into Arete-27B</a> (November 6).</p>
               <ul class="story-facts">
                 <li><strong>Method:</strong> supervised fine-tuning only, about <mark class="hl">52.8 million tokens</mark> over 1,202 steps with Inkling as teacher; no RL; weights on Hugging Face under Apache 2.0.</li>
@@ -444,7 +438,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">HUAWEI OFFICE AGENT</h4>
+              <h4 class="story-head">Huawei office agent</h4>
               <p class="story-lead"><a href="https://www.ithome.com/1/023/086.htm">Huawei releases Xiaoyi Work, an office agent for HarmonyOS PCs</a> (November 6).</p>
               <ul class="story-facts">
                 <li><strong>What it does:</strong> one instruction for data analysis, slides or a weekly report; it plans the steps, calls tools and returns Word, PowerPoint and Excel files.</li>
@@ -456,7 +450,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AGENT FRAMEWORK 1.25</h4>
+              <h4 class="story-head">Agent Framework 1.25</h4>
               <p class="story-lead"><a href="https://github.com/microsoft/agent-framework/blob/main/python/CHANGELOG.md">Microsoft's Agent Framework 1.25 bounds MCP discovery and workflow scope</a>.</p>
               <ul class="story-facts">
                 <li><strong>MCP:</strong> callable discovery approval policies honouring Foundry Toolbox metadata; discovery capped at <mark class="hl">100 pages and 1,000 items</mark> per catalogue; 30-second default timeouts.</li>
@@ -603,8 +597,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

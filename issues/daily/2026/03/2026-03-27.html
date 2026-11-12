@@ -313,13 +313,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -359,7 +353,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC MYTHOS LEAK</h4>
+              <h4 class="story-head">Anthropic Mythos leak</h4>
               <p class="story-lead"><a href="https://fortune.com/2026/03/27/anthropic-data-leak-reveals-powerful-secret-mythos-ai-model/">Anthropic</a> accidentally exposed a draft blog post about Claude Mythos through a misconfigured CMS, revealing its most capable model to date and confirming limited early-access testing is underway.</p>
               <ul class="story-facts">
                 <li><a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/">Claude Mythos</a> (also called Capybara internally) outperforms Claude Opus 4.6 by a substantial margin on coding, academic reasoning, and cybersecurity benchmarks.</li>
@@ -373,7 +367,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">MISTRAL VOXTRAL TTS</h4>
+              <h4 class="story-head">Mistral Voxtral TTS</h4>
               <p class="story-lead"><a href="https://mistral.ai/news/voxtral-tts">Mistral Voxtral</a> is a 4B-parameter open-weights TTS model, the first at production quality, available on Hugging Face under CC BY NC 4.0.</p>
               <ul class="story-facts">
                 <li>Supports 9 languages with voice cloning from 3 seconds of audio.</li>
@@ -387,7 +381,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">GOOGLE GEMINI 3.1 FLASH LIVE</h4>
+              <h4 class="story-head">Google Gemini 3.1 Flash Live</h4>
               <p class="story-lead"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/">Google Gemini 3.1 Flash Live</a> is Google's highest-quality audio model, with lower latency than 2.5 Flash Native Audio, now rolling out to 200+ countries.</p>
               <ul class="story-facts">
                 <li>Lower latency than 2.5 Flash Native Audio, doubled conversation memory length, improved background noise filtering.</li>
@@ -401,7 +395,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AMAZON POLLY BIDIRECTIONAL STREAMING</h4>
+              <h4 class="story-head">Amazon Polly bidirectional streaming</h4>
               <p class="story-lead"><a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-polly-expands-TTS-new-voices-and-bidirectional-streaming/">Amazon Polly</a> adds bidirectional streaming, letting applications send text and receive audio simultaneously over a single connection without waiting for complete sentences.</p>
               <ul class="story-facts">
                 <li>Designed specifically for LLM-generated text pipelines where output streams token-by-token, removing the sentence-boundary bottleneck.</li>
@@ -414,7 +408,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">META TRIBE V2</h4>
+              <h4 class="story-head">Meta TRIBE v2</h4>
               <p class="story-lead"><a href="https://www.marktechpost.com/2026/03/26/meta-releases-tribe-v2-a-brain-encoding-model-that-predicts-fmri-responses-across-video-audio-and-text-stimuli/">Meta TRIBE v2</a> is a foundation model trained on 500+ hours of fMRI recordings from 700+ people that predicts human brain responses to video, audio, and text.</p>
               <ul class="story-facts">
                 <li>Achieves a 2-3x improvement over previous methods for movies and audiobooks.</li>
@@ -589,8 +583,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

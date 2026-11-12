@@ -333,13 +333,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -379,7 +373,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">FIPO: RL REASONING</h4>
+              <h4 class="story-head">FIPO: RL reasoning</h4>
               <p class="story-lead"><a href="https://huggingface.co/papers/2603.19835">FIPO</a> reached 330 votes on HuggingFace, the day's top paper, proposing discounted future-KL divergence to improve credit assignment in RL training for language models.</p>
               <ul class="story-facts">
                 <li>Full name: Future-KL Influenced Policy Optimization, extends reward signal across longer reasoning chains rather than at single terminal steps.</li>
@@ -392,7 +386,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">LONGCAT-NEXT: DISCRETE TOKENS</h4>
+              <h4 class="story-head">LongCat-Next: Discrete tokens</h4>
               <p class="story-lead"><a href="https://huggingface.co/papers/2603.27538">LongCat-Next</a> introduced a Discrete Native Autoregressive framework that represents text, image, and video in a shared discrete token space, enabling a single autoregressive model to handle all modalities.</p>
               <ul class="story-facts">
                 <li>Novel visual transformer converts visual inputs into discrete tokens using lexicalization, matching the text-token regime.</li>
@@ -404,7 +398,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">VLM REASONING DIVERSITY</h4>
+              <h4 class="story-head">Vlm reasoning diversity</h4>
               <p class="story-lead"><a href="https://huggingface.co/papers/2604.00479">All Roads Lead to Rome</a> identifies that RL-trained vision-language models collapse toward uniform reasoning patterns and proposes Multi-Group Policy Optimization to encourage diverse thinking strategies.</p>
               <ul class="story-facts">
                 <li>Problem: standard RL training causes VLMs to converge on a narrow set of reasoning strategies, reducing robustness across problem types.</li>
@@ -497,8 +491,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

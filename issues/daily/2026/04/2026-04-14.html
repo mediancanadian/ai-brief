@@ -333,13 +333,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -379,7 +373,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">FIGMA CANVAS AGENTS</h4>
+              <h4 class="story-head">Figma canvas agents</h4>
               <p class="story-lead"><a href="https://www.figma.com/blog/the-figma-canvas-is-now-open-to-agents/">Figma</a> released a native MCP server giving AI agents full write access to the Figma canvas, enabling creation and editing of components using a team's live design system.</p>
               <ul class="story-facts">
                 <li>MCP server is free and open-source; integrates with Claude, ChatGPT, and Cursor.</li>
@@ -394,7 +388,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AWS AGENTCORE GA</h4>
+              <h4 class="story-head">AWS AgentCore GA</h4>
               <p class="story-lead"><a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-is-now-generally-available/">Amazon Bedrock AgentCore</a> reached general availability alongside a <a href="https://aws.amazon.com/blogs/machine-learning/spring-ai-sdk-for-amazon-bedrock-agentcore-is-now-generally-available/">Spring AI SDK</a>, making production agent deployment native for Java/Spring developers.</p>
               <ul class="story-facts">
                 <li>AgentCore GA adds VPC and AWS PrivateLink support for enterprise network isolation.</li>
@@ -409,7 +403,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">UK TRANSPORT GEMINI DEPLOYMENT</h4>
+              <h4 class="story-head">UK Transport Gemini deployment</h4>
               <p class="story-lead">The <a href="https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/uk-department-for-transport-accelerates-public-policy-insights-with-google-cloud-ai/">UK Department for Transport</a> deployed a Consultation Analysis Tool built on Google Cloud Vertex AI with Gemini, cutting processing of 100,000+ public responses from months to hours.</p>
               <ul class="story-facts">
                 <li>Built on Vertex AI with Gemini models; deployed via Cloud Run, Cloud CDN, and Firestore.</li>
@@ -439,7 +433,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">SOFTR AI CO-BUILDER</h4>
+              <h4 class="story-head">Softr AI Co-Builder</h4>
               <p class="story-lead"><a href="https://siliconangle.com/2026/03/31/softr-launches-ai-native-no-code-business-software-building-platform/">Softr</a> launched an AI Co-Builder that generates fully functional business applications including database, UI, authentication, permissions, and third-party integrations from a single natural language prompt.</p>
               <ul class="story-facts">
                 <li>Single prompt generates a complete app: database, UI, auth, permissions, and integrations.</li>
@@ -586,8 +580,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

@@ -333,13 +333,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -379,7 +373,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC OPUS ADVISOR API</h4>
+              <h4 class="story-head">Anthropic Opus advisor API</h4>
               <p class="story-lead"><a href="https://claude.com/blog/the-advisor-strategy">Anthropic</a> shipped the advisor tool (beta header <code>advisor-tool-2026-03-01</code>) for the Claude API, enabling a dual-model architecture where Opus acts as an on-demand consultant to a Sonnet or Haiku executor.</p>
               <ul class="story-facts">
                 <li>Sonnet + Opus advisor delivers +2.7 percentage points on SWE-bench at -11.9% cost vs. Sonnet alone.</li>
@@ -393,7 +387,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AMAZON AWS AI INFRASTRUCTURE</h4>
+              <h4 class="story-head">Amazon AWS AI infrastructure</h4>
               <p class="story-lead"><a href="https://www.cnbc.com/2026/04/09/amazon-ceo-andy-jassy-ai-spending.html">Andy Jassy's 2026 shareholder letter</a> disclosed that AWS AI has reached a $15 billion annual run rate, with Amazon's custom chip business generating over $20 billion annually.</p>
               <ul class="story-facts">
                 <li>Trainium2 is fully sold out; Trainium3 is nearly fully subscribed.</li>
@@ -406,7 +400,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">PERPLEXITY BANK INTEGRATION</h4>
+              <h4 class="story-head">Perplexity bank integration</h4>
               <p class="story-lead"><a href="https://plaid.com/blog/plaid-perplexity-ai-financial-insights-integration/">Perplexity expanded its Plaid integration</a> beyond investment accounts to include checking, savings, credit cards, loans, and mortgages.</p>
               <ul class="story-facts">
                 <li>Plaid powers nearly one million daily account connections and reaches more than half of American bank account holders.</li>
@@ -418,7 +412,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">AWS BEDROCK AGENT REGISTRY</h4>
+              <h4 class="story-head">AWS Bedrock Agent Registry</h4>
               <p class="story-lead"><a href="https://aws.amazon.com/about-aws/whats-new/2026/04/aws-agent-registry-in-agentcore-preview/">AWS Agent Registry</a>, part of Amazon Bedrock AgentCore, launched in preview on April 9 as a private, searchable catalog for agents, tools, skills, MCP servers, and custom enterprise resources.</p>
               <ul class="story-facts">
                 <li>Semantic search lets developers query in natural language: searching "payment processing" surfaces tools tagged as "billing" or "invoicing."</li>
@@ -431,7 +425,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">FRANCE LINUX TRANSITION</h4>
+              <h4 class="story-head">France Linux transition</h4>
               <p class="story-lead">France announced a government-wide transition from Windows to Linux, with every ministry required to submit implementation plans by autumn 2026, led by <a href="https://www.numerique.gouv.fr/sinformer/espace-presse/souverainete-numerique-reduction-dependances-extra-europeennes/">DINUM</a> under a digital sovereignty mandate.</p>
               <ul class="story-facts">
                 <li>Scope extends beyond desktops: collaboration tools, antivirus, AI platforms, databases, and network equipment are all in scope.</li>
@@ -443,7 +437,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">OXFORD HEART FAILURE AI</h4>
+              <h4 class="story-head">Oxford heart failure AI</h4>
               <p class="story-lead">A team at the <a href="https://www.rdm.ox.ac.uk/news/new-ai-tool-can-predict-heart-failure-at-least-five-years-before-it-develops">University of Oxford</a>, led by Professor Charalambos Antoniades, published an AI tool that detects heart failure risk from routine CT scans by identifying microscopic textural changes in cardiac fat tissue.</p>
               <ul class="story-facts">
                 <li>Tested on 70,000+ patients across nine NHS Trusts over a decade; algorithm achieved 86% accuracy.</li>
@@ -601,8 +595,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

@@ -369,13 +369,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -419,7 +413,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/">Salesforce</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">COWORKER IN TEAMS</h4>
+              <h4 class="story-head">Coworker in Teams</h4>
               <p class="story-lead"><a href="https://www.salesforce.com/news/stories/agentforce-coworker-surpasses-185k-users/">Salesforce announced Agentforce Coworker for Microsoft Teams</a>: an employee hands it a job in a Teams conversation and it coordinates Agentforce agents under the same Salesforce permissions and governance.</p>
               <ul class="story-facts">
                 <li>Stage: Salesforce lists Coworker in Teams, apps for iOS, Mac and Windows, and a Coworker MCP server as generally available in November 2026.</li>
@@ -433,7 +427,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">CLAUDE AS ISSUER</h4>
+              <h4 class="story-head">Claude as issuer</h4>
               <p class="story-lead"><a href="https://claude.com/docs/connectors/building/enterprise-managed-auth">Claude can now issue the signed identity assertions</a> that MCP services use to recognize a company&rsquo;s employees, so plugins connect with no per-user consent screen and no support needed from the company&rsquo;s identity provider.</p>
               <ul class="story-facts">
                 <li>Announced November 3 and <a href="https://thenewstack.io/claude-plugin-identity-issuer/">reported the next day</a>. Stage: beta for Claude Team and Enterprise plans. Anthropic calls the feature auto-connect.</li>
@@ -447,7 +441,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">KERNEL EXPLOIT PIPELINE</h4>
+              <h4 class="story-head">Kernel exploit pipeline</h4>
               <p class="story-lead"><a href="https://openai.com/index/a-thousand-fewer-paths-to-root">OpenAI described an autonomous pipeline</a> that found, validated and wrote patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.</p>
               <ul class="story-facts">
                 <li>Five stages: discovery, reproduction in a sandbox, exploitability assessment, patch generation, then human review before anything is reported to maintainers.</li>
@@ -461,7 +455,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">CODING AGENT DEALS</h4>
+              <h4 class="story-head">Coding agent deals</h4>
               <p class="story-lead"><a href="https://openai.com/index/openai-to-acquire-pierre">OpenAI will acquire Pierre Computer Company</a> to expand the tools Codex has for building, understanding and reviewing code, on a day when two other coding-agent startups were also acquired.</p>
               <ul class="story-facts">
                 <li>Pierre runs a code storage service built for agents and maintains the open-source Trees and Diffs libraries used in the Codex interface. <a href="https://siliconangle.com/2026/11/04/openai-to-acquire-developer-tooling-startup-pierre-computer/">Terms were not disclosed</a>, and the libraries stay open source.</li>
@@ -475,7 +469,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">PERSONAL AGENT TRAFFIC</h4>
+              <h4 class="story-head">Personal agent traffic</h4>
               <p class="story-lead"><a href="https://blog.cloudflare.com/personal-agents-visibility-control/">Cloudflare launched analytics and per-agent access policies for personal agents</a>, the assistants that browse, sign in and buy on a person&rsquo;s behalf.</p>
               <ul class="story-facts">
                 <li>Security Analytics gains a Personal Assistants category: which agents visit a site, how many requests each sends, the paths they request and the errors they hit.</li>
@@ -642,8 +636,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

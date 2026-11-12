@@ -333,13 +333,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -380,7 +374,7 @@
           <div class="story-card story-card--wide">
             <img class="story-card-img" src="https://www-cdn.anthropic.com/images/4zrzovbb/website/96ea2509a90e527642c822303e56296a07bcfce4-1920x1080.png" alt="Claude Opus 4.7">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC CLAUDE OPUS 4.7</h4>
+              <h4 class="story-head">Anthropic Claude Opus 4.7</h4>
               <p class="story-lead"><a href="https://www.anthropic.com/news/claude-opus-4-7">Anthropic</a> released Claude Opus 4.7, scoring 64.3% on SWE-Bench Pro, nearly 10 points above Opus 4.6.</p>
               <ul class="story-facts">
                 <li>64.3% SWE-Bench Pro score, up approximately 10 points from Opus 4.6.</li>
@@ -395,7 +389,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">OPENAI CODEX DESKTOP AGENT</h4>
+              <h4 class="story-head">OpenAI Codex desktop agent</h4>
               <p class="story-lead"><a href="https://techcrunch.com/2026/04/16/openai-takes-aim-at-anthropic-with-beefed-up-codex-that-gives-it-more-power-over-your-desktop/">OpenAI updated Codex</a> on April 16, adding multi-agent workflows, desktop computer control, and 90+ plugin integrations.</p>
               <ul class="story-facts">
                 <li>Multi-agent workflows run writing, debugging, and testing agents simultaneously.</li>
@@ -410,7 +404,7 @@
           <div class="story-card">
             <img class="story-card-img" src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Mode_in_Chrome_-_Social_feed.width-1300.png" alt="Google AI Mode in Chrome">
             <div class="story-card-body">
-              <h4 class="story-head">GOOGLE AI MODE IN CHROME</h4>
+              <h4 class="story-head">Google AI Mode in Chrome</h4>
               <p class="story-lead"><a href="https://blog.google/products-and-platforms/products/search/ai-mode-chrome/">Google shipped AI Mode directly into Chrome</a> starting April 16 in the US, across desktop, Android, and iOS.</p>
               <ul class="story-facts">
                 <li>Side-by-side browsing: web page and AI Mode panel stay simultaneously visible rather than replacing each other.</li>
@@ -424,7 +418,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">CANVA AI 2.0 AGENTIC DESIGN</h4>
+              <h4 class="story-head">Canva AI 2.0 agentic design</h4>
               <p class="story-lead"><a href="https://www.canva.com/newsroom/news/canva-create-2026-ai/">Canva launched AI 2.0</a> on April 16 as a research preview for the first 1 million users, enabling text-to-design with persistent memory and workflow connectors.</p>
               <ul class="story-facts">
                 <li>Text prompts generate fully editable, layered multi-format campaigns from a single prompt.</li>
@@ -438,7 +432,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">ALIBABA QWEN3 SPARSE MOE</h4>
+              <h4 class="story-head">Alibaba qwen3 sparse MoE</h4>
               <p class="story-lead"><a href="https://www.marktechpost.com/2026/04/16/qwen-team-open-sources-qwen3-6-35b-a3b-a-sparse-moe-vision-language-model-with-3b-active-parameters-and-agentic-coding-capabilities/">Alibaba released Qwen3.6-35B-A3B</a>, a sparse MoE vision-language model with 35B total parameters but only 3B active at inference time.</p>
               <ul class="story-facts">
                 <li>35B total parameters with only 3B activated at inference, delivering major compute reduction.</li>
@@ -592,8 +586,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

@@ -369,13 +369,7 @@
       font-style: italic; display: block;
     }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>
-    microsoftTeams.app.initialize().then(() => {
-      microsoftTeams.app.notifySuccess();
-    });
-  </script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -419,7 +413,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://devblogs.microsoft.com/microsoft365dev/work-iq-sharepoint-mcp-tools/">Microsoft</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">WORK IQ FOR AGENTS</h4>
+              <h4 class="story-head">Work IQ for agents</h4>
               <p class="story-lead">Microsoft is bringing <a href="https://mc.merill.net/message/MC1538999">Copilot connectors to the Work IQ APIs</a> and giving agents <a href="https://mc.merill.net/message/MC1539004">read access to a user&rsquo;s Copilot memory</a>.</p>
               <ul class="story-facts">
                 <li><strong>Connectors:</strong> generally available, rolling out late November through December. Whatever a user already connected in Copilot Chat <strong>works automatically</strong>, under existing permissions.</li>
@@ -431,7 +425,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">MIXED HARNESSES</h4>
+              <h4 class="story-head">Mixed harnesses</h4>
               <p class="story-lead"><a href="https://code.visualstudio.com/updates/v1_145">VS Code 1.145 lets one session mix agent harnesses</a>: Claude can review a plan Copilot wrote, or Codex can run the same task alongside.</p>
               <ul class="story-facts">
                 <li><strong>Released November 4</strong>, with the feature in preview. Each chat keeps its own model, agent and permission level.</li>
@@ -447,7 +441,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://claude.com/resources/articles/claude-enterprise-security-updates">Anthropic</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">CLAUDE ADMIN CONTROLS</h4>
+              <h4 class="story-head">Claude admin controls</h4>
               <p class="story-lead"><a href="https://claude.com/resources/articles/claude-enterprise-security-updates">Claude Enterprise can now send every prompt and tool call through a company&rsquo;s own security tools</a> before it runs.</p>
               <ul class="story-facts">
                 <li><strong>Generally available:</strong> prompt hooks and pre-tool-call hooks that apply a company&rsquo;s existing DLP policies.</li>
@@ -459,7 +453,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">TEAMMATES IN SLACK</h4>
+              <h4 class="story-head">Teammates in Slack</h4>
               <p class="story-lead"><a href="https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work">Perplexity launched teammates</a>: always-on agents you add to a Slack channel, where colleagues hand them work and ask for updates.</p>
               <ul class="story-facts">
                 <li>A teammate <strong>watches connected tools</strong> such as Slack, GitHub and Linear, starts work when something arrives, and runs in its own sandbox with its own memory.</li>
@@ -475,7 +469,7 @@
               <figcaption class="story-card-credit">Image: <a href="https://www.notion.com/blog/the-next-era-of-notion">Notion</a></figcaption>
             </figure>
             <div class="story-card-body">
-              <h4 class="story-head">NOTION AS CONTEXT</h4>
+              <h4 class="story-head">Notion as context</h4>
               <p class="story-lead"><a href="https://www.notion.com/blog/the-next-era-of-notion">Notion is repositioning as the shared context layer for every agent</a>, including agents built by other companies.</p>
               <ul class="story-facts">
                 <li><strong>Notion&rsquo;s numbers:</strong> agents create about half of all pages, AI usage is up 9x and MCP volume is up about <mark class="hl">60x this year</mark>.</li>
@@ -642,8 +636,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>

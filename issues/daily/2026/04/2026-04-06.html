@@ -78,9 +78,7 @@
     .foot-wordmark { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-ghost); }
     .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--ink-ghost); text-transform: uppercase; }
   </style>
-  <script src="https://res.cdn.office.net/teams-js/2.22.0/js/MicrosoftTeams.min.js"></script>
-  <script>microsoftTeams.app.initialize().then(() => { microsoftTeams.app.notifySuccess(); });</script>
-<!-- family:css --><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css"><!-- /family:css -->
 </head>
 <body>
 <!-- family:header -->
@@ -116,7 +114,7 @@
 
           <div class="story-card story-card--wide">
             <div class="story-card-body">
-              <h4 class="story-head">ANTHROPIC BLOCKS AGENT PLATFORMS</h4>
+              <h4 class="story-head">Anthropic blocks agent platforms</h4>
               <p class="story-lead">Anthropic cut off agent platforms including OpenClaw from Claude subscriptions, citing capacity strain from agent workloads that run around the clock and consume far more tokens than chatbot use.</p>
               <ul class="story-facts">
                 <li>Users must now pay via Claude's API or new usage add-ons; flat-rate subscription no longer covers agent tool access.</li>
@@ -130,7 +128,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">NETFLIX VOID: PHYSICS VIDEO</h4>
+              <h4 class="story-head">Netflix VOID: physics video</h4>
               <p class="story-lead">Netflix released VOID, an open-source framework that removes objects from video while rewriting the physics consequences across the scene, not just painting over the gap.</p>
               <ul class="story-facts">
                 <li>Unlike typical inpainting tools, VOID simulates what physically happens in the scene after object removal.</li>
@@ -142,7 +140,7 @@
 
           <div class="story-card">
             <div class="story-card-body">
-              <h4 class="story-head">GRANDCODE: 311 VOTES</h4>
+              <h4 class="story-head">GrandCode: 311 votes</h4>
               <p class="story-lead"><a href="https://huggingface.co/papers/2604.02721">GrandCode</a> is a multi-agent RL system using Agentic GRPO that took first place in three consecutive live Codeforces competitions, beating all human participants including legendary grandmasters.</p>
               <ul class="story-facts">
                 <li>Verified in real competitions against active human participants, not static benchmarks.</li>
@@ -281,8 +279,12 @@
 <!-- family:footer -->
 <div class="mcf-foot mcf-issue">
   <div class="mcf-foot-rule"></div>
-  <p><strong>AI Brief</strong> is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
-  <p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></p>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../">Latest issue</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief is a daily briefing for people building AI agents, from <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
 </div>
 <!-- /family:footer -->
 </body>
