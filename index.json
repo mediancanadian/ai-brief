@@ -2,6 +2,22 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-12",
+      "url": "issues/daily/2026/11/2026-11-12.html",
+      "headline": "Google brings Gemini 4 to everyone at a lower price",
+      "tags": ["Google", "Anthropic", "Microsoft", "Meta", "OpenAI", "Databricks", "Cognition", "Amazon", "Tencent", "Salesforce", "ByteDance", "Hark"],
+      "stories": [
+        {"label": "Gemini 4 for everyone", "text": "Google releases Gemini 4 Hydrogen, its fast everyday model.", "image": {"src": "assets/covers/2026-11-12-0.jpg", "thumb": "assets/covers/2026-11-12-0.sm.jpg", "alt": "Gemini 4 Hydrogen release art", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"}},
+        {"label": "Agents that attack and fix", "text": "OpenAI launches agents that test web apps for security holes.", "image": {"src": "assets/art/2026-11-12-1.jpg", "thumb": "assets/art/2026-11-12-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Claude joins the call", "text": "Anthropic puts Claude into video calls as a participant.", "image": {"src": "assets/covers/2026-11-12-2.jpg", "thumb": "assets/covers/2026-11-12-2.sm.jpg", "alt": "Claude on a video call building a shared event plan on a whiteboard", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/claude-meetings"}},
+        {"label": "Agents behind your firewall", "text": "Anthropic lets companies run its whole agent service themselves.", "image": {"src": "assets/covers/2026-11-12-3.jpg", "thumb": "assets/covers/2026-11-12-3.sm.jpg", "alt": "Anthropic illustration of a keyhole on a laptop screen", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/self-hosted-claude-managed-agents"}},
+        {"label": "One chat, no agent picker", "text": "Microsoft drops the agent picker in Copilot Workspaces.", "image": {"src": "assets/art/2026-11-12-4.jpg", "thumb": "assets/art/2026-11-12-4.sm.jpg", "alt": "", "art": true}},
+        {"label": "An agent that makes calls", "text": "Meta's Muse now phones businesses for its users.", "image": {"src": "assets/art/2026-11-12-5.jpg", "thumb": "assets/art/2026-11-12-5.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Also: OpenAI's agents fix security holes, Claude joins video calls, Anthropic's agents run in-house, Copilot drops its agent picker, and Meta's agent makes calls."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-11",
       "url": "issues/daily/2026/11/2026-11-11.html",
       "headline": "Google ships a model that decides instead of writes",
