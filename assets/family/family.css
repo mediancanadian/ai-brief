@@ -153,6 +153,9 @@ mark.hl { background: none !important; color: var(--mcf-ink) !important; font-we
 .research-desc { font-size: 15.5px !important; line-height: 1.55 !important; color: var(--mcf-soft) !important; }
 .research-take { border: 0 !important; padding: 0 !important; margin-top: 8px !important; font-size: 15px !important; color: var(--mcf-muted) !important; }
 .research-take .take-label { display: inline !important; margin-right: 6px; color: var(--mcf-ink) !important; }
+.research-item:has(.research-link) .research-label a { text-decoration: underline !important; text-decoration-color: var(--mcf-line-mid) !important; text-underline-offset: 4px !important; }
+.research-link { margin-top: 8px; font-size: 15px; }
+.research-link a { color: var(--mcf-ink) !important; font-weight: 500; text-decoration: underline !important; text-decoration-color: var(--mcf-line-mid) !important; text-underline-offset: 3px !important; }
 .signal-list { gap: 0 !important; }
 .signal-item { border: 0 !important; border-top: 1px solid var(--mcf-line) !important; padding: 14px 0 !important; font-size: 15.5px !important; line-height: 1.55 !important; color: var(--mcf-soft) !important; }
 .signal-item > a:first-child { font-weight: 500 !important; text-decoration: none !important; }
@@ -378,3 +381,8 @@ body strong, body b, .story-facts strong, .also-item strong, .take-label, mark.h
 .mcf-signup-done-fine a { color: var(--mcf-ink); }
 .mcf-signup-archive.mcf-signup-sent { padding: 16px 18px !important; background: var(--mcf-panel) !important; border-radius: 16px !important; }
 .mcf-signup-again { display: inline-block; margin-top: 6px; font-size: 13px; color: var(--mcf-muted) !important; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Research "Why it matters", option C (Shashank, November 14, 2026): label on its own line and a thin
+   grey bar on the left. Only issues built from November 13 on carry the class, so sent issues keep their look. */
+.research-take.research-take--bar { border: 0 !important; border-left: 3px solid var(--mcf-line-mid) !important; padding: 2px 0 2px 12px !important; margin-top: 10px !important; color: var(--mcf-ink) !important; }
+.research-take.research-take--bar .take-label { display: block !important; margin: 0 0 2px !important; font-weight: 600 !important; }

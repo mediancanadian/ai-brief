@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-13",
+      "url": "issues/daily/2026/11/2026-11-13.html",
+      "headline": "ChatGPT's agents can now check out and pay for you",
+      "tags": ["OpenAI", "Sierra", "Shopify", "Meta", "DeepSeek", "Google", "GitHub", "Microsoft", "Cognition", "Replit", "Brave", "Cursor", "LangChain", "Cohere", "Hume", "Ai2"],
+      "stories": [
+        {"label": "Agents that pay", "text": "OpenAI gives ChatGPT's agents a wallet.", "image": {"src": "assets/art/2026-11-13-0.jpg", "thumb": "assets/art/2026-11-13-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "A front door for agents", "text": "Sierra releases version 1.0 of Poppy, a standard for personal agents.", "image": {"src": "assets/covers/2026-11-13-1.jpg", "thumb": "assets/covers/2026-11-13-1.sm.jpg", "alt": "Personal Agent Protocol release art with the logos of its design partners", "credit": "Sierra", "credit_url": "https://sierra.ai/blog/releasing-poppy"}},
+        {"label": "DeepSeek's app as an API", "text": "DeepSeek opens the tools behind its app to developers.", "image": {"src": "assets/covers/2026-11-13-2.jpg", "thumb": "assets/covers/2026-11-13-2.sm.jpg", "alt": "DeepSeek&#x27;s price table for its search, fetch, OCR, speech and voice tools", "credit": "DeepSeek", "credit_url": "https://api-docs.deepseek.com/news/news261113/"}},
+        {"label": "Agent teams on hard problems", "text": "Google opens its agent teams in Antigravity to all.", "image": {"src": "assets/covers/2026-11-13-3.jpg", "thumb": "assets/covers/2026-11-13-3.sm.jpg", "alt": "Diagram of Antigravity&#x27;s /teamwork linking agents for math, chemistry and systems work", "credit": "Google", "credit_url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"}},
+        {"label": "Copilot retires six models", "text": "GitHub drops six models from Copilot on December 14.", "image": {"src": "assets/art/2026-11-13-4.jpg", "thumb": "assets/art/2026-11-13-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Also: a standard for letting personal agents into stores, DeepSeek sells its app's tools, Google's agent teams take on open problems, and Copilot retires six models."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-12",
       "url": "issues/daily/2026/11/2026-11-12.html",
       "headline": "Google brings Gemini 4 to everyone at a lower price",
