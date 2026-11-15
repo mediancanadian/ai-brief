@@ -402,7 +402,7 @@
     if (!all.some(function (x) { return x.type === state.type; }) && all.length) state.type = all[0].type;
     state.month = defaultMonth();
     render();
-    /* A "Past issues" link (footer of every page, November 15, 2026) lands on the archive, opened on this month. */
+    /* A "Archive link (footer of every page, November 15, 2026) lands on the archive, opened on this month. */
     if (location.hash === '#archive') document.getElementById('archive').scrollIntoView();
   }
   window.addEventListener('hashchange', function () {
@@ -421,7 +421,7 @@
 <div class="mcf-foot mcf-archive">
   <div class="mcf-foot-rule"></div>
   <div class="mcf-foot-cols">
-    <div><p class="mcf-foot-h">AI Brief</p><a href="./">Latest issue</a><a href="./#archive">Past issues</a><a href="./trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">AI Brief</p><a href="./">Latest issue</a><a href="./#archive">Archive</a><a href="./trends.html">Trends</a></div>
     <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
     <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a><a href="https://ai.mediancanadian.ca/privacy.html">Privacy</a></div>
   </div>
