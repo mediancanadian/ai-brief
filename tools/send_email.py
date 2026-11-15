@@ -128,6 +128,8 @@ def send(path, key, dry):
         if tid:
             filters["filters"].append({"field": "subscriber.tags", "operator": "not_contains", "value": tid})
     body = {"subject": e["subject"], "body": e["body"], "status": "about_to_send",
+            # the inbox preview line: the deck, not the headline again (Shashank, November 14, 2026)
+            **({"description": e["preview"]} if e.get("preview") else {}),
             "canonical_url": url, "metadata": {"edition": e["edition"]}, "filters": filters}
     r = call("POST", "/emails", key, body) or {}
     note(f"{e['edition']}: \"{e['subject']}\" handed to Buttondown ({r.get('id', '?')}, status {r.get('status', '?')}).")
@@ -153,6 +155,7 @@ def test(path, key, dry):
             except SystemExit as err:
                 note(f"Could not delete the old test draft: {err}")
     draft = call("POST", "/emails", key, {"subject": "[Test] " + e["subject"], "body": e["body"], "status": "draft",
+                                          **({"description": e["preview"]} if e.get("preview") else {}),
                                           "archival_mode": "disabled", "metadata": {"edition": e["edition"], "test": True}}) or {}
     call("POST", f"/emails/{draft['id']}/send-draft", key, {"recipients": [to]})
     note(f"Test of {e['edition']} sent to the account's own address; subscribers got nothing.")

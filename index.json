@@ -2,6 +2,19 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-14",
+      "url": "issues/daily/2026/11/2026-11-14.html",
+      "headline": "Google cuts the time software makers get to fix bugs",
+      "tags": ["Google", "Tencent", "openJiuwen", "Huawei", "OpenMOSS", "LangChain", "Microsoft", "xAI", "Lovable", "Unsloth", "DeepSeek"],
+      "stories": [
+        {"label": "Bug-fix time cut", "text": "Google's Project Zero cuts the time software makers get to fix bugs it reports.", "image": {"src": "assets/art/2026-11-14-0.jpg", "thumb": "assets/art/2026-11-14-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "Voice that searches mid-call", "text": "Tencent releases Hy Realtime, a voice model that can use tools.", "image": {"src": "assets/art/2026-11-14-1.jpg", "thumb": "assets/art/2026-11-14-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Agents add their own features", "text": "openJiuwen lets agents build and install their own plugins.", "image": {"src": "assets/art/2026-11-14-2.jpg", "thumb": "assets/art/2026-11-14-2.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Tencent's new voice model searches the web mid-call, a Huawei-backed project lets agents write their own plugins, and a voice test shows which assistants still talk over people."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-13",
       "url": "issues/daily/2026/11/2026-11-13.html",
       "headline": "ChatGPT's agents can now check out and pay for you",
