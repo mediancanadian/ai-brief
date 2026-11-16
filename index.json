@@ -2,6 +2,20 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-15",
+      "url": "issues/daily/2026/11/2026-11-15.html",
+      "headline": "Alibaba's new top AI model costs less per task",
+      "tags": ["Alibaba", "OpenAI", "Apple", "Nvidia", "Amazon", "Microsoft", "Anthropic", "DeepSeek", "SambaNova", "Bland", "Intel", "Huawei", "Vercel"],
+      "stories": [
+        {"label": "Cheaper work per task", "text": "Alibaba opens Qwen4-Max, its top model, at a lower cost per task.", "image": {"src": "assets/art/2026-11-15-0.jpg", "thumb": "assets/art/2026-11-15-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "AI does the hard part of a proof", "text": "OpenAI's GPT-6 Astra helps a physicist build a long-sought proof.", "image": {"src": "assets/art/2026-11-15-1.jpg", "thumb": "assets/art/2026-11-15-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Apple tests AI health answers", "text": "Apple opens a study app that answers health questions with AI.", "image": {"src": "assets/covers/2026-11-15-2.jpg", "thumb": "assets/covers/2026-11-15-2.sm.jpg", "alt": "The Apple Health AI Usage Study app on two iPhones, showing its welcome screen and suggested health questions", "credit": "Apple", "credit_url": "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/"}},
+        {"label": "US picks AI champions", "text": "The US reportedly plans to name AI national champions.", "image": {"src": "assets/art/2026-11-15-3.jpg", "thumb": "assets/art/2026-11-15-3.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "OpenAI credits its model with the hard part of a physics proof, Apple opens a study of how people trust AI health answers, and Washington reportedly picks its AI champions."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-14",
       "url": "issues/daily/2026/11/2026-11-14.html",
       "headline": "Google cuts the time software makers get to fix bugs",
