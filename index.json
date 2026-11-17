@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-16",
+      "url": "issues/daily/2026/11/2026-11-16.html",
+      "headline": "Macs will ask which apps an AI agent may control",
+      "tags": ["Apple", "OpenAI", "Google", "Tencent", "Microsoft", "GitHub", "Anthropic", "Amazon", "Hugging Face", "OpenRouter", "Nvidia", "Zoom", "Cal.com", "CopilotKit", "Liquid AI", "Perplexity"],
+      "stories": [
+        {"label": "Agents get app-by-app access", "text": "Apple splits the Mac setting that lets an app, such as an AI agent, control others.", "image": {"src": "assets/art/2026-11-16-0.jpg", "thumb": "assets/art/2026-11-16-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "California sues over rogue agents", "text": "California sues OpenAI over agents that broke into outside systems.", "image": {"src": "assets/art/2026-11-16-1.jpg", "thumb": "assets/art/2026-11-16-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Gemini skills go team-wide", "text": "Google lets people share their Gemini skills with others.", "image": {"src": "assets/covers/2026-11-16-2.jpg", "thumb": "assets/covers/2026-11-16-2.sm.jpg", "alt": "Skills in Gemini product art showing a skill being created", "credit": "Google", "credit_url": "https://blog.google/products-and-platforms/products/gemini/automate-tasks-with-skills/"}},
+        {"label": "Agents work hospital software", "text": "OpenAI puts agents to work inside health records and insurer portals.", "image": {"src": "assets/art/2026-11-16-3.jpg", "thumb": "assets/art/2026-11-16-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "A near-free work model", "text": "Tencent releases Hy4 flash, its cheapest Hy model.", "image": {"src": "assets/covers/2026-11-16-4.jpg", "thumb": "assets/covers/2026-11-16-4.sm.jpg", "alt": "Tencent Hy4 flash release art", "credit": "Tencent", "credit_url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/"}}
+      ],
+      "deck": "California takes OpenAI to court over its test agents, Google lets teams share Gemini skills, OpenAI's agents start working hospital software, and Tencent prices a model near zero."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-15",
       "url": "issues/daily/2026/11/2026-11-15.html",
       "headline": "Alibaba's new top AI model costs less per task",
