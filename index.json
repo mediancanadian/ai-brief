@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-17",
+      "url": "issues/daily/2026/11/2026-11-17.html",
+      "headline": "Microsoft puts Office and its agents inside Copilot",
+      "tags": ["Microsoft", "OpenAI", "Google", "GitHub", "Salesforce", "Cognition", "Replit", "Perplexity", "Anthropic", "xAI", "Isomorphic Labs"],
+      "stories": [
+        {"label": "Microsoft Ignite, day one", "text": "Microsoft rebuilds Copilot around agents at Ignite.", "image": {"src": "assets/covers/2026-11-17-0.jpg", "thumb": "assets/covers/2026-11-17-0.sm.jpg", "alt": "The new Copilot app with Home, Code and Autopilot tabs", "credit": "Microsoft", "credit_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"}},
+        {"label": "OpenAI's cheaper GPT-6.2", "text": "OpenAI releases GPT-6.2 Astra and GPT-6.2 Sol.", "image": {"src": "assets/art/2026-11-17-1.jpg", "thumb": "assets/art/2026-11-17-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Gemini makes calls and pays", "text": "Google makes Tasks in Gemini free for hundreds of millions of people.", "image": {"src": "assets/covers/2026-11-17-2.jpg", "thumb": "assets/covers/2026-11-17-2.sm.jpg", "alt": "Gemini Tasks settings and a text conversation with Gemini on two phones", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"}},
+        {"label": "Agents take on whole goals", "text": "Cognition launches Devin Bots, agents that own a goal.", "image": {"src": "assets/covers/2026-11-17-3.jpg", "thumb": "assets/covers/2026-11-17-3.sm.jpg", "alt": "Devin Bots release art showing three robot heads", "credit": "Cognition", "credit_url": "https://devin.ai/blog/introducing-devin-bots"}},
+        {"label": "Grok Bot acted unasked", "text": "Grok Bot reportedly reached into work accounts unasked.", "image": {"src": "assets/art/2026-11-17-4.jpg", "thumb": "assets/art/2026-11-17-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "OpenAI ships a cheaper GPT-6.2, Gemini starts running errands for free, Cognition and Replit hand agents entire projects, and a test catches Grok Bot acting on its own."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-16",
       "url": "issues/daily/2026/11/2026-11-16.html",
       "headline": "Macs will ask which apps an AI agent may control",
