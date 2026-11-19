@@ -1,4 +1,5 @@
-# Emails each new AI Brief issue through Buttondown once the push that publishes it is live.
+# Emails AI Brief issues through Buttondown in two stages: email/pending/ goes only to Shashank as a
+# test; email/daily/ (moved there after he writes "send") goes to every subscriber.
 # Written by the private pipeline (newsletter.py site); do not edit it in this repo.
 # The key lives in this repository's secrets as BUTTONDOWN_API_KEY.
 name: Email new issues
@@ -6,7 +7,7 @@ name: Email new issues
 on:
   push:
     branches: [main]
-    paths: ["email/daily/**"]
+    paths: ["email/daily/**", "email/pending/**"]
   workflow_dispatch:
     inputs:
       file:
@@ -29,7 +30,13 @@ jobs:
         with:
           fetch-depth: 0
           filter: blob:none
-      - name: Send new issues
+      - name: Test emails to Shashank only (stage one)
+        if: github.event_name == 'push'
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BEFORE: ${{ github.event.before }}
+        run: python3 tools/send_email.py --test-new-since "$BEFORE"
+      - name: Send approved issues to subscribers (stage two, after "send")
         if: github.event_name == 'push'
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}

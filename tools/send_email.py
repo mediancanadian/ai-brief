@@ -4,8 +4,9 @@
 Runs in GitHub Actions (.github/workflows/email.yml), never on anyone's computer. Written by the
 private pipeline (newsletter.py site); do not edit it in this repo.
 
-The pipeline writes email/daily/DATE.json next to each issue it publishes. A push only happens after
-Shashank says "push", so a new file here means an approved issue. This script:
+Two stages (Shashank, November 18, 2026). "push" writes email/pending/DATE.json: it goes only to the
+subscribers tagged "tester" in Buttondown, as a test. After Shashank reads it and writes "send", the file moves to
+email/daily/DATE.json, and that push mails every subscriber. For email/daily/ this script:
 
   1. lists the email files the push ADDED (an amended issue changes its file and is not sent again),
   2. skips any issue more than MAX_AGE_DAYS old (a catch-up push never mails old issues),
@@ -17,8 +18,11 @@ The key comes from the repository secret BUTTONDOWN_API_KEY and is never written
 
     python3 tools/send_email.py --new-since BEFORE_SHA     what the workflow runs on a push
     python3 tools/send_email.py email/daily/DATE.json      send one file (manual run of the workflow)
+    python3 tools/send_email.py --test-new-since BEFORE_SHA   stage one: each new or changed file in
+                                                              email/pending/ goes ONLY to subscribers
+                                                              tagged "tester" in Buttondown, as a test
     python3 tools/send_email.py --test FILE                    a test: the same email sent only to the
-                                                              account's own address, never to subscribers
+                                                              subscribers tagged "tester", never to the others
     add --dry-run to print what would be sent without calling Buttondown
 """
 import datetime
@@ -35,6 +39,7 @@ API_VERSION = "2026-04-01"
 SITE = "https://ai.mediancanadian.ca/"
 MAX_AGE_DAYS = 3
 LIVE_WAIT_SECONDS = 15 * 60
+TEST_TAG = "tester"
 UA = "ai-brief-mailer (+https://ai.mediancanadian.ca)"
 
 
@@ -50,7 +55,8 @@ def added_files(before):
     if not before or set(before) == {"0"}:
         note("No earlier commit to compare with; nothing is sent automatically.")
         return []
-    out = subprocess.run(["git", "diff", "--diff-filter=A", "--name-only", before, "HEAD", "--", "email/daily/"],
+    # --no-renames: "send" moves a file from email/pending/ into email/daily/, which must count as added
+    out = subprocess.run(["git", "diff", "--no-renames", "--diff-filter=A", "--name-only", before, "HEAD", "--", "email/daily/"],
                          capture_output=True, text=True, check=True).stdout
     return sorted(line for line in out.split() if line.endswith(".json"))
 
@@ -141,13 +147,21 @@ def test(path, key, dry):
     previous test draft is deleted first, so at most one sits in Buttondown. One secret only."""
     e = json.load(open(path, encoding="utf-8"))
     if dry:
-        note(f"DRY RUN test of {e['edition']}: \"[Test] {e['subject']}\" to the account's own address.")
+        note(f"DRY RUN test of {e['edition']}: \"[Test] {e['subject']}\" to the subscribers tagged \"{TEST_TAG}\" only.")
         return
     if not key:
         raise SystemExit("BUTTONDOWN_API_KEY is not set in this repository's secrets.")
-    to = (call("GET", "/accounts/me", key) or {}).get("email_address")
+    # The test goes to the subscribers tagged "tester" in Buttondown (Shashank, November 18, 2026: his own
+    # address carries the tag; no address is written in this public repo). Nobody tagged: nothing is sent.
+    tid = tag_id(key, TEST_TAG)
+    to = []
+    if tid:
+        for kind in ("regular", "unactivated"):
+            page = call("GET", f"/subscribers?type={kind}&tag={tid}", key) or {}
+            to += [x["email_address"] for x in page.get("results", []) if tid in (x.get("tags") or []) or TEST_TAG in (x.get("tags") or [])]
+    to = sorted(set(to))
     if not to:
-        raise SystemExit("Buttondown did not say which address the account uses.")
+        raise SystemExit(f"No subscriber carries the '{TEST_TAG}' tag in Buttondown; no test was sent.")
     for old in (call("GET", "/emails?status=draft", key) or {}).get("results", []):
         if old.get("status") == "draft" and (old.get("metadata") or {}).get("test"):
             try:
@@ -157,8 +171,17 @@ def test(path, key, dry):
     draft = call("POST", "/emails", key, {"subject": "[Test] " + e["subject"], "body": e["body"], "status": "draft",
                                           **({"description": e["preview"]} if e.get("preview") else {}),
                                           "archival_mode": "disabled", "metadata": {"edition": e["edition"], "test": True}}) or {}
-    call("POST", f"/emails/{draft['id']}/send-draft", key, {"recipients": [to]})
-    note(f"Test of {e['edition']} sent to the account's own address; subscribers got nothing.")
+    call("POST", f"/emails/{draft['id']}/send-draft", key, {"recipients": to})
+    note(f"Test of {e['edition']} sent to {len(to)} tester address(es) only; subscribers got nothing.")
+
+
+def pending_files(before):
+    """Test emails the push added or changed in email/pending/ (stage one: only Shashank gets them)."""
+    if not before or set(before) == {"0"}:
+        return []
+    out = subprocess.run(["git", "diff", "--no-renames", "--diff-filter=AM", "--name-only", before, "HEAD", "--", "email/pending/"],
+                         capture_output=True, text=True, check=True).stdout
+    return sorted(line for line in out.split() if line.endswith(".json"))
 
 
 def main(argv):
@@ -167,6 +190,13 @@ def main(argv):
     key = os.environ.get("BUTTONDOWN_API_KEY", "").strip()
     if len(argv) == 2 and argv[0] == "--test":
         test(argv[1], key, dry)
+        return
+    if len(argv) == 2 and argv[0] == "--test-new-since":
+        files = pending_files(argv[1])
+        if not files:
+            note("No new test email.")
+        for f in files:
+            test(f, key, dry)
         return
     if len(argv) == 2 and argv[0] == "--new-since":
         files = added_files(argv[1])

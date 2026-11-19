@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-18",
+      "url": "issues/daily/2026/11/2026-11-18.html",
+      "headline": "Microsoft's agents get work accounts, like employees",
+      "tags": ["Microsoft", "GitHub", "Salesforce", "Google", "Anthropic", "Slack", "OpenAI", "Workday", "Vercel", "Amazon", "Cloudflare", "DeepSeek", "ElevenLabs"],
+      "stories": [
+        {"label": "Microsoft Ignite, the recap", "text": "Microsoft wraps two days of agent launches at Ignite 2026.", "image": {"src": "assets/covers/2026-11-18-0.jpg", "thumb": "assets/covers/2026-11-18-0.sm.jpg", "alt": "The Copilot app with Home, Code and Autopilot tabs", "credit": "Microsoft", "credit_url": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"}},
+        {"label": "Gemini 4 Neon", "text": "Google releases Gemini 4 Neon for long agent tasks.", "image": {"src": "assets/covers/2026-11-18-1.jpg", "thumb": "assets/covers/2026-11-18-1.sm.jpg", "alt": "Chart of Artificial Analysis index score against cost per task for Gemini 4 Neon and rivals", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"}},
+        {"label": "Anthropic goes public", "text": "Anthropic prices its IPO at $83 a share.", "image": {"src": "assets/art/2026-11-18-2.jpg", "thumb": "assets/art/2026-11-18-2.sm.jpg", "alt": "", "art": true}},
+        {"label": "Slack agents take recurring jobs", "text": "Slack gives agents a Tasks tab for recurring work.", "image": {"src": "assets/art/2026-11-18-3.jpg", "thumb": "assets/art/2026-11-18-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "Agents that maintain apps", "text": "Google Labs previews Stitch Loop, an agent for after launch.", "image": {"src": "assets/covers/2026-11-18-4.jpg", "thumb": "assets/covers/2026-11-18-4.sm.jpg", "alt": "Stitch Loop release art with security, latency and accessibility labels", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/"}}
+      ],
+      "deck": "Google's Gemini 4 Neon nears the top models for less, Anthropic prices its IPO, Slack agents take standing orders, and Google previews an agent that tends apps after launch."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-17",
       "url": "issues/daily/2026/11/2026-11-17.html",
       "headline": "Microsoft puts Office and its agents inside Copilot",
