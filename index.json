@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-19",
+      "url": "issues/daily/2026/11/2026-11-19.html",
+      "headline": "Gemini can now use the apps on your Mac for you",
+      "tags": ["Google", "Amazon", "Microsoft", "OpenAI", "Salesforce", "Nous Research", "Superhuman", "LangChain", "Postman", "Databricks", "Tencent", "Meta", "Apple", "ByteDance", "Baseten", "Anthropic"],
+      "stories": [
+        {"label": "Gemini uses your Mac", "text": "Google lets Gemini click and type across Mac apps.", "image": {"src": "assets/covers/2026-11-19-0.jpg", "thumb": "assets/covers/2026-11-19-0.sm.jpg", "alt": "Gemini on a Mac taking a request to model and rig a sketch in Blender, with the app shown in a preview window", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/"}},
+        {"label": "Incident agent joins the chat", "text": "AWS DevOps Agent now answers in Slack and Teams channels.", "image": {"src": "assets/art/2026-11-19-1.jpg", "thumb": "assets/art/2026-11-19-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Agents load tools on demand", "text": "Google lets Gemini agents fetch tool details only when needed.", "image": {"src": "assets/covers/2026-11-19-2.jpg", "thumb": "assets/covers/2026-11-19-2.sm.jpg", "alt": "Tool Retrieval release art: a blue Gemini spark on a dark starry background", "credit": "Google", "credit_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"}},
+        {"label": "A built-in model for websites", "text": "Microsoft makes Aion Instruct the AI model inside Edge.", "image": {"src": "assets/art/2026-11-19-3.jpg", "thumb": "assets/art/2026-11-19-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "Dots reach more ChatGPT users", "text": "OpenAI widens dots, its always-on ChatGPT agents.", "image": {"src": "assets/art/2026-11-19-4.jpg", "thumb": "assets/art/2026-11-19-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "AWS's incident agent now talks back in Teams and Slack, Gemini agents load tools only when needed, Edge gets an on-device model for websites, and ChatGPT's always-on agents reach more plans."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-18",
       "url": "issues/daily/2026/11/2026-11-18.html",
       "headline": "Microsoft's agents get work accounts, like employees",
