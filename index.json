@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-21",
+      "url": "issues/daily/2026/11/2026-11-21.html",
+      "headline": "Claude can now work in the apps on your work computer",
+      "tags": ["Amazon", "Anthropic", "Baseten", "Google", "Kiro", "LangChain", "METR", "Meta", "Microsoft", "MiniMax", "OpenAI", "OpenRouter", "Replit", "Signal", "Tencent", "Tesla", "Thinking Machines", "Together AI"],
+      "stories": [
+        {"label": "Claude uses work computers", "text": "Anthropic opens Claude computer use to Team and Enterprise plans.", "image": {"src": "assets/covers/2026-11-21-0.jpg", "thumb": "assets/covers/2026-11-21-0.sm.jpg", "alt": "Claude Desktop asking to turn on computer use, listing the apps Claude wants to use and the access each gets", "credit": "Anthropic", "credit_url": "https://claude.com/blog/dispatch-and-computer-use"}},
+        {"label": "Teams tightens agents' file access", "text": "Microsoft changes how Teams agents get to files.", "image": {"src": "assets/art/2026-11-21-1.jpg", "thumb": "assets/art/2026-11-21-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "A coding agent leaks a key", "text": "Together AI says stored customer prompts were stolen.", "image": {"src": "assets/covers/2026-11-21-2.jpg", "thumb": "assets/covers/2026-11-21-2.sm.jpg", "alt": "Together AI's logo on its Security event title art", "credit": "Together AI", "credit_url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"}},
+        {"label": "Claude and the Riemann proof", "text": "An Anthropic mathematician posts a Riemann proof made with Claude.", "image": {"src": "assets/art/2026-11-21-3.jpg", "thumb": "assets/art/2026-11-21-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "Signal blocks phone agents", "text": "Signal stops AI assistants built into phones from reading its screen.", "image": {"src": "assets/covers/2026-11-21-4.jpg", "thumb": "assets/covers/2026-11-21-4.sm.jpg", "alt": "Signal's iOS settings with a Block Siri AI switch turned on under App Security", "credit": "Signal", "credit_url": "https://signal.org/blog/protecting-your-privacy/"}}
+      ],
+      "deck": "Also: a coding agent's leaked key exposed customer prompts, Lean's community certifies the Claude-assisted Riemann proof, Teams agents face a deadline on file access, and Signal shuts out phone agents."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-19",
       "url": "issues/daily/2026/11/2026-11-19.html",
       "headline": "Gemini can now use the apps on your Mac for you",
