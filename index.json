@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-22",
+      "url": "issues/daily/2026/11/2026-11-22.html",
+      "headline": "Banks bar outside AI agents from your accounts",
+      "tags": ["Wells Fargo", "JPMorgan Chase", "Amazon", "United Airlines", "American Express", "Sarvam AI", "OpenAI", "Tesla", "Tencent", "Ant Group", "Explosion", "Perplexity", "Google", "Bell Canada", "Ideogram", "Arva AI", "Microsoft", "SAP", "Anthropic", "Citibank", "PNC"],
+      "stories": [
+        {"label": "Banks shut agents out", "text": "Wells Fargo, Chase, Citibank and PNC restrict third-party AI agents.", "image": {"src": "assets/art/2026-11-22-0.jpg", "thumb": "assets/art/2026-11-22-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "Arva sells agents to banks", "text": "Arva AI raises $20M for agents that make banks' back-office decisions.", "image": {"src": "assets/covers/2026-11-22-1.jpg", "thumb": "assets/covers/2026-11-22-1.sm.jpg", "alt": "Arva AI release art announcing its 20 million dollar Series A, backed by Arthur Ventures, Y Combinator and Gradient", "credit": "Arva AI", "credit_url": "https://arva.ai/blog/arva-ai-raises-20m-series-a"}},
+        {"label": "Sarvam opens 105B weights", "text": "Sarvam releases open weights for a 105B agent model.", "image": {"src": "assets/covers/2026-11-22-2.jpg", "thumb": "assets/covers/2026-11-22-2.sm.jpg", "alt": "Release art for Sarvam-105B-1711, a lit monolith over a dark landscape with the model name", "credit": "Sarvam AI", "credit_url": "https://www.sarvam.ai/blogs/sarvam-105b-1711/"}},
+        {"label": "OpenAI's shared yardstick", "text": "OpenAI's chief scientist proposes one measure of AI progress for every lab.", "image": {"src": "assets/art/2026-11-22-3.jpg", "thumb": "assets/art/2026-11-22-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "A hacking agent finds a flaw", "text": "Amazon details attack agents that found an unknown flaw on their own.", "image": {"src": "assets/art/2026-11-22-4.jpg", "thumb": "assets/art/2026-11-22-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Also: banks buy agents of their own, an open model for agents fits one card, OpenAI's chief scientist wants every lab measured the same way, and attack agents find a new flaw alone."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-21",
       "url": "issues/daily/2026/11/2026-11-21.html",
       "headline": "Claude can now work in the apps on your work computer",
