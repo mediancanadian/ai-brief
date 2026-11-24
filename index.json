@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-23",
+      "url": "issues/daily/2026/11/2026-11-23.html",
+      "headline": "Claude can now fix and approve routine code changes",
+      "tags": ["Anthropic", "Amazon", "Z.ai", "Sierra", "OpenAI", "Google", "Microsoft", "GitHub", "Meta", "Salesforce", "Workday", "Cisco", "Bell", "Mistral AI", "Deutsche Telekom", "Canva"],
+      "stories": [
+        {"label": "Claude approves code changes", "text": "Anthropic launches Claude Ship to review, fix and approve pull requests.", "image": {"src": "assets/covers/2026-11-23-0.jpg", "thumb": "assets/covers/2026-11-23-0.sm.jpg", "alt": "Claude Ship diagram: Code Review finds issues, PR Steward pushes fixes, Claude Approvals marks the change ready to merge under a team policy", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/introducing-claude-ship"}},
+        {"label": "AWS opens decision models", "text": "AWS releases five open models that pick answers instead of writing them.", "image": {"src": "assets/art/2026-11-23-1.jpg", "thumb": "assets/art/2026-11-23-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Z.ai runs its layers twice", "text": "Z.ai releases GLM-5.4, a model that runs the same layers twice per answer.", "image": {"src": "assets/covers/2026-11-23-2.jpg", "thumb": "assets/covers/2026-11-23-2.sm.jpg", "alt": "GLM-5.4 Loop release art, a light trail looping several times on a dark background", "credit": "Z.ai", "credit_url": "https://z.ai/blog/glm-5.4"}},
+        {"label": "Misuse checks without logs", "text": "Anthropic opens a beta that watches for misuse without keeping customer data.", "image": {"src": "assets/covers/2026-11-23-3.jpg", "thumb": "assets/covers/2026-11-23-3.sm.jpg", "alt": "Diagram comparing legacy zero data retention with EFS, which adds automated safety monitoring across requests", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"}},
+        {"label": "Sierra raises at $30B", "text": "Sierra raises $1.75 billion for its customer service agents.", "image": {"src": "assets/art/2026-11-23-4.jpg", "thumb": "assets/art/2026-11-23-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Also: AWS opens models that choose instead of write, Z.ai gets more from the same model by running it twice, Anthropic checks for misuse without keeping data, and Sierra raises on pay-per-result pricing."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-22",
       "url": "issues/daily/2026/11/2026-11-22.html",
       "headline": "Banks bar outside AI agents from your accounts",
