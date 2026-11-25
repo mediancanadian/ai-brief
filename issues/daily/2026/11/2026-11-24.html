@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noai, noimageai">
+  <title>AI Brief / Intelligence</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f5f4f0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 48px 24px;
+      font-family: 'Lora', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root {
+      --ink:        #1a1917;
+      --ink-muted:  #4a4845;
+      --ink-faint:  #888580;
+      --ink-ghost:  #b8b5b0;
+      --bg:         #fffef9;
+      --bg-surface: #f5f4f0;
+      --border:     rgba(26,25,23,0.12);
+      --border-mid: rgba(26,25,23,0.22);
+      --border-heavy: rgba(26,25,23,0.55);
+      --accent:     #b5451b;
+      --accent-bg:  #fdf2ee;
+      --red-bg:     #fcebeb;
+      --red-border: #f09595;
+      --red-dark:   #791f1f;
+      --red-mid:    #a32d2d;
+      --radius-sm:  6px;
+      --radius-md:  8px;
+    }
+    .brief {
+      background: var(--bg);
+      max-width: 1080px;
+      width: 100%;
+      padding: 40px 56px 56px;
+      border: 0.5px solid var(--border-mid);
+      border-radius: 4px;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+    header[role="banner"] { border-top: 4px solid var(--accent); padding-top: 14px; }
+    .masthead-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
+    }
+    .pub-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-ghost); display: block; margin-bottom: 6px;
+    }
+    .pub-wordmark { display: flex; align-items: baseline; gap: 10px; }
+    .pub-name-ai {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 52px; letter-spacing: 0.05em; line-height: 1; color: var(--accent);
+    }
+    .pub-name-brief {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 52px; letter-spacing: 0.05em; line-height: 1; color: var(--ink-ghost);
+    }
+    .pub-name-sub {
+      font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted);
+    }
+    .masthead-right { text-align: right; padding-bottom: 4px; }
+    .pub-date {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted);
+      display: block; margin-bottom: 3px;
+    }
+    .pub-edition { font-family: 'Lora', serif; font-size: 11px; font-style: italic; color: var(--ink-faint); }
+    .rule-heavy { height: 1px; background: var(--border-heavy); margin-bottom: 1px; }
+    .rule-light { height: 0.5px; background: var(--border); margin-bottom: 22px; }
+    .lead-section { margin-bottom: 20px; }
+    .brief-audio { margin: 16px 0 28px; }
+    .brief-audio audio { width: 100%; height: 36px; accent-color: var(--accent); }
+    .lead-headline {
+      font-family: 'Lora', serif; font-size: 28px; font-weight: 600;
+      line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px;
+    }
+    .lead-deck {
+      font-size: 16.5px; line-height: 1.7; font-style: italic; font-weight: 400;
+      color: var(--ink-muted); padding-left: 16px; border-left: 3px solid var(--accent);
+    }
+    .content-grid {
+      display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; margin-bottom: 28px;
+      align-items: start;
+    }
+    /* The sidebar sits beside the stories only when there is room for both; below that it follows them. */
+    @media (max-width: 900px) {
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; position: static; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      .brief { padding: 24px 20px 32px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { border-left: none; border-top: 0.5px solid var(--border-mid); padding-left: 0; padding-top: 20px; align-self: auto; }
+      .theme-grid, .theme-grid.count-4, .theme-grid.count-5, .theme-grid.count-6 { grid-template-columns: 1fr; }
+    }
+    h3.col-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+    }
+    h3.col-heading::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .body-p { font-size: 15px; line-height: 1.78; color: var(--ink); margin-bottom: 14px; }
+    .body-p:last-child { margin-bottom: 0; }
+    .body-p a, .research-desc a, .signal-p a, .signal-item a {
+      color: var(--ink); text-decoration: underline;
+      text-decoration-color: var(--border-mid); text-underline-offset: 3px;
+    }
+    .body-ul { font-size: 15px; line-height: 1.78; color: var(--ink); margin: 0 0 14px 0; padding-left: 18px; }
+    .body-ul li { margin-bottom: 6px; }
+    .body-ul li:last-child { margin-bottom: 0; }
+    .body-ul a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px; }
+    .sidebar { border-left: 0.5px solid var(--border-mid); padding-left: 20px; align-self: start; position: sticky; top: 24px; }
+    .sidebar-section { margin-bottom: 24px; }
+    .sidebar-section:last-child { margin-bottom: 0; }
+    h3.sidebar-head {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      padding-bottom: 8px; border-bottom: 0.5px solid var(--border); margin-bottom: 12px;
+    }
+    .research-list { list-style: none; }
+    .research-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 0.5px solid var(--border); }
+    .research-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .research-label a {
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600; color: var(--ink);
+      line-height: 1.4; margin-bottom: 4px; display: block;
+      text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px;
+    }
+    .research-desc { font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+    .signal-p { font-size: 13px; line-height: 1.65; color: var(--ink-muted); }
+    .signal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .signal-item { font-size: 13px; line-height: 1.55; color: var(--ink-muted); padding-left: 12px; border-left: 2px solid var(--border-mid); }
+    .also-section { border-top: 0.5px solid var(--border-mid); padding-top: 20px; margin-bottom: 28px; }
+    h2.also-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    }
+    h2.also-heading::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent); }
+    .also-list { list-style: none; column-count: 2; column-gap: 32px; }
+    @media (max-width: 600px) { .also-list { column-count: 1; } }
+    .also-item {
+      font-size: 13px; line-height: 1.6; color: var(--ink);
+      padding: 5px 0; border-bottom: 0.5px solid var(--border);
+      break-inside: avoid;
+    }
+    .also-item:last-child { border-bottom: none; }
+    .also-item strong { color: var(--ink); font-weight: 600; }
+    .also-item a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; }
+    /* Weekly themed "Also in AI" */
+    .also-themes { display: flex; flex-direction: column; gap: 20px; }
+    .also-theme { }
+    h3.also-theme-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 6px;
+    }
+    /* Expand / collapse */
+    details.expand-more { margin-top: 4px; }
+    details.expand-more summary {
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+      cursor: pointer; list-style: none; padding: 4px 0; -webkit-user-select: none; user-select: none;
+    }
+    details.expand-more summary::-webkit-details-marker { display: none; }
+    details.expand-more summary::before { content: '+ '; }
+    details.expand-more[open] summary::before { content: '- '; }
+    details.expand-more .also-list { margin-top: 4px; }
+    details.expand-more .research-list { margin-top: 8px; }
+    .stories-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 600px) { .stories-grid { grid-template-columns: 1fr; } }
+    .story-card {
+      background: var(--bg); border-radius: 10px; overflow: hidden;
+      box-shadow: 0 1px 3px rgba(26,25,23,0.07), 0 1px 8px rgba(26,25,23,0.04);
+      border: 0.5px solid var(--border); display: flex; flex-direction: column;
+      transition: box-shadow 0.15s;
+    }
+    .story-card:hover { box-shadow: 0 4px 16px rgba(26,25,23,0.11); }
+    .story-card--wide { grid-column: 1 / -1; }
+    /* A story may carry the image its announcer published, shown whole and credited,
+       always across the top of its card. Cards read top to bottom: no floats, no inner columns. */
+    .story-card-media { margin: 0; padding: 14px 16px 0; }
+    .story-card-img { display: block; width: auto; max-width: 100%; height: auto; max-height: 220px; margin: 0 auto; border-radius: 6px; }
+    .story-card--wide .story-card-img { max-height: 280px; }
+    .story-card-credit {
+      font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.04em;
+      color: var(--ink-faint); padding-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .story-card-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    .story-card-body { padding: 14px 16px; flex: 1; }
+    h4.story-head {
+      font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 7px;
+    }
+    .story-lead {
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600;
+      line-height: 1.5; color: var(--ink);
+    }
+    .story-lead a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px; }
+    .story-facts {
+      list-style: none; padding: 0; margin: 10px 0 0;
+      border-top: 0.5px solid var(--border); padding-top: 8px;
+    }
+    .story-facts li {
+      font-size: 12px; line-height: 1.55; color: var(--ink-muted);
+      padding: 3px 0 3px 13px; position: relative;
+    }
+    .story-facts li::before {
+      content: '.'; position: absolute; left: 2px;
+      color: var(--accent); font-size: 14px; line-height: 1.2;
+    }
+    .story-facts a { color: var(--ink-muted); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+    /* The PM take: its own block under the details, never inline. */
+    .take-label {
+      display: block; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
+    }
+    .story-take {
+      margin-top: 10px; padding: 9px 12px 10px; background: var(--accent-bg);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+      font-size: 12.5px; line-height: 1.55; color: var(--ink);
+    }
+    .story-card--wide .story-lead { font-size: 15px; }
+    .story-facts li { font-size: 13px; }
+    .story-take { font-size: 13.5px; }
+    .research-take {
+      margin-top: 7px; padding: 1px 0 1px 10px; border-left: 2px solid var(--accent);
+      font-size: 12.5px; line-height: 1.55; color: var(--ink); font-style: normal;
+    }
+    .research-link { margin-top: 6px; font-size: 12.5px; }
+    .research-link a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 3px; }
+    /* Emphasis: bold for the term that names the point, one highlight for the figure that carries it. */
+    .story-facts strong, .research-desc strong, .research-take strong, .signal-item strong { color: var(--ink); font-weight: 600; }
+    mark.hl { background: linear-gradient(transparent 52%, #f6d5c6 52%); color: var(--ink); font-weight: 600; padding: 0 1px; }
+    .signal-item > a:first-child { font-weight: 600; }
+    .trending-section { border-top: 0.5px solid var(--border-mid); padding-top: 20px; margin-bottom: 32px; }
+    h2.trending-heading {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    h2.trending-heading::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent); }
+    .trend-items {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 0.5px solid var(--border);
+    }
+    .trend-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 12px; border-bottom: 0.5px solid var(--border);
+    }
+    .trend-item .trend-rank { min-width: 22px; flex-shrink: 0; }
+    .trend-item .trend-main { flex: 1; min-width: 0; }
+    .trend-item .trend-votes { flex-shrink: 0; }
+    .trend-item:nth-child(odd) { border-right: 0.5px solid var(--border); padding-left: 0; }
+    .trend-item:nth-child(even) { padding-right: 0; }
+    @media (max-width: 600px) {
+      .trend-items { grid-template-columns: 1fr; }
+      .trend-item { padding: 11px 0; }
+      .trend-item:nth-child(odd) { border-right: none; }
+    }
+    .trend-thumb {
+      width: 32px; height: 32px; border-radius: 8px; object-fit: cover;
+      flex-shrink: 0; border: 0.5px solid var(--border);
+    }
+    .trend-rank {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--ink-ghost); text-align: right;
+    }
+    .trend-main { min-width: 0; }
+    .trend-name {
+      font-family: 'Lora', serif; font-size: 13.5px; font-weight: 600;
+      color: var(--ink); display: block; margin-bottom: 2px;
+    }
+    .trend-name a {
+      color: var(--ink); text-decoration: underline;
+      text-decoration-color: var(--border-mid); text-underline-offset: 3px;
+    }
+    .trend-why {
+      font-family: 'Lora', serif; font-size: 12px; font-style: italic;
+      color: var(--ink-muted); display: block;
+    }
+    .trend-votes {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--ink-ghost); white-space: nowrap;
+    }
+    .issue-nav {
+      max-width: 1080px; width: 100%; margin: 16px auto 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0;
+    }
+    .issue-nav-link {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted);
+      text-decoration: none;
+    }
+    .issue-nav-link:hover { color: var(--accent); }
+    .issue-nav-index { color: var(--ink-ghost); }
+    footer[role="contentinfo"] {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 2px solid var(--ink); padding-top: 10px; flex-wrap: wrap; gap: 8px;
+    }
+    .foot-wordmark {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-ghost);
+    }
+    .foot-meta {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      letter-spacing: 0.1em; color: var(--ink-ghost); text-transform: uppercase;
+    }
+    .media-figure {
+      margin: 20px 0; border-radius: var(--radius-sm); overflow: hidden;
+      border: 0.5px solid var(--border-mid);
+    }
+    .media-figure img {
+      display: block; width: 100%; height: auto; max-height: 320px;
+      object-fit: cover;
+    }
+    .media-caption {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--ink-ghost); padding: 8px 12px;
+      background: var(--bg-surface); letter-spacing: 0.05em;
+    }
+    .media-video {
+      margin: 20px 0; border-radius: var(--radius-sm); overflow: hidden;
+      border: 0.5px solid var(--border-mid);
+      position: relative; padding-bottom: 56.25%; height: 0;
+    }
+    .media-video iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+    .link-card {
+      display: flex; align-items: flex-start; gap: 12px;
+      border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+      background: var(--bg); padding: 12px 14px; margin: 12px 0;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.15s;
+    }
+    .link-card:hover { border-color: var(--border-heavy); }
+    .link-card-body { min-width: 0; }
+    .link-card-domain {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-ghost); margin-bottom: 4px; display: block;
+    }
+    .link-card-title {
+      font-family: 'Lora', serif; font-size: 13px; font-weight: 600;
+      color: var(--ink); line-height: 1.4; display: block; margin-bottom: 3px;
+    }
+    .link-card-desc {
+      font-size: 12px; color: var(--ink-muted); line-height: 1.5;
+      font-style: italic; display: block;
+    }
+  </style>
+<!-- family:css --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&display=swap"><link rel="stylesheet" href="../../../../assets/family/family.css?v=962d81999d"><!-- /family:css -->
+</head>
+<body>
+<!-- family:header -->
+<nav class="mcf-head mcf-issue" aria-label="The Median Canadian">
+  <div class="mcf-top"><a class="mcf-logo" href="https://mediancanadian.ca/"><img class="mcf-logo-light" src="../../../../assets/family/logo.png" alt="The Median Canadian" width="144" height="46"><img class="mcf-logo-dark" src="../../../../assets/family/logo-dark.png" alt="" width="144" height="46"></a></div>
+  <div class="mcf-tabs"><a href="https://mediancanadian.ca/"><span class="mcf-dot" aria-hidden="true"></span>The Median Canadian</a><a href="../../../../" aria-current="page"><span class="mcf-dot mcf-dot-ai" aria-hidden="true"></span>AI Brief</a></div>
+</nav>
+<!-- /family:header -->
+<article class="brief" aria-label="AI Brief newsletter">
+
+  <header role="banner">
+    <div class="masthead-inner">
+      <div class="pub-wordmark">
+        <span class="pub-name-ai">AI</span>
+        <span class="pub-name-brief">Brief</span>
+      </div>
+      <div class="masthead-right">
+        <time class="pub-date" datetime="2026-11-24">November 24, 2026</time>
+        <span class="pub-edition">Tuesday edition</span>
+      </div>
+    </div>
+    <div class="rule-heavy" role="separator" aria-hidden="true"></div>
+    <div class="rule-light" role="separator" aria-hidden="true"></div>
+  </header>
+
+  <main>
+
+    <section class="lead-section" aria-labelledby="lead-heading">
+      <h2 class="lead-headline" id="lead-heading">AI agents must use Google's own route into Gmail</h2>
+      <p class="lead-deck">Apps can now teach agents how to use them, a chat can become a desktop app, Meta's agent shops at Walmart, and CrowdStrike buys Zscaler to secure agents.</p>
+    </section>
+
+    <div class="content-grid">
+      <section aria-labelledby="matters-heading">
+        <h3 class="col-heading" id="matters-heading">What matters today</h3>
+        <div class="stories-grid">
+
+          <div class="story-card story-card--wide story-card--media">
+            <figure class="story-card-media story-card-media--art">
+              <img class="story-card-img" src="../../../../assets/art/2026-11-24-0.jpg" alt="" width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">Agents must go through Google</h4>
+              <p class="story-lead"><a href="https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html">Google requires AI agents to reach Workspace through its own MCP servers</a>.</p>
+              <ul class="story-facts">
+                <li><strong>Generally available:</strong> Google-hosted MCP servers for Gmail, Drive, Docs, Sheets, Calendar and more, plus a command-line tool for agents.</li>
+                <li><strong>The rule:</strong> from <mark class="hl">February 1, 2027</mark>, agents may not use Workspace's regular APIs; admins can require user approval and see agent logs.</li>
+                <li><strong>Billing:</strong> free within set limits; from April 1, 2027, a paid tier for use above the daily free allowance.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Google stops treating an agent like any other app. It now sets how agents reach a company's mail and files, admins see and control them, and heavy agent use becomes a bill.</div>
+            </div>
+          </div>
+
+          <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-24-1.jpg" alt="Skills over MCP diagram: a server ships skills, tools and resources together, and skills load only when needed">
+              <figcaption class="story-card-credit">Image: <a href="https://claude.com/resources/articles/skills-over-mcp-tasks-and-more">Anthropic</a></figcaption>
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">MCP servers bring skills</h4>
+              <p class="story-lead"><a href="https://claude.com/resources/articles/skills-over-mcp-tasks-and-more">Anthropic lets MCP servers ship skills and run long tasks in Claude</a>.</p>
+              <ul class="story-facts">
+                <li><strong>Public beta:</strong> a server can publish skills, step-by-step guides, next to its tools; Shopify, HubSpot and Atlassian already do.</li>
+                <li><strong>Generally available:</strong> Tasks run long jobs in the background; Elicitation <mark class="hl">pauses for the user's input</mark>, as Supabase does before deleting data.</li>
+                <li><strong>Two years in:</strong> MCP sees over 700 million SDK downloads a month and over 10,000 connectors for Claude.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>A connector now carries its own know-how and can pause for the user before a risky step. The app maker, not the agent maker, writes how its tool gets used, and so shapes the workflow.</div>
+            </div>
+          </div>
+
+          <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-24-2.jpg" alt="A desktop with several Claude-made apps open in their own windows, including a clock and an image viewer">
+              <figcaption class="story-card-credit">Image: <a href="https://claude.com/resources/articles/install-as-app">Anthropic</a></figcaption>
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">Claude builds desktop apps</h4>
+              <p class="story-lead"><a href="https://claude.com/resources/articles/install-as-app">Anthropic turns Claude artifacts into Mac and Windows apps</a>.</p>
+              <ul class="story-facts">
+                <li><strong>In beta, all plans:</strong> an installed artifact gets its own icon and window, sends notifications and uses Claude and your connectors.</li>
+                <li><strong>Permissions:</strong> browser-level by default; an app can ask for more, up to <mark class="hl">full computer access</mark>, and Claude asks again after every update.</li>
+                <li><strong>Admins:</strong> on by default for Team with full access off; off on Enterprise until an owner turns it on.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Describe a tool and Claude hands you a desktop app, with no packaging or API key. Small internal tools no longer wait for a developer; the hard part becomes deciding what each app may touch.</div>
+            </div>
+          </div>
+
+          <div class="story-card story-card--media">
+            <figure class="story-card-media">
+              <img class="story-card-img" src="../../../../assets/covers/2026-11-24-3.jpg" alt="Three phone screens of Muse finding Lego deals, building a Walmart basket and checking out">
+              <figcaption class="story-card-credit">Image: <a href="https://corporate.walmart.com/news/2026/11/black-friday-deals-with-meta-muse">Walmart</a></figcaption>
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">Muse shops at Walmart</h4>
+              <p class="story-lead"><a href="https://corporate.walmart.com/news/2026/11/black-friday-deals-with-meta-muse">Walmart lets Meta's Muse agent buy its Black Friday deals</a>.</p>
+              <ul class="story-facts">
+                <li><strong>How it works:</strong> Muse passes the shopping list to Walmart's Agent Gateway, <mark class="hl">Walmart picks the products</mark>, and checkout uses a card saved in the shopper's Walmart account.</li>
+                <li><strong>Controls:</strong> an Agent Profile sets a spending limit and purchase approvals; Muse does not get the shopper's Walmart purchase history.</li>
+                <li><strong>Same day:</strong> Meta <a href="https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/">puts Muse inside Instagram DMs</a> in the US, Canada, Mexico, Japan and Singapore.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Walmart lets outside agents shop but keeps the choice of product and the customer's data. The agent brings the buyer; the store still decides what gets bought.</div>
+            </div>
+          </div>
+
+          <div class="story-card story-card--media">
+            <figure class="story-card-media story-card-media--art">
+              <img class="story-card-img" src="../../../../assets/art/2026-11-24-4.jpg" alt="" width="1200" height="675" loading="lazy">
+            </figure>
+            <div class="story-card-body">
+              <h4 class="story-head">CrowdStrike buys Zscaler</h4>
+              <p class="story-lead"><a href="https://www.sec.gov/Archives/edgar/data/0001713683/000110465926130801/tm2630454d2_ex99-1.htm">CrowdStrike agrees to buy Zscaler for about $43.9 billion</a>.</p>
+              <ul class="story-facts">
+                <li><strong>Announced November 23:</strong> an all-stock deal; Zscaler holders get 1.135 CrowdStrike shares for each share.</li>
+                <li><strong>The pitch:</strong> Zscaler sits between every user, <mark class="hl">agent and app</mark> to check each connection; the combined company expects over $10 billion in yearly recurring revenue.</li>
+              </ul>
+              <div class="story-take"><span class="take-label">Why it matters</span>Checking every connection an agent makes becomes a product security vendors pay billions for. Agents that act on company systems will be judged on whether that check can see and stop them.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <aside class="sidebar" aria-label="Supporting intelligence">
+        <section class="sidebar-section">
+          <h3 class="sidebar-head">Research worth watching</h3>
+          <ul class="research-list">
+            <li class="research-item">
+              <span class="research-label"><a href="https://devblogs.microsoft.com/blog/is-sort-by-impact-just-vibes/">Agents pick a meaning of impact for you</a></span>
+              <p class="research-desc">Microsoft ran 1,500 rankings with four models. "Sort by impact" gave <strong>nearly the same order every time</strong>, by a definition the agent chose: users reached, revenue or severity, by topic.</p>
+              <p class="research-take research-take--bar"><span class="take-label">Why it matters</span>Say what impact means, or the agent decides for you.</p>
+              <p class="research-link"><a href="https://devblogs.microsoft.com/blog/is-sort-by-impact-just-vibes/">Read the research &rarr;</a></p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://thinkingmachines.ai/news/training-a-scalable-forecasting-agent/">A small tuned model forecasts like a big one</a></span>
+              <p class="research-desc">Mantic post-trained Thinking Machines' Inkling 2 Small to forecast. It is <strong>about as accurate as Fable 5.2 (medium) at 15 times lower cost</strong> per forecast.</p>
+              <p class="research-take research-take--bar"><span class="take-label">Why it matters</span>For a narrow task done at scale, tuning a small model can beat paying for a big one.</p>
+              <p class="research-link"><a href="https://thinkingmachines.ai/news/training-a-scalable-forecasting-agent/">Read the research &rarr;</a></p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://huggingface.co/papers/2611.28158">Agents miss the slow effects of their choices</a></span>
+              <p class="research-desc">In a 90-day wholesale simulator, <strong>only 3 of 16 frontier models beat a fixed buying rule</strong>. Agents often noted a problem in their notes without changing what they bought.</p>
+              <p class="research-take research-take--bar"><span class="take-label">Why it matters</span>Agents that run operations need checks on results weeks later, not only step by step.</p>
+              <p class="research-link"><a href="https://huggingface.co/papers/2611.28158">Read the paper &rarr;</a></p>
+            </li>
+            <li class="research-item">
+              <span class="research-label"><a href="https://huggingface.co/papers/2611.30207">Bad tests spoil coding agent training</a></span>
+              <p class="research-desc">In SWE-Gym, <strong>74% of tasks a model never solved had a test that rejects correct fixes</strong>. Training on repaired tasks scored 2.4 to 2.7 points higher.</p>
+              <p class="research-take research-take--bar"><span class="take-label">Why it matters</span>Check a benchmark's tests before trusting its scores.</p>
+              <p class="research-link"><a href="https://huggingface.co/papers/2611.30207">Read the paper &rarr;</a></p>
+            </li>
+          </ul>
+        </section>
+        <section class="sidebar-section">
+          <h3 class="sidebar-head">What developers are debating</h3>
+          <ul class="signal-list">
+            <li class="signal-item"><a href="https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/">Whose side is the agent on</a>: a post arguing that AI agents serve the companies that make them, not their users, drew 972 points and 403 comments.</li>
+            <li class="signal-item"><a href="https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/">Anthropic below its IPO price</a>: shares fell under $83 a week after listing, and developers argued over what it means for AI startups in 762 comments.</li>
+            <li class="signal-item"><a href="https://news.ycombinator.com/item?id=50630809">Accused of copying Claude</a>: a founder asked how to prove the company did not train a model on Claude's answers, with 24 hours to reply; 279 points and 218 comments.</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <nav class="trending-section">
+      <h2 class="trending-heading">Top launches yesterday</h2>
+      <ol class="trend-items">
+        <li class="trend-item">
+          <span class="trend-rank">1</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/launch-image-uploads/ff78c9e4-280f-4f57-a6c8-9bc5ea05ea09/bbaa421620708f591151fd3c319bd22f55aea3e0718ca20ff9bb0ad54bf9d2d1.gif?auto=format&fm=png" alt="distribution.dev">
+          <span class="trend-main"><a class="trend-name" href="https://distribution.dev/">distribution.dev</a><span class="trend-why">One ad campaign that runs across many developer sites, adapted to each, from daily.dev and DEV.</span></span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">2</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/e171c526-c3db-4c20-b658-3c88d11873a0.png?auto=format" alt="Granular.Build">
+          <span class="trend-main"><a class="trend-name" href="https://granular.build/">Granular.Build</a><span class="trend-why">A visual workspace where a lead agent hands work to specialist agents in parallel, with each project's files and memory in one place.</span></span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">3</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/49307ed7-afcc-459e-aad0-f5f6f1ee8e6b.png?auto=format" alt="Clam AI">
+          <span class="trend-main"><a class="trend-name" href="https://useclam.ai/">Clam AI</a><span class="trend-why">Lets AI agents work in your Gmail under rules you write in plain English, with approvals and a log of every action.</span></span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">4</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/launch-image-uploads/2bfe1778-633c-4765-8e09-bc023871dfcf/10e27f21dc4ab6544dd2d740e5d26c3839ff4e199af371fdc23a098beeaca07d.gif?auto=format&fm=png" alt="Viktor Code">
+          <span class="trend-main"><a class="trend-name" href="https://viktor.com/">Viktor Code</a><span class="trend-why">An AI coworker in Slack, Teams or Discord that turns business goals into pull requests for the team to review.</span></span>
+        </li>
+        <li class="trend-item">
+          <span class="trend-rank">5</span>
+          <img class="trend-thumb" src="https://ph-files.imgix.net/9bfcfac9-f6d3-4076-bd32-06b4f15d6659.png?auto=format" alt="SparrowDesk Phone Calls">
+          <span class="trend-main"><a class="trend-name" href="https://www.sparrowdesk.com/">SparrowDesk Phone Calls</a><span class="trend-why">Phone support in the same help desk inbox as email, chat and WhatsApp, with calls recorded and transcribed.</span></span>
+        </li>
+      </ol>
+    </nav>
+
+
+    <section class="also-section">
+      <h2 class="also-heading">Also in the news</h2>
+      <ul class="also-list">
+        <li class="also-item"><a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"><strong>GPT-6 designs proteins</strong></a>: OpenAI's models matched or beat specialized biology models on most of 14 protein tasks; designs from a pre-release GPT-6.2 bound each of five lab targets.</li>
+        <li class="also-item"><a href="https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise/"><strong>Google Cloud Agent Gateway</strong></a>: checks each agent's identity, applies access rules and screens model, MCP and agent-to-agent traffic for prompt injection.</li>
+        <li class="also-item"><a href="https://www.testingcatalog.com/meta-prepares-apple-messages-support-for-muse-ai-agent/"><strong>Muse in Apple Messages</strong></a>: Meta is preparing Apple Messages support for its Muse agent; a hidden setting points to it, not yet available.</li>
+        <li class="also-item"><a href="https://cognition.com/blog/swe-2-1"><strong>SWE-2.1</strong></a>: Cognition's coding model for Devin, trained on Kimi K3, scores 41.3 on FrontierCode 2.0, up from 24.1 for SWE-2; Claude Opus 5.5 scores 47.3.</li>
+        <li class="also-item"><a href="https://www.governor.ny.gov/news/consumers-begin-their-holiday-shopping-season-governor-hochul-signs-five-year-ban-ai-chatbot"><strong>New York bans AI toys</strong></a>: a five-year ban on making, shipping or selling toys with built-in AI chatbots, in force 90 days after signing.</li>
+        <li class="also-item"><a href="https://devblogs.microsoft.com/microsoft365dev/copilot-ux-components-now-available-in-cowork-with-plugins-spfx-roadmap-update-for-november-2026/"><strong>Copilot plugins in Cowork</strong></a>: Microsoft's custom Copilot screens now ship as plugins that appear in Copilot chat and Cowork when a request matches, managed by admins.</li>
+        <li class="also-item"><a href="https://developers.googleblog.com/from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-searchdocuments-in-agent-retrieval/"><strong>Agent Retrieval</strong></a>: in public preview, Google's service takes PDFs, Office files and video as they are and answers with the page or second cited.</li>
+        <li class="also-item"><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/"><strong>Humanity's First Exam</strong></a>: Google DeepMind's 544 everyday prompts test whether a model answers right every time; a Kaggle contest for new questions runs to December 15.</li>
+        <li class="also-item"><a href="https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/"><strong>Siren</strong></a>: Anthropic's test tempts agents out of weakened sandboxes; newer Claude models misused what they found 0.6% to 1.6% of the time, two earlier ones 12.7% and 25.8%.</li>
+        <li class="also-item"><a href="https://openai.com/index/searching-for-distant-planets-with-astra"><strong>Planet hunting with Astra</strong></a>: two amateur astronomers used Codex and Astra on public telescope data; a SETI Institute astronomer found two of the same signals.</li>
+        <li class="also-item"><a href="https://technode.com/2026/11/24/bytedance-opens-invitation-only-beta-for-xiaodou-personal-ai-assistant/"><strong>Xiaodou</strong></a>: ByteDance opens an invitation-only beta of a personal assistant that completes tasks on its own initiative; its features will move into Doubao later.</li>
+        <li class="also-item"><a href="https://www.together.ai/blog/introducing-preemptible-compute-the-same-compute-half-the-price"><strong>Together preemptible GPUs</strong></a>: generally available at a flat 50% of the on-demand rate, with up to five minutes to save work before a node is taken back.</li>
+        <li class="also-item"><a href="https://www.sarvam.ai/blogs/extract-api/"><strong>Sarvam Extract</strong></a>: an API that pulls structured data from documents up to 500 pages; Sarvam's figures: 95.4 on ExtractBench at &#8377;2.50 a page.</li>
+        <li class="also-item"><a href="https://metr.org/blog/2026-11-24-interpreting-a-recent-acceleration-in-pretraining-loss/"><strong>Faster pretraining gains</strong></a>: METR studies OpenAI's published figures, which since early 2026 improve about seven times faster than from 2022 through 2025.</li>
+        <li class="also-item"><a href="https://www.ventureatlas.org/news/2026-11-23-commerce-megaspeed-entity-list"><strong>US Entity List</strong></a>: filed November 23; Megaspeed and Alibaba's Singapore unit Apex need a license for US items over chip diversion risk; Alibaba calls it erroneous.</li>
+        <li class="also-item"><a href="https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban"><strong>Tidal</strong></a>: bans fully AI-generated music from December 9 and will delete about 29 million tracks; AI music was 43% of tracks delivered in 90 days.</li>
+      </ul>
+    </section>
+
+
+  </main>
+
+  <footer role="contentinfo">
+    <span class="foot-wordmark">AI Brief</span>
+    <span class="foot-meta" id="foot-views" data-date="2026-11-24" hidden></span>
+    <span class="foot-meta">Tuesday edition · November 24, 2026</span>
+  </footer>
+<script>
+(function(){
+  var el = document.getElementById('foot-views');
+  if (!el) return;
+  var m = location.pathname.match(/\/issues\/(.+)\.html$/);
+  var key = (m ? m[1] : ('draft-' + (el.dataset.date || 'unknown'))).replace(/[^A-Za-z0-9_-]+/g, '-');
+  var live = location.hostname === 'ai.mediancanadian.ca' && !!m;
+  var mark = 'ai-brief-viewed:' + key, seen = false;
+  try { seen = !!sessionStorage.getItem(mark); } catch (e) {}
+  var action = (live && !seen) ? 'hit' : 'get';
+  fetch('https://abacus.jasoncameron.dev/' + action + '/sjvadrevu-ai-brief/' + key)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || typeof d.value !== 'number') return;
+      if (action === 'hit') { try { sessionStorage.setItem(mark, '1'); } catch (e) {} }
+      el.textContent = d.value.toLocaleString('en-US') + (d.value === 1 ? ' view' : ' views');
+      el.hidden = false;
+    }).catch(function(){});
+})();
+</script>
+
+  <nav class="issue-nav" aria-label="Browse issues" data-date="2026-11-24">
+    <a class="issue-nav-link" id="nav-prev" href="../../../../">← Previous</a>
+    <a class="issue-nav-link issue-nav-index" href="../../../../">All issues</a>
+    <a class="issue-nav-link" id="nav-next" href="../../../../">Next →</a>
+  </nav>
+
+</article>
+
+<script>
+(function(){
+  var date = document.querySelector('.issue-nav').dataset.date;
+  fetch('../../../../index.json').then(function(r){return r.json();}).then(function(data){
+    var issues = data.issues || [];
+    var i = issues.findIndex(function(x){return x.date===date;});
+    var prev = document.getElementById('nav-prev');
+    var next = document.getElementById('nav-next');
+    if(i < issues.length-1){ prev.href = '../../../../'+issues[i+1].url; prev.textContent = '← '+new Date(issues[i+1].date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
+    else { prev.style.visibility='hidden'; }
+    if(i > 0){ next.href = '../../../../'+issues[i-1].url; next.textContent = new Date(issues[i-1].date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+' →'; }
+    else { next.style.visibility='hidden'; }
+  }).catch(function(){ document.querySelector('.issue-nav').style.display='none'; });
+})();
+</script>
+
+<!-- family:footer -->
+<div class="mcf-foot mcf-issue">
+<!-- family:signup -->
+<form class="mcf-signup mcf-signup-issue" action="https://buttondown.com/api/emails/embed-subscribe/mediancanadian" method="post">
+  <p class="mcf-signup-title"><strong>Get the AI Brief by email.</strong></p>
+  <div class="mcf-signup-row"><label class="mcf-sr" for="mcf-email-issue">Email address</label><input id="mcf-email-issue" type="email" name="email" required autocomplete="email" placeholder="you@example.com"><button type="submit">Subscribe</button></div>
+  <input type="hidden" name="embed" value="1"><input type="hidden" name="metadata__source" value="ai-brief-issue">
+  <div class="mcf-signup-done" role="status"><p class="mcf-signup-done-title"><strong>Check your inbox.</strong> We sent you a link to confirm.</p><a href="#" class="mcf-signup-again">Use a different address</a></div>
+</form>
+<script>
+(function () {
+  var KEY = 'ai-brief-signup', LIMIT = 30 * 60 * 1000, forms = document.querySelectorAll('form.mcf-signup');
+  function sent(on) { forms.forEach(function (f) { f.classList.toggle('mcf-signup-sent', on); }); }
+  forms.forEach(function (f) {
+    f.addEventListener('submit', function () { try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {} sent(true); });
+    var again = f.querySelector('.mcf-signup-again');
+    if (again) again.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.removeItem(KEY); } catch (e2) {} sent(false); });
+  });
+  var at = 0;
+  try { at = Number(localStorage.getItem(KEY)) || 0; } catch (e) {}
+  if (at && Date.now() - at < LIMIT) sent(true);
+})();
+</script>
+<!-- /family:signup -->
+  <div class="mcf-foot-rule"></div>
+  <div class="mcf-foot-cols">
+    <div><p class="mcf-foot-h">AI Brief</p><a href="../../../../latest.html">Latest issue</a><a href="../../../../#archive">Archive</a><a href="../../../../trends.html">Trends</a></div>
+    <div><p class="mcf-foot-h">The Median Canadian</p><a href="https://mediancanadian.ca/">Canada in numbers</a></div>
+    <div><p class="mcf-foot-h">Contact</p><a href="mailto:info@mediancanadian.ca">info@mediancanadian.ca</a><a href="https://ai.mediancanadian.ca/privacy.html">Privacy</a></div>
+  </div>
+  <p class="mcf-foot-line">AI Brief: what moved in AI yesterday, and what it means for your product. From <a href="https://mediancanadian.ca/">The Median Canadian</a>, which explains Canada through numbers every week.</p>
+</div>
+<!-- /family:footer -->
+</body>
+</html>

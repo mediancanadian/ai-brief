@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-24",
+      "url": "issues/daily/2026/11/2026-11-24.html",
+      "headline": "AI agents must use Google's own route into Gmail",
+      "tags": ["Google", "Anthropic", "Meta", "Walmart", "CrowdStrike", "Zscaler", "OpenAI", "Microsoft", "Thinking Machines", "ByteDance", "Together AI", "Sarvam AI", "METR", "Alibaba", "Tidal", "Cognition", "New York State"],
+      "stories": [
+        {"label": "Agents must go through Google", "text": "Google requires AI agents to reach Workspace through its own MCP servers.", "image": {"src": "assets/art/2026-11-24-0.jpg", "thumb": "assets/art/2026-11-24-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "MCP servers bring skills", "text": "Anthropic lets MCP servers ship skills and run long tasks in Claude.", "image": {"src": "assets/covers/2026-11-24-1.jpg", "thumb": "assets/covers/2026-11-24-1.sm.jpg", "alt": "Skills over MCP diagram: a server ships skills, tools and resources together, and skills load only when needed", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"}},
+        {"label": "Claude builds desktop apps", "text": "Anthropic turns Claude artifacts into Mac and Windows apps.", "image": {"src": "assets/covers/2026-11-24-2.jpg", "thumb": "assets/covers/2026-11-24-2.sm.jpg", "alt": "A desktop with several Claude-made apps open in their own windows, including a clock and an image viewer", "credit": "Anthropic", "credit_url": "https://claude.com/resources/articles/install-as-app"}},
+        {"label": "Muse shops at Walmart", "text": "Walmart lets Meta's Muse agent buy its Black Friday deals.", "image": {"src": "assets/covers/2026-11-24-3.jpg", "thumb": "assets/covers/2026-11-24-3.sm.jpg", "alt": "Three phone screens of Muse finding Lego deals, building a Walmart basket and checking out", "credit": "Walmart", "credit_url": "https://corporate.walmart.com/news/2026/11/black-friday-deals-with-meta-muse"}},
+        {"label": "CrowdStrike buys Zscaler", "text": "CrowdStrike agrees to buy Zscaler for about $43.9 billion.", "image": {"src": "assets/art/2026-11-24-4.jpg", "thumb": "assets/art/2026-11-24-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Apps can now teach agents how to use them, a chat can become a desktop app, Meta's agent shops at Walmart, and CrowdStrike buys Zscaler to secure agents."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-23",
       "url": "issues/daily/2026/11/2026-11-23.html",
       "headline": "Claude can now fix and approve routine code changes",
