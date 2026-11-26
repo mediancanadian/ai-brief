@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-25",
+      "url": "issues/daily/2026/11/2026-11-25.html",
+      "headline": "Cloudflare sites get a search box for AI agents",
+      "tags": ["Cloudflare", "OpenAI", "Google", "Microsoft", "Amazon", "Meta", "Anthropic", "GitHub", "JetBrains", "Together AI", "Vercel", "Sakana AI", "SpaceX", "Character.AI", "Alibaba", "UK Financial Conduct Authority", "Phylo"],
+      "stories": [
+        {"label": "Sites get agent search", "text": "Cloudflare launches Search for Agents.", "image": {"src": "assets/covers/2026-11-25-0.jpg", "thumb": "assets/covers/2026-11-25-0.sm.jpg", "alt": "Search for Agents release art from Cloudflare: a magnifying glass with a toggle and two small robots", "credit": "Cloudflare", "credit_url": "https://blog.cloudflare.com/search-for-agents/"}},
+        {"label": "AI settles old math questions", "text": "OpenAI posts a proof of how fast matrices can be multiplied.", "image": {"src": "assets/art/2026-11-25-1.jpg", "thumb": "assets/art/2026-11-25-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "ChatGPT gets one usage limit", "text": "OpenAI starts merging ChatGPT's Chat and Work into one app.", "image": {"src": "assets/art/2026-11-25-2.jpg", "thumb": "assets/art/2026-11-25-2.sm.jpg", "alt": "", "art": true}},
+        {"label": "State hackers run attack agents", "text": "Microsoft says state-sponsored hackers now use the ARTEX attack agent.", "image": {"src": "assets/covers/2026-11-25-3.jpg", "thumb": "assets/covers/2026-11-25-3.sm.jpg", "alt": "ARTEX diagram from Microsoft: goals, planner, worker and reporter agents around a knowledge graph", "credit": "Microsoft", "credit_url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/"}},
+        {"label": "UK sets rules for money agents", "text": "The UK's financial regulator sets out what it expects of AI agents.", "image": {"src": "assets/art/2026-11-25-4.jpg", "thumb": "assets/art/2026-11-25-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Also: AI labs settle decades-old math questions, ChatGPT puts chat and agent work on one meter, state-backed hackers adopt an attack agent, and the UK sets rules for agents that move money."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-24",
       "url": "issues/daily/2026/11/2026-11-24.html",
       "headline": "AI agents must use Google's own route into Gmail",
