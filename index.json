@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-26",
+      "url": "issues/daily/2026/11/2026-11-26.html",
+      "headline": "UK and US regulators press Meta over its Muse agent",
+      "tags": ["Meta", "UK Financial Conduct Authority", "OpenAI", "Government of Canada", "Nvidia", "MiniMax", "Amazon", "NVIDIA", "OpenRouter", "Tencent", "Sakana AI", "Alibaba", "Moonshot AI", "Atlassian", "Stanford"],
+      "stories": [
+        {"label": "Regulators press Meta on Muse", "text": "Meta turned down the UK regulator's offer to test Muse first.", "image": {"src": "assets/art/2026-11-26-0.jpg", "thumb": "assets/art/2026-11-26-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "GPT-6.2 plans run out sooner", "text": "OpenAI fixes a billing error that made GPT-6.2 too cheap.", "image": {"src": "assets/art/2026-11-26-1.jpg", "thumb": "assets/art/2026-11-26-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "Canada pays more for local compute", "text": "Canada adds $700 million to its AI Compute Access Fund.", "image": {"src": "assets/art/2026-11-26-2.jpg", "thumb": "assets/art/2026-11-26-2.sm.jpg", "alt": "", "art": true}},
+        {"label": "Nvidia holds servers from Asia", "text": "Nvidia reportedly pauses server shipments to four Asian countries.", "image": {"src": "assets/art/2026-11-26-3.jpg", "thumb": "assets/art/2026-11-26-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "MiniMax prices video by the second", "text": "MiniMax introduces the H3 family of video and image models.", "image": {"src": "assets/covers/2026-11-26-4.jpg", "thumb": "assets/covers/2026-11-26-4.sm.jpg", "alt": "H3 Family release art from MiniMax: the name above silhouettes on a purple stage", "credit": "MiniMax", "credit_url": "https://www.minimax.io/blog/minimax-h3-family"}}
+      ],
+      "deck": "Also: OpenAI cuts how far GPT-6.2 plans go, Canada pays more for homegrown compute, Nvidia holds servers back from Southeast Asia, and MiniMax sells video at cents a clip."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-25",
       "url": "issues/daily/2026/11/2026-11-25.html",
       "headline": "Cloudflare sites get a search box for AI agents",
