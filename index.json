@@ -2,6 +2,21 @@
   "issues": [
     {
       "type": "daily",
+      "date": "2026-11-27",
+      "url": "issues/daily/2026/11/2026-11-27.html",
+      "headline": "Claude gets too cautious on long tasks, Anthropic says",
+      "tags": ["Anthropic", "Government of Japan", "Amazon", "OpenAI", "Apple", "SAP", "Tencent", "DeepSeek", "Palantir", "Huawei", "ShengShu", "Embo", "Google", "Zhihu"],
+      "stories": [
+        {"label": "Claude gets too cautious", "text": "Anthropic denies that Claude sabotages users' work.", "image": {"src": "assets/art/2026-11-27-0.jpg", "thumb": "assets/art/2026-11-27-0.sm.jpg", "alt": "", "art": true}},
+        {"label": "Japan adds penalties for AI makers", "text": "Japan outlines penalties in a draft change to its AI law.", "image": {"src": "assets/art/2026-11-27-1.jpg", "thumb": "assets/art/2026-11-27-1.sm.jpg", "alt": "", "art": true}},
+        {"label": "A graph for every agent", "text": "AWS launches Neptune Graph Sessions for AI agents.", "image": {"src": "assets/art/2026-11-27-2.jpg", "thumb": "assets/art/2026-11-27-2.sm.jpg", "alt": "", "art": true}},
+        {"label": "OpenAI sues Apple back", "text": "OpenAI countersues Apple over trade secrets and suppliers.", "image": {"src": "assets/art/2026-11-27-3.jpg", "thumb": "assets/art/2026-11-27-3.sm.jpg", "alt": "", "art": true}},
+        {"label": "Stolen keys hit SAP code", "text": "SAP confirms a security incident in its systems.", "image": {"src": "assets/art/2026-11-27-4.jpg", "thumb": "assets/art/2026-11-27-4.sm.jpg", "alt": "", "art": true}}
+      ],
+      "deck": "Also: Japan drafts penalties for AI makers, AWS gives each agent its own graph, OpenAI countersues Apple, and SAP reports a break-in."
+    },
+    {
+      "type": "daily",
       "date": "2026-11-26",
       "url": "issues/daily/2026/11/2026-11-26.html",
       "headline": "UK and US regulators press Meta over its Muse agent",
